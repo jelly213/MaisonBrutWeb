@@ -1,0 +1,53 @@
+---
+import type { Lang } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { route } from '../../i18n/routes';
+import { featuredProjects } from '../../data/projects';
+import ProjectCard from '../ui/ProjectCard.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+{/*
+  One markup, two behaviours:
+  - desktop (≥1024px): the section pins and GSAP slides the track sideways
+  - mobile: the track is a native snap carousel, thumb-driven, OS inertia
+*/}
+<section data-rail class="relative overflow-hidden bg-plaster/40 py-24 lg:h-svh lg:py-0">
+  <div class="lg:flex lg:h-full lg:items-center">
+    <div
+      data-rail-track
+      class="work-rail flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-6 md:gap-8 md:px-10 lg:overflow-x-visible lg:pb-0"
+    >
+      <!-- Heading travels with the rail so it stays visible while pinned. -->
+      <div class="flex w-[72vw] shrink-0 snap-start flex-col justify-center sm:w-[46vw] lg:w-[30vw]">
+        <p class="eyebrow text-stone">{t('home.workEyebrow')}</p>
+        <h2 class="display mt-5 text-[clamp(2rem,5vw,4rem)]" data-lines>{t('home.workTitle')}</h2>
+        <a
+          href={route('work', lang)}
+          class="eyebrow mt-8 inline-flex w-fit items-center gap-3 border-b border-ink pb-2 transition-opacity hover:opacity-60"
+        >
+          {t('cta.viewAll')}
+          <span aria-hidden="true">&#8594;</span>
+        </a>
+        <p class="eyebrow mt-10 hidden text-stone/60 lg:block">{t('home.workHint')}</p>
+      </div>
+
+      {
+        featuredProjects.map((project, index) => (
+          <div data-rail-card class="w-[72vw] shrink-0 snap-start sm:w-[46vw] lg:w-[26vw]">
+            <ProjectCard project={project} lang={lang} index={index} />
+          </div>
+        ))
+      }
+
+      <!-- Breathing room at the end of the rail. -->
+      <div class="w-2 shrink-0 lg:w-[10vw]" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>

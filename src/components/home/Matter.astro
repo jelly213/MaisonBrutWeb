@@ -1,0 +1,45 @@
+---
+import type { Lang } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import Photo from '../ui/Photo.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="py-28 md:py-40">
+  <div class="mx-auto max-w-[1800px] px-6 md:px-10">
+    <p class="eyebrow text-stone" data-reveal="up">{t('home.matterEyebrow')}</p>
+    <h2 class="display mt-5 max-w-[16ch] text-[clamp(2rem,5vw,4rem)]" data-lines>
+      {t('home.matterTitle')}
+    </h2>
+  </div>
+
+  <!-- Widens from the centre as it is scrolled through (desktop only). -->
+  <div class="mt-14 flex justify-center">
+    <div data-expand class="w-full lg:w-[62%]">
+      {/*
+        Portrait source in a landscape frame: on phones it keeps a taller crop
+        so the archway still reads, and widens to a band on desktop.
+      */}
+      <Photo
+        src="/src/assets/home/plaster-archway.jpg"
+        alt={lang === 'fr'
+          ? "Arche en plâtre minéral ouvrant sur une salle à manger, plafond et murs en finition continue"
+          : 'Mineral plaster archway opening onto a dining room, walls and ceiling in a seamless finish'}
+        ratio="aspect-[4/5] sm:aspect-[3/2] lg:aspect-[16/9]"
+        sizes="100vw"
+        focus="object-[center_34%]"
+        data-curtain
+      />
+    </div>
+  </div>
+
+  <div class="mx-auto mt-10 max-w-[1800px] px-6 md:px-10">
+    <p class="max-w-[52ch] text-balance text-stone md:text-lg" data-reveal="up">{t('home.matterText')}</p>
+  </div>
+</section>

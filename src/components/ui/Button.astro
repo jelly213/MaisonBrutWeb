@@ -1,0 +1,22 @@
+---
+interface Props {
+  href: string;
+  variant?: 'outline' | 'solid' | 'light';
+  class?: string;
+}
+
+const { href, variant = 'outline', class: className = '' } = Astro.props;
+
+const variants: Record<string, string> = {
+  outline: 'border border-ink text-ink hover:bg-ink hover:text-bone',
+  solid: 'bg-ink text-bone border border-ink hover:bg-transparent hover:text-ink',
+  light: 'bg-bone text-ink border border-bone hover:bg-transparent hover:text-bone',
+};
+---
+
+<a
+  href={href}
+  class={`eyebrow inline-flex items-center justify-center px-8 py-4 transition-colors duration-500 ${variants[variant]} ${className}`}
+>
+  <slot />
+</a>

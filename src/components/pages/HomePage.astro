@@ -1,0 +1,47 @@
+---
+import type { Lang } from '../../i18n/config';
+import { otherLang } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { route } from '../../i18n/routes';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../home/Hero.astro';
+import Intro from '../home/Intro.astro';
+import ServicesGrid from '../home/ServicesGrid.astro';
+import WorkRail from '../home/WorkRail.astro';
+import Marquee from '../home/Marquee.astro';
+import Reels from '../home/Reels.astro';
+import Matter from '../home/Matter.astro';
+import Process from '../home/Process.astro';
+import Partners from '../home/Partners.astro';
+import FinalCta from '../home/FinalCta.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  title={t('meta.home.title')}
+  description={t('meta.home.description')}
+  altPath={route('home', otherLang(lang))}
+  overHero
+>
+  <Hero lang={lang} />
+  <Intro lang={lang} />
+  <ServicesGrid lang={lang} />
+  {/* The page warms through this stretch, then cools again. */}
+  <div data-tint>
+    <WorkRail lang={lang} />
+    <Marquee lang={lang} />
+    <Reels lang={lang} />
+  </div>
+
+  <Matter lang={lang} />
+  <Process lang={lang} />
+  <Partners lang={lang} />
+  <FinalCta lang={lang} />
+</BaseLayout>

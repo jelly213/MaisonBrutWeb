@@ -1,0 +1,77 @@
+---
+import type { Lang } from '../../i18n/config';
+import { otherLang, pick } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { route } from '../../i18n/routes';
+import { studio } from '../../data/studio';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FinalCta from '../home/FinalCta.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${t('studio.title')} — Maison Brut`}
+  description={t('meta.studio.description')}
+  altPath={route('studio', otherLang(lang))}
+>
+  <section class="mx-auto max-w-[1800px] px-6 pb-16 pt-36 md:px-10 md:pb-24 md:pt-48">
+    <p class="eyebrow text-stone">{t('studio.title')}</p>
+    <h1 class="display mt-6 max-w-[18ch] text-[clamp(2.25rem,6vw,5rem)]" data-lines>{pick(studio.lead, lang)}</h1>
+  </section>
+
+  {/*
+    A typographic panel rather than a photograph. An empty image slot on the
+    page that tells the studio's story reads as something missing; a statement
+    reads as a choice — and it says more than a stock interior would.
+  */}
+  <div class="mx-auto max-w-[1800px] px-6 md:px-10">
+    <div
+      class="flex flex-col justify-between gap-14 rounded-2xl bg-ink px-8 py-16 text-bone md:px-14 md:py-24"
+      data-reveal="up"
+    >
+      <p class="display max-w-[18ch] text-[clamp(1.75rem,4.5vw,3.5rem)]">
+        {pick(studio.statement, lang)}
+      </p>
+
+      <ul class="flex flex-wrap gap-x-8 gap-y-3 border-t border-bone/15 pt-8">
+        {
+          pick(studio.materials, lang).map((material) => (
+            <li class="eyebrow text-bone/60">{material}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <section class="mx-auto grid max-w-[1800px] gap-16 px-6 py-24 md:grid-cols-[1.3fr_1fr] md:gap-20 md:px-10 md:py-32">
+    <div class="space-y-7">
+      {
+        pick(studio.body, lang).map((paragraph) => (
+          <p class="max-w-[62ch] leading-relaxed text-ink/85 md:text-lg" data-reveal="up">
+            {paragraph}
+          </p>
+        ))
+      }
+    </div>
+
+    <dl class="space-y-6" data-reveal="up">
+      {
+        pick(studio.facts, lang).map((fact) => (
+          <div class="border-b border-ink/10 pb-4">
+            <dt class="eyebrow text-stone">{fact.label}</dt>
+            <dd class="mt-2 text-sm">{fact.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <FinalCta lang={lang} />
+</BaseLayout>

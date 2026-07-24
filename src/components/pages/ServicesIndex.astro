@@ -1,0 +1,38 @@
+---
+import type { Lang } from '../../i18n/config';
+import { otherLang } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { route } from '../../i18n/routes';
+import { services } from '../../data/services';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../ui/ServiceCard.astro';
+import FinalCta from '../home/FinalCta.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${t('services.title')} — Maison Brut`}
+  description={t('home.servicesLead')}
+  altPath={route('services', otherLang(lang))}
+>
+  <section class="mx-auto max-w-[1800px] px-6 pb-24 pt-36 md:px-10 md:pb-32 md:pt-48">
+    <p class="eyebrow text-stone">{t('services.title')}</p>
+    <h1 class="display mt-6 max-w-[16ch] text-[clamp(2.5rem,7vw,6rem)]" data-lines>{t('home.servicesTitle')}</h1>
+    <p class="mt-8 max-w-[52ch] text-balance text-stone md:text-lg">{t('home.servicesLead')}</p>
+  </section>
+
+  <section class="mx-auto max-w-[1800px] px-6 pb-28 md:px-10 md:pb-40">
+    <div class="grid gap-5 sm:grid-cols-2 md:gap-7 lg:grid-cols-4">
+      {services.map((service, index) => <ServiceCard service={service} lang={lang} index={index} />)}
+    </div>
+  </section>
+
+  <FinalCta lang={lang} />
+</BaseLayout>

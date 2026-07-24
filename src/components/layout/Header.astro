@@ -1,0 +1,137 @@
+---
+import type { Lang } from '../../i18n/config';
+import { otherLang } from '../../i18n/config';
+import { useTranslations, type UIKey } from '../../i18n/ui';
+import { navigation, route } from '../../i18n/routes';
+
+interface Props {
+  lang: Lang;
+  /** Same page in the other language. */
+  altPath: string;
+  /** Over a full-bleed hero the header starts light and inverts on scroll. */
+  overHero?: boolean;
+}
+
+const { lang, altPath, overHero = false } = Astro.props;
+const t = useTranslations(lang);
+const other = otherLang(lang);
+const current = Astro.url.pathname.replace(/\/$/, '');
+---
+
+<header
+  data-header
+  data-over-hero={overHero ? 'true' : 'false'}
+  class:list={[
+    'fixed inset-x-0 top-0 z-50 transition-colors duration-500',
+    overHero ? 'text-bone' : 'text-ink',
+  ]}
+>
+  <div class="mx-auto flex max-w-[1800px] items-center justify-between px-6 py-5 md:px-10 md:py-7">
+    <a href={route('home', lang)} class="eyebrow relative z-10 tracking-[0.25em]">
+      {/* TODO: swap for the client's logo file once supplied. */}
+      Maison Brut
+    </a>
+
+    <nav aria-label={t('nav.menu')} class="hidden items-center gap-9 lg:flex">
+      {
+        navigation.map(({ key, label }) => {
+          const href = route(key, lang);
+          const active = current === href.replace(/\/$/, '') || (key !== 'home' && current.startsWith(href));
+          return (
+            <a
+              href={href}
+              aria-current={active ? 'page' : undefined}
+              class:list={[
+                'eyebrow relative py-1 transition-opacity duration-300 hover:opacity-60',
+                active && 'after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:bg-current',
+              ]}
+            >
+              {t(label as UIKey)}
+            </a>
+          );
+        })
+      }
+      <a href={altPath} hreflang={other} class="eyebrow opacity-60 transition-opacity hover:opacity-100">
+        {t('footer.lang')}
+      </a>
+    </nav>
+
+    <button
+      type="button"
+      data-menu-toggle
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="eyebrow relative z-10 lg:hidden"
+    >
+      <span data-menu-label data-close={t('nav.close')}>{t('nav.menu')}</span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    data-menu-panel
+    hidden
+    class="fixed inset-0 z-0 flex flex-col justify-between bg-ink px-6 pb-10 pt-24 text-bone lg:hidden"
+  >
+    <nav aria-label={t('nav.menu')} class="flex flex-col gap-2">
+      {
+        navigation.map(({ key, label }) => (
+          <a href={route(key, lang)} class="display border-b border-bone/15 py-4 text-4xl">
+            {t(label as UIKey)}
+          </a>
+        ))
+      }
+    </nav>
+    <a href={altPath} hreflang={other} class="eyebrow opacity-70">{t('footer.lang')}</a>
+  </div>
+</header>
+
+<script>
+  function setupHeader() {
+    const header = document.querySelector<HTMLElement>('[data-header]');
+    const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+    const panel = document.querySelector<HTMLElement>('[data-menu-panel]');
+    const label = document.querySelector<HTMLElement>('[data-menu-label]');
+    if (!header || !toggle || !panel || !label) return;
+
+    const overHero = header.dataset.overHero === 'true';
+    const openText = label.textContent ?? 'Menu';
+    const closeText = label.dataset.close ?? 'Close';
+
+    // Solid background once the hero is behind us.
+    const onScroll = () => {
+      const scrolled = window.scrollY > 40;
+      header.classList.toggle('bg-bone/90', scrolled);
+      header.classList.toggle('backdrop-blur-sm', scrolled);
+      if (overHero) {
+        header.classList.toggle('text-ink', scrolled);
+        header.classList.toggle('text-bone', !scrolled);
+      }
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    let menuOpen = false;
+
+    const setOpen = (open: boolean) => {
+      menuOpen = open;
+      panel.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      label.textContent = open ? closeText : openText;
+      document.body.style.overflow = open ? 'hidden' : '';
+      // The panel covers the header, so the trigger has to stay legible.
+      header.classList.toggle('text-bone', open);
+    };
+
+    toggle.addEventListener('click', () => setOpen(!menuOpen));
+    panel.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuOpen) setOpen(false);
+    });
+  }
+
+  setupHeader();
+  document.addEventListener('astro:page-load', setupHeader);
+</script>

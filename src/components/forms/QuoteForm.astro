@@ -1,0 +1,221 @@
+---
+import type { Lang } from '../../i18n/config';
+import { pick } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { services } from '../../data/services';
+import { site } from '../../data/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const field =
+  'w-full border-b border-ink/25 bg-transparent py-3 text-base outline-none transition-colors placeholder:text-stone/50 focus:border-ink';
+const labelClass = 'eyebrow text-stone';
+
+// Field labels are reused to build the email body, so the message the client
+// receives reads in the same order and wording as the form on screen.
+const labels = {
+  name: t('form.name'),
+  email: t('form.email'),
+  phone: t('form.phone'),
+  service: t('form.service'),
+  location: t('form.location'),
+  area: t('form.area'),
+  message: t('form.message'),
+};
+---
+
+{/*
+  No form service, no server: submitting composes an email in the visitor's own
+  mail app, addressed to the studio. Nothing leaves the browser on its own —
+  the visitor presses send.
+*/}
+<form
+  data-quote-form
+  data-to={site.email}
+  class="grid gap-8 sm:grid-cols-2"
+  novalidate
+>
+  <div>
+    <label class={labelClass} for="qf-name">{t('form.name')}</label>
+    <input id="qf-name" name="name" type="text" required autocomplete="name" class={field} />
+  </div>
+
+  <div>
+    <label class={labelClass} for="qf-email">{t('form.email')}</label>
+    <input id="qf-email" name="email" type="email" required autocomplete="email" class={field} />
+  </div>
+
+  <div>
+    <label class={labelClass} for="qf-phone">{t('form.phone')}</label>
+    <input id="qf-phone" name="phone" type="tel" autocomplete="tel" class={field} />
+  </div>
+
+  <div>
+    <label class={labelClass} for="qf-service">{t('form.service')}</label>
+    <select id="qf-service" name="service" class={field}>
+      <option value="">{t('form.servicePlaceholder')}</option>
+      {services.map((service) => <option value={pick(service.name, lang)}>{pick(service.name, lang)}</option>)}
+      <option value={t('form.serviceOther')}>{t('form.serviceOther')}</option>
+    </select>
+  </div>
+
+  <div>
+    <label class={labelClass} for="qf-location">{t('form.location')}</label>
+    <input
+      id="qf-location"
+      name="location"
+      type="text"
+      placeholder={t('form.locationPlaceholder')}
+      class={field}
+    />
+  </div>
+
+  <div>
+    <label class={labelClass} for="qf-area">{t('form.area')}</label>
+    <input id="qf-area" name="area" type="text" placeholder={t('form.areaPlaceholder')} class={field} />
+  </div>
+
+  <div class="sm:col-span-2">
+    <label class={labelClass} for="qf-message">{t('form.message')}</label>
+    <textarea
+      id="qf-message"
+      name="message"
+      rows="4"
+      required
+      placeholder={t('form.messagePlaceholder')}
+      class={`${field} resize-none`}></textarea>
+  </div>
+
+  <div class="sm:col-span-2">
+    <button
+      type="submit"
+      data-submit
+      class="eyebrow inline-flex min-h-[56px] w-full items-center justify-center border border-ink bg-ink px-8 py-4 text-bone transition-colors duration-500 hover:bg-transparent hover:text-ink sm:w-auto"
+    >
+      {t('form.submit')}
+    </button>
+
+    <p
+      data-form-status
+      role="status"
+      aria-live="polite"
+      class="mt-6 hidden max-w-[52ch] text-sm leading-relaxed"
+    >
+    </p>
+  </div>
+</form>
+
+<script
+  is:inline
+  define:vars={{
+    strings: {
+      successTitle: t('form.successTitle'),
+      successText: t('form.successText'),
+      errorTitle: t('form.errorTitle'),
+      errorText: t('form.errorText'),
+      required: t('form.required'),
+      invalidEmail: t('form.invalidEmail'),
+      subject: lang === 'fr' ? 'Demande de soumission — Maison Brut' : 'Quote request — Maison Brut',
+      email: site.email,
+      labels,
+    },
+  }}
+>
+  function setupQuoteForm() {
+    const form = document.querySelector('[data-quote-form]');
+    if (!form || form.dataset.ready === 'true') return;
+    form.dataset.ready = 'true';
+
+    const status = form.querySelector('[data-form-status]');
+
+    const showStatus = (title, text) => {
+      status.classList.remove('hidden');
+      status.innerHTML = `<strong class="font-medium">${title}</strong> ${text}`;
+    };
+
+    const markInvalid = (input, message) => {
+      input.setAttribute('aria-invalid', 'true');
+      let hint = input.parentElement.querySelector('[data-error]');
+      if (!hint) {
+        hint = document.createElement('p');
+        hint.dataset.error = '';
+        hint.className = 'mt-2 text-xs text-red-800';
+        input.parentElement.appendChild(hint);
+      }
+      hint.textContent = message;
+    };
+
+    const clearInvalid = (input) => {
+      input.removeAttribute('aria-invalid');
+      input.parentElement.querySelector('[data-error]')?.remove();
+    };
+
+    const validate = () => {
+      let ok = true;
+      form.querySelectorAll('input, textarea').forEach((input) => {
+        clearInvalid(input);
+
+        if (input.required && !input.value.trim()) {
+          markInvalid(input, strings.required);
+          ok = false;
+          return;
+        }
+        if (input.type === 'email' && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.value)) {
+          markInvalid(input, strings.invalidEmail);
+          ok = false;
+        }
+      });
+      return ok;
+    };
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!validate()) {
+        form.querySelector('[aria-invalid="true"]')?.focus();
+        return;
+      }
+
+      const data = new FormData(form);
+      const line = (key) => {
+        const value = (data.get(key) || '').toString().trim();
+        return value ? `${strings.labels[key]}: ${value}` : null;
+      };
+
+      const body = [
+        line('name'),
+        line('email'),
+        line('phone'),
+        line('service'),
+        line('location'),
+        line('area'),
+        '',
+        strings.labels.message,
+        (data.get('message') || '').toString().trim(),
+      ]
+        .filter((part) => part !== null)
+        .join('\n');
+
+      const href =
+        `mailto:${form.dataset.to}` +
+        `?subject=${encodeURIComponent(strings.subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+
+      // Tell the visitor what is about to happen — a mail app opening
+      // unannounced reads like the message was already sent.
+      showStatus(
+        strings.successTitle,
+        `${strings.successText} <span class="mt-2 block text-stone">${strings.errorTitle} ${strings.errorText} <a class="underline" href="mailto:${strings.email}">${strings.email}</a></span>`,
+      );
+
+      window.location.href = href;
+    });
+  }
+
+  setupQuoteForm();
+  document.addEventListener('astro:page-load', setupQuoteForm);
+</script>

@@ -1,0 +1,32 @@
+---
+import type { Lang } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Split on sentences so each clause lights up on its own as you scroll.
+const lines = t('home.intro').split(/(?<=[.!?])\s+/);
+---
+
+{/*
+  Editorial two-column setting on desktop: the label sits in a narrow left
+  column, the statement runs across the remaining width. Sentences are inline
+  spans rather than stacked paragraphs so the text flows as one block.
+*/}
+<section class="mx-auto max-w-[1800px] px-6 py-28 md:px-10 md:py-40">
+  <div class="grid gap-10 md:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] md:gap-16">
+    <p class="eyebrow pt-3 text-stone md:pt-5" data-reveal="up">{t('home.introEyebrow')}</p>
+
+    <p
+      class="display max-w-[22ch] text-[clamp(1.75rem,3.4vw,3.25rem)] leading-[1.12]"
+      data-fade-lines
+    >
+      {lines.map((line) => <span class="inline">{line} </span>)}
+    </p>
+  </div>
+</section>

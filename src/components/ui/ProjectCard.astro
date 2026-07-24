@@ -1,0 +1,51 @@
+---
+import type { Lang } from '../../i18n/config';
+import { pick } from '../../i18n/config';
+import type { Project } from '../../data/projects';
+import { getService } from '../../data/services';
+import Photo from './Photo.astro';
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  ratio?: string;
+  /** Gallery cards open a lightbox; rail cards are static. */
+  interactive?: boolean;
+  index?: number;
+}
+
+const { project, lang, ratio = 'aspect-[4/5]', interactive = false, index = 0 } = Astro.props;
+const service = getService(project.service);
+const Tag = interactive ? 'button' : 'div';
+
+// Location is optional — a project without one simply shows its service.
+const meta = [service ? pick(service.name, lang) : null, project.location].filter(Boolean).join(' — ');
+---
+
+{/*
+  The image uncovers itself; the caption fades in just behind it. Two different
+  properties on two different elements, so they layer instead of fighting.
+*/}
+<Tag
+  class="group block w-full text-left"
+  data-project={interactive ? project.id : undefined}
+  type={interactive ? 'button' : undefined}
+>
+  <div class="overflow-hidden">
+    <Photo
+      src={project.image}
+      alt={pick(project.alt, lang)}
+      ratio={ratio}
+      class="transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+      data-curtain
+    />
+  </div>
+
+  <div data-reveal="up" data-reveal-delay={(0.25 + index * 0.08).toFixed(2)}>
+    <div class="mt-5 flex items-baseline justify-between gap-4">
+      <h3 class="text-base font-light md:text-lg">{pick(project.title, lang)}</h3>
+      {project.year && <span class="eyebrow shrink-0 text-stone/70">{project.year}</span>}
+    </div>
+    <p class="mt-1.5 text-sm text-stone">{meta}</p>
+  </div>
+</Tag>

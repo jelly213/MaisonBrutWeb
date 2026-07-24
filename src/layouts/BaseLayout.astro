@@ -1,0 +1,103 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+
+import { ClientRouter } from 'astro:transitions';
+import type { Lang } from '../i18n/config';
+import { otherLang } from '../i18n/config';
+import { useTranslations } from '../i18n/ui';
+import { site } from '../data/site';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** Same page in the other language — powers the switcher and hreflang. */
+  altPath: string;
+  /** True on pages whose hero runs under a transparent header. */
+  overHero?: boolean;
+}
+
+const { lang, title, description, altPath, overHero = false } = Astro.props;
+const t = useTranslations(lang);
+const other = otherLang(lang);
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const altUrl = new URL(altPath, Astro.site);
+
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.name,
+  description,
+  email: site.email,
+  url: Astro.site?.toString(),
+  image: canonical.toString(),
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.address.locality,
+    addressRegion: site.address.region,
+    addressCountry: site.address.country,
+  },
+  areaServed: site.areaServed.map((name) => ({ '@type': 'City', name })),
+  sameAs: [site.instagram],
+};
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    <link rel="alternate" hreflang={other} href={altUrl} />
+    <link rel="alternate" hreflang="x-default" href={new URL(lang === 'en' ? Astro.url.pathname : altPath, Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'fr' ? 'fr_CA' : 'en_CA'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {/* TODO: add /og.jpg (1200×630) once the client's photos are in. */}
+
+    <script is:inline set:html={JSON.stringify(businessSchema)} type="application/ld+json" />
+
+    {/* Marks that scripting is available, so reveal styles never strand content. */}
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
+    <!-- Page-specific head content, e.g. FAQ structured data. -->
+    <slot name="head" />
+
+    <ClientRouter />
+  </head>
+
+  <body>
+    <a
+      href="#main"
+      class="eyebrow sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-3 focus:text-bone"
+    >
+      {t('nav.skip')}
+    </a>
+
+    <Header lang={lang} altPath={altPath} overHero={overHero} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer lang={lang} altPath={altPath} />
+
+    <script>
+      import '../scripts/motion';
+    </script>
+  </body>
+</html>

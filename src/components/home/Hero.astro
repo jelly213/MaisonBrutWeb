@@ -1,0 +1,68 @@
+---
+import type { Lang } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { route } from '../../i18n/routes';
+import Photo from '../ui/Photo.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="relative flex min-h-[92svh] flex-col justify-end overflow-hidden">
+  {/*
+    Wide source, so the full-bleed frame barely crops it. Widths stop at the
+    source width: upscaling at build time adds bytes without adding detail.
+  */}
+  <div class="absolute inset-0" data-hero-image>
+    <Photo
+      src="/src/assets/home/hero-arch-wide.jpg"
+      alt={lang === 'fr'
+        ? 'Alcôve voûtée en enduit minéral, éclairée en corniche, avec banquette basse et bougies'
+        : 'Arched alcove in mineral plaster, lit from a cove, with a low bench seat and candles'}
+      ratio="h-full"
+      class="h-full w-full"
+      sizes="100vw"
+      focus="object-[center_45%]"
+      widths={[480, 800, 1200, 1672]}
+      priority
+    />
+  </div>
+
+  <!-- Scrim: keeps the headline legible whatever the photo turns out to be. -->
+  <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-ink/30"></div>
+
+  <div class="relative mx-auto w-full max-w-[1800px] px-6 pb-16 md:px-10 md:pb-20">
+    <h1 class="display max-w-[14ch] text-bone text-[clamp(2.75rem,9vw,8rem)]" data-split>
+      {t('home.heroTitle')}
+    </h1>
+
+    <div class="mt-8 flex flex-col gap-8 border-t border-bone/25 pt-8 md:flex-row md:items-end md:justify-between">
+      <p class="max-w-[46ch] text-balance text-bone/85 md:text-lg" data-reveal="up" data-reveal-delay="0.6">
+        {t('home.heroSub')}
+      </p>
+      <a
+        href={route('contact', lang)}
+        class="eyebrow inline-flex shrink-0 items-center justify-center border border-bone px-8 py-4 text-bone transition-colors duration-500 hover:bg-bone hover:text-ink"
+        data-reveal="up"
+        data-reveal-delay="0.75"
+        data-magnetic
+      >
+        {t('cta.quote')}
+      </a>
+    </div>
+  </div>
+
+  {/* The hero fills the screen; nothing else says there is more below. */}
+  <div
+    data-scroll-cue
+    aria-hidden="true"
+    class="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 text-bone/70 lg:flex"
+  >
+    <span class="eyebrow">{t('home.workHint')}</span>
+    <span class="block h-10 w-px bg-bone/50" data-scroll-cue-line></span>
+  </div>
+</section>

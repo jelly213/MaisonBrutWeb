@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Maison Brut — design tokens
+   Art direction "Brut Minimal": plaster tones, thin wide sans, lots of air.
+   ------------------------------------------------------------------ */
+
+@theme {
+  --color-bone: #f4f1ec;
+  --color-plaster: #ded5c8;
+  --color-clay: #b9ab99;
+  --color-stone: #7a7168;
+  --color-ink: #2b2724;
+
+  --font-sans: "Inter Variable", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --ease-brut: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    /* Lenis drives scrolling on desktop; native smooth scroll would fight it. */
+    scroll-behavior: auto;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Display headings: thin, wide, tightly tracked. */
+  .display {
+    font-weight: 200;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  .eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  /* Elements revealed by GSAP start hidden — but only when JS can run,
+     otherwise a scripting failure would leave the page blank. */
+  .js [data-reveal] {
+    opacity: 0;
+  }
+
+  .js [data-reveal="up"] {
+    transform: translateY(2rem);
+  }
+
+  /* Headings split into one masked span per rendered line. */
+  [data-lines] .line {
+    display: block;
+    overflow: hidden;
+  }
+
+  [data-lines] .line > span {
+    display: block;
+    will-change: transform;
+  }
+
+  /* Images uncover upward from their bottom edge. */
+  .js [data-curtain] {
+    clip-path: inset(0% 0% 100% 0%);
+  }
+}
+
+/* Respect the visitor's motion preference: no reveals, no smooth scroll. */
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .js [data-curtain] {
+    clip-path: none !important;
+  }
+
+  [data-lines] .line > span {
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Horizontal work rail: native snap carousel on mobile, GSAP-driven on desktop. */
+.work-rail {
+  scrollbar-width: none;
+}
+
+.work-rail::-webkit-scrollbar {
+  display: none;
+}

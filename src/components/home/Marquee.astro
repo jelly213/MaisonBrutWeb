@@ -1,0 +1,39 @@
+---
+import type { Lang } from '../../i18n/config';
+import { pick } from '../../i18n/config';
+import { studio } from '../../data/studio';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const materials = pick(studio.materials, lang);
+
+// The track is duplicated so a -50% translation lands exactly on itself.
+const runs = [materials, materials];
+---
+
+{/*
+  A band of materials between the two media-heavy sections. It drifts on its
+  own, then takes its speed and direction from the scroll — the page reads as
+  one moving object rather than a stack of blocks.
+*/}
+<section aria-hidden="true" class="overflow-hidden border-y border-ink/10 py-8 md:py-12">
+  <div data-marquee-track class="flex w-max will-change-transform">
+    {
+      runs.map((run) => (
+        <ul class="flex shrink-0 items-center">
+          {run.map((material) => (
+            <li class="flex items-center">
+              <span class="display whitespace-nowrap px-8 text-[clamp(1.5rem,3.2vw,2.75rem)] text-stone md:px-12">
+                {material}
+              </span>
+              <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-clay" />
+            </li>
+          ))}
+        </ul>
+      ))
+    }
+  </div>
+</section>

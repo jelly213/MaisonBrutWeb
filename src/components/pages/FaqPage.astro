@@ -1,0 +1,72 @@
+---
+import type { Lang } from '../../i18n/config';
+import { otherLang, pick } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { route } from '../../i18n/routes';
+import { faq } from '../../data/faq';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FinalCta from '../home/FinalCta.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: pick(item.question, lang),
+    acceptedAnswer: { '@type': 'Answer', text: pick(item.answer, lang) },
+  })),
+};
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${t('faq.title')} — Maison Brut`}
+  description={t('meta.faq.description')}
+  altPath={route('faq', otherLang(lang))}
+>
+  <script is:inline set:html={JSON.stringify(faqSchema)} type="application/ld+json" slot="head" />
+
+  <section class="mx-auto max-w-[1800px] px-6 pb-16 pt-36 md:px-10 md:pb-24 md:pt-48">
+    <p class="eyebrow text-stone">FAQ</p>
+    <h1 class="display mt-6 max-w-[16ch] text-[clamp(2.25rem,6vw,5rem)]" data-lines>{t('faq.title')}</h1>
+    <p class="mt-8 max-w-[52ch] text-balance text-stone md:text-lg">{t('faq.lead')}</p>
+  </section>
+
+  <section class="mx-auto max-w-[1100px] px-6 pb-28 md:px-10 md:pb-40">
+    <div class="border-t border-ink/15">
+      {
+        faq.map((item) => (
+          <details class="group border-b border-ink/15">
+            <summary
+              class="flex cursor-pointer list-none items-start justify-between gap-8 py-7 text-lg font-light transition-opacity hover:opacity-70 md:text-xl"
+            >
+              <span class="max-w-[48ch]">{pick(item.question, lang)}</span>
+              <span
+                aria-hidden="true"
+                class="mt-1 shrink-0 text-stone transition-transform duration-500 group-open:rotate-45"
+              >
+                +
+              </span>
+            </summary>
+            <p class="max-w-[68ch] pb-8 pr-10 leading-relaxed text-stone">{pick(item.answer, lang)}</p>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+
+  <FinalCta lang={lang} />
+</BaseLayout>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import type { Lang } from '../../i18n/config';
+import { otherLang } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { route } from '../../i18n/routes';
+import { site } from '../../data/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import QuoteForm from '../forms/QuoteForm.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${t('contact.title')} — Maison Brut`}
+  description={t('meta.contact.description')}
+  altPath={route('contact', otherLang(lang))}
+>
+  <section class="mx-auto max-w-[1800px] px-6 pb-16 pt-36 md:px-10 md:pb-20 md:pt-48">
+    <p class="eyebrow text-stone">{t('nav.contact')}</p>
+    <h1 class="display mt-6 max-w-[14ch] text-[clamp(2.5rem,7vw,6rem)]" data-lines>{t('contact.title')}</h1>
+  </section>
+
+  <section class="mx-auto grid max-w-[1800px] gap-16 px-6 pb-28 md:grid-cols-[1.4fr_1fr] md:gap-24 md:px-10 md:pb-40">
+    <div>
+      <p class="max-w-[52ch] text-balance text-stone md:text-lg">{t('contact.lead')}</p>
+      <div class="mt-14">
+        <QuoteForm lang={lang} />
+      </div>
+    </div>
+
+    <aside class="space-y-10 md:pt-2">
+      <div class="border-t border-ink/15 pt-6">
+        <p class="eyebrow text-stone">{t('contact.email')}</p>
+        <a href={`mailto:${site.email}`} class="mt-3 inline-block text-lg font-light transition-opacity hover:opacity-60">
+          {site.email}
+        </a>
+      </div>
+
+      <div class="border-t border-ink/15 pt-6">
+        <p class="eyebrow text-stone">{t('contact.instagram')}</p>
+        <a
+          href={site.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-3 inline-block text-lg font-light transition-opacity hover:opacity-60"
+        >
+          @{site.instagramHandle}
+        </a>
+      </div>
+
+      <div class="border-t border-ink/15 pt-6">
+        <p class="eyebrow text-stone">{t('nav.services')}</p>
+        <p class="mt-3 text-sm leading-relaxed text-stone">{t('contact.serving')}</p>
+      </div>
+    </aside>
+  </section>
+</BaseLayout>

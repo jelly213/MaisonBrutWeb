@@ -1,0 +1,42 @@
+---
+import type { Lang } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { route } from '../../i18n/routes';
+import { site } from '../../data/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<!--
+  Background deepens from stone to ink as this block arrives. It never starts
+  light: the text has to stay readable at every point of the transition, and
+  with JS off or motion reduced the block is simply dark.
+-->
+<section data-final class="bg-ink text-bone">
+  <div class="mx-auto max-w-[1800px] px-6 py-32 md:px-10 md:py-48">
+    <h2 class="display max-w-[14ch] text-[clamp(2.5rem,7vw,6rem)]" data-lines>
+      {t('home.finalTitle')}
+    </h2>
+    <p class="mt-8 max-w-[46ch] text-balance text-bone/70 md:text-lg" data-reveal="up" data-reveal-delay="0.05">
+      {t('home.finalText')}
+    </p>
+
+    <div class="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center" data-reveal="up" data-reveal-delay="0.1">
+      <a
+        href={route('contact', lang)}
+        class="eyebrow inline-flex items-center justify-center border border-bone bg-bone px-8 py-4 text-ink transition-colors duration-500 hover:bg-transparent hover:text-bone"
+        data-magnetic
+      >
+        {t('cta.quote')}
+      </a>
+      <a href={`mailto:${site.email}`} class="text-sm text-bone/70 transition-colors hover:text-bone">
+        {site.email}
+      </a>
+    </div>
+  </div>
+</section>

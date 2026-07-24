@@ -1,0 +1,177 @@
+---
+import { getImage } from 'astro:assets';
+import type { Lang } from '../../i18n/config';
+import { pick } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { reels } from '../../data/reels';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Poster frames go through the image pipeline; the video files do not.
+const assets = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/**/*.{jpeg,jpg,png,webp,avif}',
+  { eager: true },
+);
+
+const items = await Promise.all(
+  reels.map(async (reel) => {
+    const asset = assets[reel.poster];
+    const poster = asset
+      ? await getImage({ src: asset.default, width: 720, format: 'webp' })
+      : null;
+    return { ...reel, posterSrc: poster?.src ?? '' };
+  }),
+);
+---
+
+{/*
+  Vertical clips, the format the client already shoots.
+  Nothing downloads until a card is close to the viewport: the poster frame
+  stands in, and the video is only fetched and played once it is on screen.
+*/}
+<section class="mx-auto max-w-[1800px] px-6 pb-28 md:px-10 md:pb-40">
+  {/* No rule here: the materials band directly above already draws one. */}
+  <div class="flex flex-col gap-6 pt-4 md:flex-row md:items-end md:justify-between">
+    <div>
+      <p class="eyebrow text-stone" data-reveal="up">{t('home.reelsEyebrow')}</p>
+      <h2 class="display mt-5 max-w-[16ch] text-[clamp(2rem,5vw,4rem)]" data-lines>
+        {t('home.reelsTitle')}
+      </h2>
+    </div>
+    <p class="max-w-[42ch] text-sm leading-relaxed text-stone md:text-right" data-reveal="up" data-reveal-delay="0.1">
+      {t('home.reelsLead')}
+    </p>
+  </div>
+
+  {/*
+    Snap carousel on phones, three columns from md up.
+    The column is capped well under the full width: a 9:16 card across a third
+    of a wide screen would stand taller than the viewport, and a clip you
+    cannot see whole is a clip nobody watches.
+  */}
+  <div
+    data-reels
+    class="work-rail mx-auto mt-14 flex max-w-[1120px] snap-x snap-mandatory gap-5 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:gap-7 md:overflow-visible md:pb-0"
+  >
+    {
+      items.map((reel, index) => (
+        <figure
+          class="group w-[78vw] shrink-0 snap-start sm:w-[52vw] md:w-auto"
+          data-reveal="up"
+          data-reveal-delay={(index * 0.08).toFixed(2)}
+        >
+          <div class="relative aspect-[9/16] overflow-hidden rounded-2xl bg-plaster">
+            <video
+              data-reel-video
+              class="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+              poster={reel.posterSrc}
+              preload="none"
+              muted
+              loop
+              playsinline
+              aria-label={pick(reel.alt, lang)}
+            >
+              <source src={reel.video} type="video/mp4" />
+            </video>
+
+            {/* Playback progress, doubles as the "this is live" cue. */}
+            <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-[3px] bg-bone/25">
+              <span data-reel-progress class="block h-full w-0 origin-left bg-bone/90"></span>
+            </span>
+
+            <button
+              type="button"
+              data-reel-sound
+              aria-pressed="false"
+              class="eyebrow absolute right-3 top-3 rounded-full bg-ink/55 px-4 py-2 text-bone backdrop-blur-sm transition-colors hover:bg-ink/80"
+            >
+              <span data-reel-sound-label data-on={t('reel.muted')} data-off={t('reel.sound')}>
+                {t('reel.sound')}
+              </span>
+            </button>
+          </div>
+
+          <figcaption class="mt-4 text-sm text-stone">{pick(reel.title, lang)}</figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  function setupReels() {
+    const root = document.querySelector<HTMLElement>('[data-reels]');
+    if (!root || root.dataset.ready === 'true') return;
+    root.dataset.ready = 'true';
+
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const videos = Array.from(root.querySelectorAll<HTMLVideoElement>('[data-reel-video]'));
+
+    videos.forEach((video) => {
+      const card = video.closest('figure');
+      const bar = card?.querySelector<HTMLElement>('[data-reel-progress]');
+      const button = card?.querySelector<HTMLButtonElement>('[data-reel-sound]');
+      const label = card?.querySelector<HTMLElement>('[data-reel-sound-label]');
+
+      video.addEventListener('timeupdate', () => {
+        if (!bar || !video.duration) return;
+        bar.style.width = `${(video.currentTime / video.duration) * 100}%`;
+      });
+
+      // One clip at a time may speak; unmuting another silences this one.
+      button?.addEventListener('click', (event) => {
+        event.preventDefault();
+        const turningOn = video.muted;
+
+        videos.forEach((other) => {
+          if (other === video) return;
+          other.muted = true;
+          const otherLabel = other
+            .closest('figure')
+            ?.querySelector<HTMLElement>('[data-reel-sound-label]');
+          const otherButton = other
+            .closest('figure')
+            ?.querySelector<HTMLButtonElement>('[data-reel-sound]');
+          if (otherLabel) otherLabel.textContent = otherLabel.dataset.off ?? '';
+          otherButton?.setAttribute('aria-pressed', 'false');
+        });
+
+        video.muted = !turningOn;
+        if (label) label.textContent = turningOn ? label.dataset.on ?? '' : label.dataset.off ?? '';
+        button.setAttribute('aria-pressed', String(turningOn));
+        if (turningOn) video.play().catch(() => {});
+      });
+    });
+
+    if (calm) return; // No autoplay: the poster and the controls are enough.
+
+    // Load and play only what is actually on screen.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            if (video.preload === 'none') {
+              video.preload = 'auto';
+              video.load();
+            }
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.45 },
+    );
+
+    videos.forEach((video) => observer.observe(video));
+  }
+
+  setupReels();
+  document.addEventListener('astro:page-load', setupReels);
+</script>

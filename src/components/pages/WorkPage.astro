@@ -1,0 +1,223 @@
+---
+import { getImage } from 'astro:assets';
+import type { Lang } from '../../i18n/config';
+import { otherLang, pick } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+import { route } from '../../i18n/routes';
+import { projects } from '../../data/projects';
+import { services } from '../../data/services';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../ui/ProjectCard.astro';
+import TrustBand from '../ui/TrustBand.astro';
+import FinalCta from '../home/FinalCta.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Optimised sources for the lightbox, resolved at build time.
+const assets = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/**/*.{jpeg,jpg,png,webp,avif}',
+  { eager: true },
+);
+
+const lightboxData = await Promise.all(
+  projects.map(async (project) => {
+    const asset = project.image ? assets[project.image] : undefined;
+    const optimised = asset ? await getImage({ src: asset.default, width: 1600, format: 'webp' }) : null;
+
+    return {
+      id: project.id,
+      src: optimised?.src ?? project.image,
+      alt: pick(project.alt, lang),
+      title: pick(project.title, lang),
+      meta: [pick(services.find((s) => s.id === project.service)!.name, lang), project.location]
+        .filter(Boolean)
+        .join(' — '),
+    };
+  }),
+);
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${t('work.title')} — Maison Brut`}
+  description={t('meta.work.description')}
+  altPath={route('work', otherLang(lang))}
+>
+  <section class="mx-auto max-w-[1800px] px-6 pb-16 pt-36 md:px-10 md:pb-20 md:pt-48">
+    <p class="eyebrow text-stone">{t('work.title')}</p>
+    <h1 class="display mt-6 max-w-[14ch] text-[clamp(2.5rem,7vw,6rem)]" data-lines>{t('home.workTitle')}</h1>
+    <p class="mt-8 max-w-[52ch] text-balance text-stone md:text-lg">{t('work.lead')}</p>
+  </section>
+
+  <section class="mx-auto max-w-[1800px] px-6 pb-28 md:px-10 md:pb-40">
+    <div
+      role="group"
+      aria-label={t('services.title')}
+      class="flex flex-wrap gap-x-6 gap-y-3 border-y border-ink/15 py-5"
+    >
+      <button type="button" data-filter="all" aria-pressed="true" class="eyebrow filter-btn">
+        {t('work.all')}
+      </button>
+      {/* Only offer a filter that leads somewhere. */}
+      {
+        services
+          .filter((service) => projects.some((project) => project.service === service.id))
+          .map((service) => (
+            <button type="button" data-filter={service.id} aria-pressed="false" class="eyebrow filter-btn">
+              {pick(service.name, lang)}
+            </button>
+          ))
+      }
+    </div>
+
+    <div data-grid class="mt-14 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        projects.map((project, index) => (
+          <div data-service={project.service}>
+            <ProjectCard project={project} lang={lang} interactive index={index} />
+          </div>
+        ))
+      }
+    </div>
+
+    <p data-empty hidden class="mt-14 text-sm text-stone">{t('work.empty')}</p>
+  </section>
+
+  <TrustBand lang={lang} />
+
+  <FinalCta lang={lang} />
+
+  <!-- Lightbox -->
+  <dialog
+    data-lightbox
+    class="m-0 h-full max-h-none w-full max-w-none bg-ink/95 p-0 backdrop:bg-ink/80"
+    aria-label={t('work.title')}
+  >
+    <div class="relative flex h-full w-full flex-col">
+      <div class="flex items-center justify-end p-5 md:p-8">
+        <button type="button" data-lightbox-close class="eyebrow text-bone">{t('work.close')}</button>
+      </div>
+
+      <div class="flex flex-1 items-center justify-center px-5 pb-5 md:px-10 md:pb-10">
+        <div class="max-h-full w-full max-w-5xl">
+          <div data-lightbox-media class="aspect-[4/3] w-full"></div>
+          <div class="mt-5 flex items-baseline justify-between gap-6 text-bone">
+            <p data-lightbox-title class="text-lg font-light"></p>
+            <p data-lightbox-meta class="eyebrow text-bone/60"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between p-5 md:p-8">
+        <button type="button" data-lightbox-prev class="eyebrow text-bone">&#8592; {t('work.prev')}</button>
+        <button type="button" data-lightbox-next class="eyebrow text-bone">{t('work.next')} &#8594;</button>
+      </div>
+    </div>
+  </dialog>
+</BaseLayout>
+
+<style>
+  .filter-btn {
+    color: var(--color-stone);
+    transition: color 0.3s ease;
+  }
+
+  .filter-btn[aria-pressed='true'] {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  .filter-btn:hover {
+    color: var(--color-ink);
+  }
+</style>
+
+<script is:inline define:vars={{ lightboxData }}>
+  function setupWork() {
+    const grid = document.querySelector('[data-grid]');
+    if (!grid || grid.dataset.ready === 'true') return;
+    grid.dataset.ready = 'true';
+
+    const cells = Array.from(grid.querySelectorAll('[data-service]'));
+    const empty = document.querySelector('[data-empty]');
+    const buttons = Array.from(document.querySelectorAll('[data-filter]'));
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+
+        let visible = 0;
+        cells.forEach((cell) => {
+          const show = filter === 'all' || cell.dataset.service === filter;
+          cell.hidden = !show;
+          if (show) visible += 1;
+        });
+        empty.hidden = visible > 0;
+      });
+    });
+
+    // --- Lightbox ---
+    const dialog = document.querySelector('[data-lightbox]');
+    if (!dialog) return;
+
+    const media = dialog.querySelector('[data-lightbox-media]');
+    const titleEl = dialog.querySelector('[data-lightbox-title]');
+    const metaEl = dialog.querySelector('[data-lightbox-meta]');
+    let index = 0;
+
+    const visibleItems = () =>
+      cells.filter((cell) => !cell.hidden).map((cell) => cell.querySelector('[data-project]').dataset.project);
+
+    const render = (ids) => {
+      const item = lightboxData.find((entry) => entry.id === ids[index]);
+      if (!item) return;
+
+      media.innerHTML = item.src
+        ? `<img src="${item.src}" alt="${item.alt}" class="h-full w-full object-contain" />`
+        : `<div role="img" aria-label="${item.alt}" class="flex h-full w-full items-center justify-center border border-bone/20 p-8 text-center"><span class="eyebrow text-bone/60">${item.alt}</span></div>`;
+      titleEl.textContent = item.title;
+      metaEl.textContent = item.meta;
+    };
+
+    const open = (id) => {
+      const ids = visibleItems();
+      index = Math.max(0, ids.indexOf(id));
+      render(ids);
+      dialog.showModal();
+      document.body.style.overflow = 'hidden';
+    };
+
+    const step = (delta) => {
+      const ids = visibleItems();
+      index = (index + delta + ids.length) % ids.length;
+      render(ids);
+    };
+
+    grid.querySelectorAll('[data-project]').forEach((button) => {
+      button.addEventListener('click', () => open(button.dataset.project));
+    });
+
+    dialog.querySelector('[data-lightbox-close]').addEventListener('click', () => dialog.close());
+    dialog.querySelector('[data-lightbox-prev]').addEventListener('click', () => step(-1));
+    dialog.querySelector('[data-lightbox-next]').addEventListener('click', () => step(1));
+
+    dialog.addEventListener('close', () => {
+      document.body.style.overflow = '';
+    });
+
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') step(1);
+      if (event.key === 'ArrowLeft') step(-1);
+    });
+  }
+
+  setupWork();
+  document.addEventListener('astro:page-load', setupWork);
+</script>
