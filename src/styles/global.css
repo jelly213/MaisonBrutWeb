@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Maison Brut — design tokens
+   Maison Brüt — design tokens
    Art direction "Brut Minimal": plaster tones, thin wide sans, lots of air.
    ------------------------------------------------------------------ */
 
 @theme {
-  --color-bone: #f4f1ec;
+  --color-bone: #eae4dc;
   --color-plaster: #ded5c8;
   --color-clay: #b9ab99;
   --color-stone: #7a7168;
