@@ -26,11 +26,9 @@ const logos = await Promise.all(
 ---
 
 {/*
-  Logos arrive in four different colours on four different backgrounds. Left
-  alone they would fight the page and each other, so they are desaturated and
-  multiplied into a light card — multiply only reads against a light backdrop,
-  which is why each logo keeps its own bone-toned tile even though the section
-  itself runs dark.
+  Logos arrive in four different colours on four different backgrounds, so
+  each one keeps its own bone-toned tile even though the section itself runs
+  dark.
 */}
 <section class="bg-ink text-bone">
   <div class="mx-auto max-w-[1800px] px-6 py-20 md:px-10 md:py-28">
@@ -78,8 +76,5 @@ const logos = await Promise.all(
     max-width: 100%;
     height: auto;
     margin-inline: auto;
-    filter: grayscale(1) contrast(1.05);
-    opacity: 0.55;
-    mix-blend-mode: multiply;
   }
 </style>
