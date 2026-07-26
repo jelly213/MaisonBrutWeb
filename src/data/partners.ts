@@ -11,7 +11,7 @@ export interface Partner {
  * a white-background file works as well as a transparent one.
  */
 export const partners: Partner[] = [
-  { name: 'Venilux Québec', logo: '/src/assets/partners/venilux.png' },
+  { name: 'Extensions MTL', logo: '/src/assets/partners/extensions-mtl.png' },
   { name: 'Brut', logo: '/src/assets/partners/brut.png' },
   { name: 'Or Gueoula Construction', logo: '/src/assets/partners/or-gueoula.png' },
   { name: 'Playground', logo: '/src/assets/partners/playground.png' },
