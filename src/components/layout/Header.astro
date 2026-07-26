@@ -128,6 +128,11 @@ const current = Astro.url.pathname.replace(/\/$/, '');
         header.classList.toggle('text-ink', scrolled);
         header.classList.toggle('text-bone', !scrolled);
       }
+      // The mobile menu trigger only makes sense at the top of the page;
+      // skip this while the panel is open since scrolling is locked then.
+      if (panel.hidden) {
+        toggle.style.display = window.scrollY < 4 ? '' : 'none';
+      }
     };
 
     onScroll();
