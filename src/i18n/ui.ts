@@ -24,7 +24,7 @@ export const ui = {
     'home.heroSub': 'Microcement, Venetian plaster and limewash, applied by hand in Montreal and Laval.',
     'home.introEyebrow': 'The studio',
     'home.intro':
-      'We finish walls, floors and furniture the slow way — mineral materials, laid by hand, layer over layer. No two surfaces come out alike, and that is the point.',
+      'We finish walls, floors and furniture the slow way: mineral materials, laid by hand, layer over layer. No two surfaces come out alike, and that is the point.',
     'home.servicesEyebrow': 'Services',
     'home.servicesTitle': 'Four ways to change a room.',
     'home.servicesLead':
@@ -99,7 +99,7 @@ export const ui = {
     'contact.title': 'Request a quote',
     'contact.lead':
       'Tell us about your project — the room, the surface, the feeling you want. We answer within two business days.',
-    'contact.serving': 'Serving Montreal, Laval and the North Shore',
+    'contact.serving': 'Serving Montreal, Laval, the North Shore and the South Shore',
     'contact.email': 'Email',
     'contact.instagram': 'Instagram',
 
@@ -131,11 +131,11 @@ export const ui = {
     'footer.rights': 'All rights reserved.',
     'footer.lang': 'Français',
 
-    'meta.home.title': 'Maison Brut — Microcement & Venetian Plaster, Montreal',
+    'meta.home.title': 'Maison Brüt — Microcement & Venetian Plaster, Montreal',
     'meta.home.description':
       'Handmade microcement, Venetian plaster, limewash and custom furniture for homes and businesses in Montreal and Laval.',
     'meta.work.description': 'Selected microcement, Venetian plaster and limewash projects across Greater Montreal.',
-    'meta.studio.description': 'Meet the studio behind Maison Brut — mineral finishes applied by hand in Montreal.',
+    'meta.studio.description': 'Meet the studio behind Maison Brüt — mineral finishes applied by hand in Montreal.',
     'meta.faq.description': 'Durability, upkeep, timelines and preparation — answers to the questions we hear most.',
     'meta.contact.description': 'Request a quote for microcement, Venetian plaster, limewash or custom furniture in Montreal and Laval.',
   },
@@ -159,7 +159,7 @@ export const ui = {
     'home.heroSub': 'Béton ciré, stuc vénitien et badigeon de chaux, appliqués à la main à Montréal et Laval.',
     'home.introEyebrow': "L'atelier",
     'home.intro':
-      "Nous finissons les murs, les sols et le mobilier à l'ancienne — des matériaux minéraux, posés à la main, couche après couche. Aucune surface ne ressemble à une autre, et c'est précisément le but.",
+      "Nous finissons les murs, les sols et le mobilier à l'ancienne : des matériaux minéraux, posés à la main, couche après couche. Aucune surface ne ressemble à une autre, et c'est précisément le but.",
     'home.servicesEyebrow': 'Services',
     'home.servicesTitle': 'Quatre façons de transformer une pièce.',
     'home.servicesLead':
@@ -234,7 +234,7 @@ export const ui = {
     'contact.title': 'Demander une soumission',
     'contact.lead':
       "Parlez-nous de votre projet — la pièce, la surface, l'ambiance recherchée. Nous répondons sous deux jours ouvrables.",
-    'contact.serving': 'Nous desservons Montréal, Laval et la Rive-Nord',
+    'contact.serving': 'Nous desservons Montréal, Laval, la Rive-Nord et la Rive-Sud',
     'contact.email': 'Courriel',
     'contact.instagram': 'Instagram',
 
@@ -266,11 +266,11 @@ export const ui = {
     'footer.rights': 'Tous droits réservés.',
     'footer.lang': 'English',
 
-    'meta.home.title': 'Maison Brut — Béton ciré et stuc vénitien, Montréal',
+    'meta.home.title': 'Maison Brüt — Béton ciré et stuc vénitien, Montréal',
     'meta.home.description':
       'Béton ciré, stuc vénitien, badigeon de chaux et mobilier sur mesure, faits main, pour résidences et commerces à Montréal et Laval.',
     'meta.work.description': 'Projets de béton ciré, stuc vénitien et badigeon de chaux réalisés dans le Grand Montréal.',
-    'meta.studio.description': "Découvrez l'atelier Maison Brut — des finitions minérales appliquées à la main à Montréal.",
+    'meta.studio.description': "Découvrez l'atelier Maison Brüt — des finitions minérales appliquées à la main à Montréal.",
     'meta.faq.description': 'Durabilité, entretien, délais et préparation — les réponses aux questions les plus fréquentes.',
     'meta.contact.description': 'Demandez une soumission pour du béton ciré, du stuc vénitien, un badigeon de chaux ou du mobilier sur mesure à Montréal et Laval.',
   },

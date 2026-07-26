@@ -56,7 +56,7 @@ export const services: Service[] = [
         "N'ajoute que 2 à 3 mm : la hauteur des portes reste intacte",
       ],
     },
-    image: '', // TODO: /images/… once the client's photo is in place
+    image: '/src/assets/services/microcement.jpg',
   },
 
   {
@@ -97,7 +97,7 @@ export const services: Service[] = [
         'Il durcit avec le temps au lieu de se dégrader',
       ],
     },
-    image: '', // TODO: /images/… once the client's photo is in place
+    image: '/src/assets/services/venetian-plaster.jpg',
   },
 
   {
@@ -138,7 +138,7 @@ export const services: Service[] = [
         'Il patine avec le mur au lieu de s\'écailler',
       ],
     },
-    image: '', // TODO: /images/… once the client's photo is in place
+    image: '/src/assets/services/limewash.jpg',
   },
 
   {
@@ -179,7 +179,7 @@ export const services: Service[] = [
         'Dessins et échantillons validés avant fabrication',
       ],
     },
-    image: '', // TODO: /images/… once the client's photo is in place
+    image: '/src/assets/services/furniture.jpg',
   },
 ];
 

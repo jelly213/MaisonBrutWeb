@@ -18,25 +18,32 @@ const t = useTranslations(lang);
   with JS off or motion reduced the block is simply dark.
 -->
 <section data-final class="bg-ink text-bone">
-  <div class="mx-auto max-w-[1800px] px-6 py-32 md:px-10 md:py-48">
-    <h2 class="display max-w-[14ch] text-[clamp(2.5rem,7vw,6rem)]" data-lines>
-      {t('home.finalTitle')}
-    </h2>
-    <p class="mt-8 max-w-[46ch] text-balance text-bone/70 md:text-lg" data-reveal="up" data-reveal-delay="0.05">
-      {t('home.finalText')}
-    </p>
+  {/*
+    Two columns on desktop so the ink block is not half empty: the invitation
+    on the left, the actions held to the right on the same baseline.
+  */}
+  <div class="mx-auto max-w-[1800px] px-6 py-20 md:px-10 md:py-28">
+    <div class="grid gap-12 md:grid-cols-[1.3fr_1fr] md:items-end md:gap-16">
+      <h2 class="display max-w-[14ch] text-[clamp(2.5rem,7vw,6rem)]" data-lines>
+        {t('home.finalTitle')}
+      </h2>
 
-    <div class="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center" data-reveal="up" data-reveal-delay="0.1">
-      <a
-        href={route('contact', lang)}
-        class="eyebrow inline-flex items-center justify-center border border-bone bg-bone px-8 py-4 text-ink transition-colors duration-500 hover:bg-transparent hover:text-bone"
-        data-magnetic
-      >
-        {t('cta.quote')}
-      </a>
-      <a href={`mailto:${site.email}`} class="text-sm text-bone/70 transition-colors hover:text-bone">
-        {site.email}
-      </a>
+      <div class="md:pb-3" data-reveal="up" data-reveal-delay="0.05">
+        <p class="max-w-[42ch] text-balance text-bone/70 md:text-lg">{t('home.finalText')}</p>
+
+        <div class="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center">
+          <a
+            href={route('contact', lang)}
+            class="eyebrow inline-flex items-center justify-center border border-bone bg-bone px-8 py-4 text-ink transition-colors duration-500 hover:bg-transparent hover:text-bone"
+            data-magnetic
+          >
+            {t('cta.quote')}
+          </a>
+          <a href={`mailto:${site.email}`} class="text-sm text-bone/70 transition-colors hover:text-bone">
+            {site.email}
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

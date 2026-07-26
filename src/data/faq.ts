@@ -83,8 +83,8 @@ export const faq: FaqItem[] = [
       fr: 'Quels secteurs desservez-vous ?',
     },
     answer: {
-      en: 'Montreal, Laval and the North Shore. We take projects elsewhere in Quebec case by case — get in touch and tell us where you are.',
-      fr: 'Montréal, Laval et la Rive-Nord. Nous acceptons des projets ailleurs au Québec au cas par cas — écrivez-nous en précisant votre secteur.',
+      en: 'Montreal, Laval, the North Shore and the South Shore. We take projects elsewhere in Quebec case by case — get in touch and tell us where you are.',
+      fr: 'Montréal, Laval, la Rive-Nord et la Rive-Sud. Nous acceptons des projets ailleurs au Québec au cas par cas — écrivez-nous en précisant votre secteur.',
     },
   },
 ];

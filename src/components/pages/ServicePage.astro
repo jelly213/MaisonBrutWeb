@@ -26,7 +26,7 @@ const others = services.filter((item) => item.id !== service.id);
 
 <BaseLayout
   lang={lang}
-  title={`${name} — Maison Brut, ${lang === 'fr' ? 'Montréal' : 'Montreal'}`}
+  title={`${name} — Maison Brüt, ${lang === 'fr' ? 'Montréal' : 'Montreal'}`}
   description={pick(service.short, lang)}
   altPath={serviceRoute(service, otherLang(lang))}
 >

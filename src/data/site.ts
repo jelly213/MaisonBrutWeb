@@ -1,7 +1,7 @@
 import type { Localized } from '../i18n/config';
 
 export const site = {
-  name: 'Maison Brut',
+  name: 'Maison Brüt',
   email: 'info.maisonbrut@gmail.com',
   // TODO: confirm with the client before launch.
   phone: '',
@@ -9,7 +9,7 @@ export const site = {
   instagram: 'https://www.instagram.com/maisonbrut_',
 
   /** Used for LocalBusiness structured data and local SEO. */
-  areaServed: ['Montreal', 'Laval', 'Rive-Nord', 'Greater Montreal'],
+  areaServed: ['Montreal', 'Laval', 'Rive-Nord', 'Rive-Sud', 'Greater Montreal'],
   address: {
     locality: 'Montreal',
     region: 'QC',
