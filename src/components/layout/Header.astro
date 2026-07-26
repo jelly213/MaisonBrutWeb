@@ -71,7 +71,7 @@ const current = Astro.url.pathname.replace(/\/$/, '');
       aria-controls="mobile-menu"
       class="eyebrow relative z-10 lg:hidden"
     >
-      <span data-menu-label data-close={t('nav.close')}>{t('nav.menu')}</span>
+      <span data-menu-label data-open={t('nav.menu')} data-close={t('nav.close')}>{t('nav.menu')}</span>
     </button>
   </div>
 
@@ -113,17 +113,18 @@ const current = Astro.url.pathname.replace(/\/$/, '');
     const panel = document.querySelector<HTMLElement>('[data-menu-panel]');
     const label = document.querySelector<HTMLElement>('[data-menu-label]');
     if (!header || !toggle || !panel || !label) return;
-
-    const overHero = header.dataset.overHero === 'true';
-    const openText = label.textContent ?? 'Menu';
-    const closeText = label.dataset.close ?? 'Close';
+    // View transitions re-run this on every navigation; without this guard
+    // the header persists across pages and each run stacks another set of
+    // listeners on it, so the toggle ends up fighting itself.
+    if (toggle.dataset.ready === 'true') return;
+    toggle.dataset.ready = 'true';
 
     // Solid background once the hero is behind us.
     const onScroll = () => {
       const scrolled = window.scrollY > 40;
       header.classList.toggle('bg-bone/90', scrolled);
       header.classList.toggle('backdrop-blur-sm', scrolled);
-      if (overHero) {
+      if (header.dataset.overHero === 'true') {
         header.classList.toggle('text-ink', scrolled);
         header.classList.toggle('text-bone', !scrolled);
       }
@@ -138,7 +139,7 @@ const current = Astro.url.pathname.replace(/\/$/, '');
       menuOpen = open;
       panel.hidden = !open;
       toggle.setAttribute('aria-expanded', String(open));
-      label.textContent = open ? closeText : openText;
+      label.textContent = open ? label.dataset.close ?? 'Close' : label.dataset.open ?? 'Menu';
       document.body.style.overflow = open ? 'hidden' : '';
       // The panel covers the header, so the trigger has to stay legible.
       header.classList.toggle('text-bone', open);
