@@ -1,13 +1,14 @@
 export const languages = {
   en: 'English',
   fr: 'Français',
+  es: 'Español',
 } as const;
 
 export type Lang = keyof typeof languages;
 
 export const defaultLang: Lang = 'en';
 
-/** A value that exists in both site languages. */
+/** A value that exists in every site language. */
 export type Localized<T = string> = Record<Lang, T>;
 
 /** Pick the current language out of a localized value, falling back to English. */
@@ -22,13 +23,15 @@ export function pick<T>(value: Localized<T>, lang: Lang): T {
 export function localePath(path: string, lang: Lang): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
   if (lang === defaultLang) return clean === '/' ? '/' : clean;
-  return clean === '/' ? '/fr/' : `/fr${clean}`;
+  return clean === '/' ? `/${lang}/` : `/${lang}${clean}`;
 }
 
 /** Read the active language from an Astro URL. */
 export function langFromUrl(url: URL): Lang {
   const [, first] = url.pathname.split('/');
-  return first === 'fr' ? 'fr' : 'en';
+  return first in languages && first !== defaultLang ? (first as Lang) : defaultLang;
 }
 
-export const otherLang = (lang: Lang): Lang => (lang === 'en' ? 'fr' : 'en');
+/** Every language other than the given one, in display order. */
+export const otherLangs = (lang: Lang): Lang[] =>
+  (Object.keys(languages) as Lang[]).filter((key) => key !== lang);

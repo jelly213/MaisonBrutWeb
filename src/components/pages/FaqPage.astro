@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../../i18n/config';
-import { otherLang, pick } from '../../i18n/config';
+import { otherLangs, pick } from '../../i18n/config';
 import { useTranslations } from '../../i18n/ui';
 import { route } from '../../i18n/routes';
 import { faq } from '../../data/faq';
@@ -23,13 +23,15 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: pick(item.answer, lang) },
   })),
 };
+
+const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('faq', l) }));
 ---
 
 <BaseLayout
   lang={lang}
   title={`${t('faq.title')} — Maison Brüt`}
   description={t('meta.faq.description')}
-  altPath={route('faq', otherLang(lang))}
+  altPaths={altPaths}
 >
   <script is:inline set:html={JSON.stringify(faqSchema)} type="application/ld+json" slot="head" />
 

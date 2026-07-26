@@ -129,7 +129,6 @@ export const ui = {
     'footer.nav': 'Navigation',
     'footer.contact': 'Contact',
     'footer.rights': 'All rights reserved.',
-    'footer.lang': 'Français',
 
     'meta.home.title': 'Maison Brüt — Microcement & Venetian Plaster, Montreal',
     'meta.home.description':
@@ -264,7 +263,6 @@ export const ui = {
     'footer.nav': 'Navigation',
     'footer.contact': 'Contact',
     'footer.rights': 'Tous droits réservés.',
-    'footer.lang': 'English',
 
     'meta.home.title': 'Maison Brüt — Béton ciré et stuc vénitien, Montréal',
     'meta.home.description':
@@ -273,6 +271,140 @@ export const ui = {
     'meta.studio.description': "Découvrez l'atelier Maison Brüt — des finitions minérales appliquées à la main à Montréal.",
     'meta.faq.description': 'Durabilité, entretien, délais et préparation — les réponses aux questions les plus fréquentes.',
     'meta.contact.description': 'Demandez une soumission pour du béton ciré, du stuc vénitien, un badigeon de chaux ou du mobilier sur mesure à Montréal et Laval.',
+  },
+
+  es: {
+    'nav.services': 'Servicios',
+    'nav.work': 'Proyectos',
+    'nav.studio': 'Estudio',
+    'nav.faq': 'Preguntas',
+    'nav.contact': 'Contacto',
+    'nav.menu': 'Menú',
+    'nav.close': 'Cerrar',
+    'nav.skip': 'Ir al contenido',
+
+    'cta.quote': 'Solicitar cotización',
+    'cta.viewAll': 'Ver todos los proyectos',
+    'cta.discover': 'Descubrir',
+    'cta.back': 'Volver',
+
+    'home.heroTitle': 'Superficies que respiran.',
+    'home.heroSub': 'Microcemento, estuco veneciano y encalado, aplicados a mano en Montreal y Laval.',
+    'home.introEyebrow': 'El estudio',
+    'home.intro':
+      'Terminamos muros, pisos y mobiliario a la manera lenta: materiales minerales, colocados a mano, capa sobre capa. Ninguna superficie sale igual a otra, y ese es el punto.',
+    'home.servicesEyebrow': 'Servicios',
+    'home.servicesTitle': 'Cuatro maneras de transformar una habitación.',
+    'home.servicesLead':
+      'Descubre nuestra gama de soluciones expertas, pensadas para realzar tu espacio con estilo y funcionalidad.',
+    'home.workEyebrow': 'Selección',
+    'home.workTitle': 'Proyectos recientes.',
+    'home.workHint': 'Desliza para explorar',
+    'home.reelsEyebrow': 'En movimiento',
+    'home.reelsTitle': 'Mira el acabado en vivo.',
+    'home.reelsLead':
+      'Clips cortos de obras recientes — la luz recorriendo una superficie dice más que cualquier fotografía.',
+    'reel.sound': 'Activar sonido',
+    'reel.muted': 'Silenciar',
+    'reel.play': 'Reproducir',
+    'reel.pause': 'Pausar',
+
+    'partners.eyebrow': 'Colaboradores',
+    'partners.title': 'Con quién construimos.',
+    'partners.lead':
+      'Contratistas, diseñadores y proveedores con quienes compartimos obra — quienes ven el trabajo de cerca.',
+
+    'home.matterEyebrow': 'Material',
+    'home.matterTitle': 'Mira más de cerca.',
+    'home.matterText': 'Una profundidad que se percibe desde el otro lado de la habitación, y una textura que solo se entiende de cerca.',
+    'home.processEyebrow': 'Cómo funciona',
+    'home.processTitle': 'Tres pasos, ninguna sorpresa.',
+    'home.finalTitle': 'Hablemos de tu espacio.',
+    'home.finalText': 'Cuéntanos qué tienes en mente. Respondemos cada solicitud dentro de dos días hábiles.',
+
+    'process.1.title': 'Consulta',
+    'process.1.text': 'Visitamos el espacio, tomamos medidas y conversamos sobre el resultado que buscas.',
+    'process.2.title': 'Muestra',
+    'process.2.text': 'Preparamos muestras físicas con tu luz, en tu muro, hasta dar con el acabado correcto.',
+    'process.3.title': 'Aplicación',
+    'process.3.text': 'Nuestro equipo prepara, aplica y sella — obra limpia, calendario acordado, sin atajos.',
+
+    'work.title': 'Proyectos',
+    'work.lead': 'Una selección de acabados y mobiliario entregados en todo el Gran Montreal.',
+    'work.all': 'Todos',
+    'work.empty': 'Aún no hay proyectos en esta categoría.',
+    'work.close': 'Cerrar imagen',
+    'work.prev': 'Imagen anterior',
+    'work.next': 'Imagen siguiente',
+
+    'trust.eyebrow': 'Trabajar con nosotros',
+    'trust.title': 'Sin sorpresas, por diseño.',
+    'trust.lead':
+      'Un acabado es un compromiso con el que convives todos los días durante años. Así nos aseguramos de que sepas exactamente qué esperar antes de empezar.',
+    'trust.1.title': 'Una muestra antes de comprometerte',
+    'trust.1.text':
+      'Preparamos el acabado en tu propio muro, con tu propia luz. Apruebas lo real — no una foto de la sala de alguien más.',
+    'trust.2.title': 'El calendario por escrito',
+    'trust.2.text':
+      'Fecha de inicio, días de trabajo, tiempo de curado y el día en que recuperas la habitación — acordado antes de la primera capa.',
+    'trust.3.title': 'Una obra que queda limpia',
+    'trust.3.text':
+      'El enmascarado, el control de polvo y la protección son parte del trabajo, no un extra. Trabajamos en hogares donde la gente sigue viviendo.',
+    'trust.4.title': 'Una respuesta en dos días hábiles',
+    'trust.4.text':
+      'Toda solicitud recibe respuesta, sea o no el proyecto adecuado para nosotros.',
+
+    'services.title': 'Servicios',
+    'services.uses': 'Dónde funciona',
+    'services.why': 'Por qué elegirlo',
+    'services.related': 'Proyectos relacionados',
+    'services.other': 'Otros servicios',
+
+    'studio.title': 'El estudio',
+    'faq.title': 'Preguntas frecuentes',
+    'faq.lead': 'Lo que más nos preguntan los clientes, antes de la primera visita.',
+
+    'contact.title': 'Solicitar cotización',
+    'contact.lead':
+      'Cuéntanos sobre tu proyecto — la habitación, la superficie, el ambiente que buscas. Respondemos dentro de dos días hábiles.',
+    'contact.serving': 'Atendemos Montreal, Laval, la Rive-Nord y la Rive-Sud',
+    'contact.email': 'Correo',
+    'contact.instagram': 'Instagram',
+
+    'form.name': 'Nombre',
+    'form.email': 'Correo',
+    'form.phone': 'Teléfono',
+    'form.service': 'Servicio',
+    'form.servicePlaceholder': 'Selecciona un servicio',
+    'form.serviceOther': 'Aún no lo sé',
+    'form.location': 'Ubicación del proyecto',
+    'form.locationPlaceholder': 'Montreal, Laval, …',
+    'form.area': 'Superficie aproximada',
+    'form.areaPlaceholder': 'ej. 200 pies²',
+    'form.message': 'Tu proyecto',
+    'form.messagePlaceholder': 'Habitación, superficie, plazos, cualquier otro detalle útil.',
+    'form.submit': 'Enviar solicitud',
+    'form.sending': 'Enviando…',
+    'form.successTitle': 'Tu aplicación de correo se está abriendo.',
+    'form.successText':
+      'Tu mensaje ya está redactado y listo — presiona enviar en tu aplicación de correo para transmitirlo.',
+    'form.errorTitle': '¿No se abrió nada?',
+    'form.errorText': 'Escríbenos directamente a',
+    'form.required': 'Obligatorio',
+    'form.invalidEmail': 'Ingresa una dirección de correo válida.',
+
+    'footer.tagline': 'Acabados minerales hechos a mano y mobiliario a medida.',
+    'footer.nav': 'Navegación',
+    'footer.contact': 'Contacto',
+    'footer.rights': 'Todos los derechos reservados.',
+
+    'meta.home.title': 'Maison Brüt — Microcemento y estuco veneciano, Montreal',
+    'meta.home.description':
+      'Microcemento, estuco veneciano, encalado y mobiliario a medida, hechos a mano, para residencias y comercios en Montreal y Laval.',
+    'meta.work.description': 'Proyectos seleccionados de microcemento, estuco veneciano y encalado en todo el Gran Montreal.',
+    'meta.studio.description': 'Conoce el estudio detrás de Maison Brüt — acabados minerales aplicados a mano en Montreal.',
+    'meta.faq.description': 'Durabilidad, mantenimiento, plazos y preparación — respuestas a las preguntas que más recibimos.',
+    'meta.contact.description': 'Solicita una cotización de microcemento, estuco veneciano, encalado o mobiliario a medida en Montreal y Laval.',
   },
 } as const;
 

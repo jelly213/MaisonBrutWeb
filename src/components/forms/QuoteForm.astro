@@ -120,7 +120,11 @@ const labels = {
       errorText: t('form.errorText'),
       required: t('form.required'),
       invalidEmail: t('form.invalidEmail'),
-      subject: lang === 'fr' ? 'Demande de soumission — Maison Brüt' : 'Quote request — Maison Brüt',
+      subject: {
+        en: 'Quote request — Maison Brüt',
+        fr: 'Demande de soumission — Maison Brüt',
+        es: 'Solicitud de cotización — Maison Brüt',
+      }[lang],
       email: site.email,
       labels,
     },

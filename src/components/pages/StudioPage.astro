@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../../i18n/config';
-import { otherLang, pick } from '../../i18n/config';
+import { otherLangs, pick } from '../../i18n/config';
 import { useTranslations } from '../../i18n/ui';
 import { route } from '../../i18n/routes';
 import { studio } from '../../data/studio';
@@ -13,13 +13,14 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('studio', l) }));
 ---
 
 <BaseLayout
   lang={lang}
   title={`${t('studio.title')} — Maison Brüt`}
   description={t('meta.studio.description')}
-  altPath={route('studio', otherLang(lang))}
+  altPaths={altPaths}
 >
   <section class="mx-auto max-w-[1800px] px-6 pb-16 pt-36 md:px-10 md:pb-24 md:pt-48">
     <p class="eyebrow text-stone">{t('studio.title')}</p>

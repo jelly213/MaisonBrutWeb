@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../../i18n/config';
-import { otherLang } from '../../i18n/config';
+import { otherLangs } from '../../i18n/config';
 import { useTranslations } from '../../i18n/ui';
 import { route } from '../../i18n/routes';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -21,13 +21,14 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('home', l) }));
 ---
 
 <BaseLayout
   lang={lang}
   title={t('meta.home.title')}
   description={t('meta.home.description')}
-  altPath={route('home', otherLang(lang))}
+  altPaths={altPaths}
   overHero
 >
   <Hero lang={lang} />

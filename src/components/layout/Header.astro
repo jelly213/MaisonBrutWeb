@@ -1,20 +1,19 @@
 ---
 import type { Lang } from '../../i18n/config';
-import { otherLang } from '../../i18n/config';
+import { languages } from '../../i18n/config';
 import { useTranslations, type UIKey } from '../../i18n/ui';
 import { navigation, route } from '../../i18n/routes';
 
 interface Props {
   lang: Lang;
-  /** Same page in the other language. */
-  altPath: string;
+  /** Same page in every other language. */
+  altPaths: { lang: Lang; path: string }[];
   /** Over a full-bleed hero the header starts light and inverts on scroll. */
   overHero?: boolean;
 }
 
-const { lang, altPath, overHero = false } = Astro.props;
+const { lang, altPaths, overHero = false } = Astro.props;
 const t = useTranslations(lang);
-const other = otherLang(lang);
 const current = Astro.url.pathname.replace(/\/$/, '');
 ---
 
@@ -51,9 +50,18 @@ const current = Astro.url.pathname.replace(/\/$/, '');
           );
         })
       }
-      <a href={altPath} hreflang={other} class="eyebrow opacity-60 transition-opacity hover:opacity-100">
-        {t('footer.lang')}
-      </a>
+      <span class="flex items-center gap-3">
+        {
+          altPaths.map((alt, index) => (
+            <>
+              {index > 0 && <span class="opacity-30" aria-hidden="true">·</span>}
+              <a href={alt.path} hreflang={alt.lang} class="eyebrow opacity-60 transition-opacity hover:opacity-100">
+                {languages[alt.lang]}
+              </a>
+            </>
+          ))
+        }
+      </span>
     </nav>
 
     <button
@@ -83,7 +91,18 @@ const current = Astro.url.pathname.replace(/\/$/, '');
         ))
       }
     </nav>
-    <a href={altPath} hreflang={other} class="eyebrow opacity-70">{t('footer.lang')}</a>
+    <span class="flex items-center gap-3">
+      {
+        altPaths.map((alt, index) => (
+          <>
+            {index > 0 && <span class="opacity-30" aria-hidden="true">·</span>}
+            <a href={alt.path} hreflang={alt.lang} class="eyebrow opacity-70">
+              {languages[alt.lang]}
+            </a>
+          </>
+        ))
+      }
+    </span>
   </div>
 </header>
 

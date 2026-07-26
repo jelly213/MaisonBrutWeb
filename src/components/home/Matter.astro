@@ -28,9 +28,13 @@ const t = useTranslations(lang);
       */}
       <Photo
         src="/src/assets/home/plaster-archway.jpg"
-        alt={lang === 'fr'
-          ? "Arche en plâtre minéral ouvrant sur une salle à manger, plafond et murs en finition continue"
-          : 'Mineral plaster archway opening onto a dining room, walls and ceiling in a seamless finish'}
+        alt={
+          {
+            en: 'Mineral plaster archway opening onto a dining room, walls and ceiling in a seamless finish',
+            fr: 'Arche en plâtre minéral ouvrant sur une salle à manger, plafond et murs en finition continue',
+            es: 'Arco de estuco mineral que abre a un comedor, paredes y techo en un acabado continuo',
+          }[lang]
+        }
         ratio="aspect-[4/5] sm:aspect-[3/2] lg:aspect-[16/9]"
         sizes="100vw"
         focus="object-[center_34%]"

@@ -20,9 +20,13 @@ const t = useTranslations(lang);
   <div class="absolute inset-0" data-hero-image>
     <Photo
       src="/src/assets/home/hero-arch-wide.jpg"
-      alt={lang === 'fr'
-        ? 'Alcôve voûtée en enduit minéral, éclairée en corniche, avec banquette basse et bougies'
-        : 'Arched alcove in mineral plaster, lit from a cove, with a low bench seat and candles'}
+      alt={
+        {
+          en: 'Arched alcove in mineral plaster, lit from a cove, with a low bench seat and candles',
+          fr: 'Alcôve voûtée en enduit minéral, éclairée en corniche, avec banquette basse et bougies',
+          es: 'Nicho abovedado en estuco mineral, iluminado desde una moldura, con un banco bajo y velas',
+        }[lang]
+      }
       ratio="h-full"
       class="h-full w-full"
       sizes="100vw"
