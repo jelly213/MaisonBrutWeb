@@ -12,9 +12,9 @@ export default defineConfig({
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr'],
+    locales: ['en', 'fr', 'es'],
     routing: {
-      // English lives at "/", French at "/fr/".
+      // English lives at "/", French at "/fr/", Spanish at "/es/".
       prefixDefaultLocale: false,
     },
   },

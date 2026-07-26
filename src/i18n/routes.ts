@@ -6,12 +6,12 @@ import type { Service } from '../data/services';
  * pages compete properly in French search results.
  */
 export const routes = {
-  home: { en: '/', fr: '/fr/' },
-  services: { en: '/services', fr: '/fr/services' },
-  work: { en: '/work', fr: '/fr/realisations' },
-  studio: { en: '/studio', fr: '/fr/atelier' },
-  faq: { en: '/faq', fr: '/fr/faq' },
-  contact: { en: '/contact', fr: '/fr/contact' },
+  home: { en: '/', fr: '/fr/', es: '/es/' },
+  services: { en: '/services', fr: '/fr/services', es: '/es/servicios' },
+  work: { en: '/work', fr: '/fr/realisations', es: '/es/proyectos' },
+  studio: { en: '/studio', fr: '/fr/atelier', es: '/es/estudio' },
+  faq: { en: '/faq', fr: '/fr/faq', es: '/es/preguntas-frecuentes' },
+  contact: { en: '/contact', fr: '/fr/contact', es: '/es/contacto' },
 } satisfies Record<string, Localized>;
 
 export type RouteKey = keyof typeof routes;

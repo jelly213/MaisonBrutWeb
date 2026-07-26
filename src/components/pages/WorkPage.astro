@@ -1,7 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 import type { Lang } from '../../i18n/config';
-import { otherLang, pick } from '../../i18n/config';
+import { otherLangs, pick } from '../../i18n/config';
 import { useTranslations } from '../../i18n/ui';
 import { route } from '../../i18n/routes';
 import { projects } from '../../data/projects';
@@ -40,13 +40,15 @@ const lightboxData = await Promise.all(
     };
   }),
 );
+
+const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('work', l) }));
 ---
 
 <BaseLayout
   lang={lang}
   title={`${t('work.title')} — Maison Brüt`}
   description={t('meta.work.description')}
-  altPath={route('work', otherLang(lang))}
+  altPaths={altPaths}
 >
   <section class="mx-auto max-w-[1800px] px-6 pb-16 pt-36 md:px-10 md:pb-20 md:pt-48">
     <p class="eyebrow text-stone">{t('work.title')}</p>

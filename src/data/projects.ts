@@ -23,34 +23,37 @@ export const projects: Project[] = [
   // --- Real client photos. Location and year still to be confirmed. ---
   {
     id: 'stone-wall-bench',
-    title: { en: 'Floating bench, stone wall', fr: 'Banc suspendu, mur de pierre' },
+    title: { en: 'Floating bench, stone wall', fr: 'Banc suspendu, mur de pierre', es: 'Banco flotante, muro de piedra' },
     service: 'furniture',
     image: '/src/assets/work/stone-wall-bench.jpg',
     alt: {
       en: 'Custom floating bench in microcement running along a reclaimed stone wall.',
       fr: 'Banc suspendu sur mesure en béton ciré longeant un mur de pierre récupérée.',
+      es: 'Banco flotante a medida en microcemento a lo largo de un muro de piedra recuperada.',
     },
     featured: true,
   },
   {
     id: 'microcement-kitchen',
-    title: { en: 'Microcement kitchen', fr: 'Cuisine en béton ciré' },
+    title: { en: 'Microcement kitchen', fr: 'Cuisine en béton ciré', es: 'Cocina en microcemento' },
     service: 'microcement',
     image: '/src/assets/work/microcement-kitchen.jpg',
     alt: {
       en: 'Kitchen with a seamless microcement floor and walls, oak cabinetry and a stone island.',
       fr: 'Cuisine au sol et aux murs en béton ciré continu, armoires en chêne et îlot en pierre.',
+      es: 'Cocina con piso y paredes en microcemento continuo, gabinetes de roble e isla de piedra.',
     },
     featured: true,
   },
   {
     id: 'sculpted-stairwell',
-    title: { en: 'Sculpted stairwell', fr: "Cage d'escalier sculptée" },
+    title: { en: 'Sculpted stairwell', fr: "Cage d'escalier sculptée", es: 'Escalera esculpida' },
     service: 'microcement',
     image: '/src/assets/work/sculpted-stairwell.jpg',
     alt: {
       en: 'Stairwell wrapped in seamless microcement, with a rounded sculpted handrail.',
       fr: "Cage d'escalier enveloppée de béton ciré continu, avec main courante arrondie sculptée.",
+      es: 'Caja de escalera revestida en microcemento continuo, con pasamanos redondeado y esculpido.',
     },
     featured: true,
   },

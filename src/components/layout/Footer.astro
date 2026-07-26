@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../../i18n/config';
-import { otherLang, pick } from '../../i18n/config';
+import { languages, pick } from '../../i18n/config';
 import { useTranslations, type UIKey } from '../../i18n/ui';
 import { navigation, route, serviceRoute } from '../../i18n/routes';
 import { services } from '../../data/services';
@@ -8,12 +8,11 @@ import { site, tagline } from '../../data/site';
 
 interface Props {
   lang: Lang;
-  altPath: string;
+  altPaths: { lang: Lang; path: string }[];
 }
 
-const { lang, altPath } = Astro.props;
+const { lang, altPaths } = Astro.props;
 const t = useTranslations(lang);
-const other = otherLang(lang);
 const year = new Date().getFullYear();
 ---
 
@@ -71,9 +70,18 @@ const year = new Date().getFullYear();
 
     <div class="mt-20 flex flex-col gap-4 border-t border-bone/15 pt-8 text-xs text-bone/45 sm:flex-row sm:items-center sm:justify-between">
       <p>© {year} Maison Brüt. {t('footer.rights')}</p>
-      <a href={altPath} hreflang={other} class="eyebrow text-bone/60 transition-opacity hover:opacity-100">
-        {t('footer.lang')}
-      </a>
+      <span class="flex items-center gap-3">
+        {
+          altPaths.map((alt, index) => (
+            <>
+              {index > 0 && <span class="text-bone/30" aria-hidden="true">·</span>}
+              <a href={alt.path} hreflang={alt.lang} class="eyebrow text-bone/60 transition-opacity hover:opacity-100">
+                {languages[alt.lang]}
+              </a>
+            </>
+          ))
+        }
+      </span>
     </div>
   </div>
 </footer>

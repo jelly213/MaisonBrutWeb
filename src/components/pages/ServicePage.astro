@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../../i18n/config';
-import { otherLang, pick } from '../../i18n/config';
+import { otherLangs, pick } from '../../i18n/config';
 import { useTranslations } from '../../i18n/ui';
 import { serviceRoute, route } from '../../i18n/routes';
 import { services, type Service } from '../../data/services';
@@ -22,13 +22,14 @@ const t = useTranslations(lang);
 const name = pick(service.name, lang);
 const related = projectsByService(service.id).slice(0, 3);
 const others = services.filter((item) => item.id !== service.id);
+const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: serviceRoute(service, l) }));
 ---
 
 <BaseLayout
   lang={lang}
   title={`${name} — Maison Brüt, ${lang === 'fr' ? 'Montréal' : 'Montreal'}`}
   description={pick(service.short, lang)}
-  altPath={serviceRoute(service, otherLang(lang))}
+  altPaths={altPaths}
 >
   <article>
     <header class="mx-auto max-w-[1800px] px-6 pb-16 pt-36 md:px-10 md:pb-24 md:pt-48">

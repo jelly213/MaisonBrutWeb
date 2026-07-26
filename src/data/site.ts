@@ -21,4 +21,5 @@ export const site = {
 export const tagline: Localized = {
   en: 'Handmade mineral finishes and bespoke furniture — Montreal & Laval.',
   fr: 'Finitions minérales faites main et mobilier sur mesure — Montréal et Laval.',
+  es: 'Acabados minerales hechos a mano y mobiliario a medida — Montreal y Laval.',
 };

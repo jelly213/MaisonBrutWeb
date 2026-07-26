@@ -20,11 +20,12 @@ export interface Service {
 export const services: Service[] = [
   {
     id: 'microcement',
-    slug: { en: 'microcement', fr: 'beton-cire' },
-    name: { en: 'Microcement', fr: 'Béton ciré' },
+    slug: { en: 'microcement', fr: 'beton-cire', es: 'microcemento' },
+    name: { en: 'Microcement', fr: 'Béton ciré', es: 'Microcemento' },
     short: {
       en: 'A seamless, modern surface finish that delivers a sleek, minimalist look with texture. Perfect for bathrooms and floors.',
       fr: "Une finition continue et contemporaine, sans joint, au rendu minimaliste et texturé. Idéale pour les salles de bain et les sols.",
+      es: 'Un revestimiento continuo y contemporáneo, sin juntas, de aspecto minimalista y texturado. Ideal para baños y pisos.',
     },
     body: {
       en: [
@@ -37,10 +38,16 @@ export const services: Service[] = [
         "Parce qu'il est taloché à la main, le rendu conserve un léger mouvement : nuages, traces de truelle discrètes, une profondeur qu'aucune surface imprimée ne reproduit. Nous le scellons avec un polyuréthane mat qui le rend imperméable et résistant.",
         "C'est la finition que nous recommandons le plus souvent pour les salles de bain, les murs de douche et les aires ouvertes, là où un joint viendrait rompre le calme de l'espace.",
       ],
+      es: [
+        'El microcemento es un revestimiento fino a base de cemento, aplicado en capas sucesivas sobre casi cualquier soporte sano — cerámica, hormigón, yeso o contrachapado. Con un espesor de dos a tres milímetros, convierte una habitación en una superficie continua, sin juntas que corten la vista ni acumulen suciedad.',
+        'Al aplicarse a mano con llana, el acabado conserva un movimiento sutil: veladuras, ligeras marcas de llana, una profundidad que ninguna superficie impresa puede imitar. Lo sellamos con un poliuretano mate que lo vuelve impermeable y resistente.',
+        'Es el acabado que más recomendamos para baños, paredes de ducha y espacios abiertos, donde una junta rompería la calma del lugar.',
+      ],
     },
     uses: {
       en: ['Bathrooms and showers', 'Floors and stairs', 'Kitchen backsplashes', 'Countertops and vanities', 'Commercial retail spaces'],
       fr: ['Salles de bain et douches', 'Sols et escaliers', 'Dosserets de cuisine', 'Comptoirs et vanités', 'Espaces commerciaux'],
+      es: ['Baños y duchas', 'Pisos y escaleras', 'Salpicaderos de cocina', 'Encimeras y tocadores', 'Espacios comerciales'],
     },
     why: {
       en: [
@@ -55,17 +62,24 @@ export const services: Service[] = [
         'Imperméable une fois scellé, adapté aux pièces humides',
         "N'ajoute que 2 à 3 mm : la hauteur des portes reste intacte",
       ],
+      es: [
+        'Sin juntas que restregar ni rehacer',
+        'Se aplica sobre la cerámica existente — sin demolición ni polvo',
+        'Impermeable una vez sellado, apto para zonas húmedas',
+        'Solo añade 2–3 mm, así que la altura de las puertas no cambia',
+      ],
     },
     image: '/src/assets/services/microcement.jpg',
   },
 
   {
     id: 'venetian-plaster',
-    slug: { en: 'venetian-plaster', fr: 'stuc-venitien' },
-    name: { en: 'Venetian Plaster', fr: 'Stuc vénitien' },
+    slug: { en: 'venetian-plaster', fr: 'stuc-venitien', es: 'estuco-veneciano' },
+    name: { en: 'Venetian Plaster', fr: 'Stuc vénitien', es: 'Estuco veneciano' },
     short: {
       en: 'A lime-based product that offers a luxurious wall finish with natural depth and texture.',
       fr: "Un enduit à la chaux qui offre une finition murale luxueuse, avec une profondeur et une texture naturelles.",
+      es: 'Un revestimiento a base de cal que ofrece un acabado mural lujoso, con una profundidad y una textura naturales.',
     },
     body: {
       en: [
@@ -78,10 +92,16 @@ export const services: Service[] = [
         "Selon le degré de lustrage, la finition va du satin doux au poli miroir. Le pigment est mélangé à la chaux elle-même plutôt qu'appliqué par-dessus : la couleur gagne en profondeur au lieu de rester en surface.",
         "Sa place est dans les pièces que l'on veut faire remarquer : entrées, salles à manger, murs d'accent, halls d'hôtel.",
       ],
+      es: [
+        'El estuco veneciano es cal apagada y mármol finamente molido, bruñidos capa tras capa hasta que la pared adquiere el aspecto de la piedra pulida. La técnica tiene siglos de antigüedad y nunca se ha superado, porque nada más produce esa luz particular.',
+        'Según el grado de bruñido, el acabado va de un satinado suave a un pulido similar a un espejo. El pigmento se mezcla en la propia cal en lugar de pintarse encima, así que el color gana profundidad en vez de quedar plano sobre la superficie.',
+        'Tiene su lugar en las habitaciones que quieres que se noten: entradas, comedores, muros de acento, vestíbulos de hotel.',
+      ],
     },
     uses: {
       en: ['Feature and accent walls', 'Entryways and stairwells', 'Dining and living rooms', 'Ceilings and coves', 'Hospitality interiors'],
       fr: ["Murs d'accent", 'Entrées et cages d\'escalier', 'Salles à manger et salons', 'Plafonds et corniches', 'Intérieurs hôteliers'],
+      es: ['Muros de acento', 'Entradas y cajas de escalera', 'Comedores y salas', 'Techos y molduras', 'Interiores de hostelería'],
     },
     why: {
       en: [
@@ -96,17 +116,24 @@ export const services: Service[] = [
         "Perspirant : il laisse les murs évacuer l'humidité",
         'Il durcit avec le temps au lieu de se dégrader',
       ],
+      es: [
+        'Profundidad mineral auténtica — el color vive dentro del material',
+        'Naturalmente antibacteriano y resistente al moho',
+        'Transpirable: permite que los muros liberen la humedad',
+        'Se endurece con el tiempo en lugar de degradarse',
+      ],
     },
     image: '/src/assets/services/venetian-plaster.jpg',
   },
 
   {
     id: 'limewash',
-    slug: { en: 'limewash', fr: 'badigeon-de-chaux' },
-    name: { en: 'Limewash', fr: 'Badigeon de chaux' },
+    slug: { en: 'limewash', fr: 'badigeon-de-chaux', es: 'encalado' },
+    name: { en: 'Limewash', fr: 'Badigeon de chaux', es: 'Encalado' },
     short: {
       en: 'A natural, breathable paint that creates a soft, matte finish with subtle movement. It adds warmth and character to any space.',
       fr: "Une peinture naturelle et perspirante au fini mat et velouté, animé de nuances. Elle apporte chaleur et caractère à toute pièce.",
+      es: 'Una pintura natural y transpirable de acabado mate y aterciopelado, animada de matices. Aporta calidez y carácter a cualquier espacio.',
     },
     body: {
       en: [
@@ -119,10 +146,16 @@ export const services: Service[] = [
         "C'est un minéral, pas un film plastique. Il se lie chimiquement à la maçonnerie et au plâtre au lieu de reposer dessus, et il laisse le mur respirer — ce qui compte dans les bâtiments montréalais anciens, où l'humidité emprisonnée fait de réels dégâts.",
         "À choisir quand on cherche la chaleur et la patine plutôt que la perfection.",
       ],
+      es: [
+        'El encalado es el acabado mural más antiguo que ofrecemos, y el más simple: cal apagada, agua, pigmento mineral. Aplicado a brocha en trazos cruzados sueltos, seca en una superficie mate y calcárea que pasa de nublado a límpido según se mueve la luz en la habitación.',
+        'Es un mineral, no una película plástica. Se adhiere químicamente a la mampostería y al yeso en lugar de reposar encima, y deja que el muro respire — algo importante en los edificios antiguos de Montreal, donde la humedad atrapada causa daños reales.',
+        'Elígelo cuando busques calidez y pátina en lugar de perfección.',
+      ],
     },
     uses: {
       en: ['Bedrooms and living spaces', 'Brick and masonry walls', 'Heritage and older buildings', 'Ceilings', 'Restaurants and cafés'],
       fr: ['Chambres et pièces de vie', 'Murs de brique et de maçonnerie', 'Bâtiments patrimoniaux et anciens', 'Plafonds', 'Restaurants et cafés'],
+      es: ['Dormitorios y espacios de estar', 'Muros de ladrillo y mampostería', 'Edificios patrimoniales y antiguos', 'Techos', 'Restaurantes y cafés'],
     },
     why: {
       en: [
@@ -137,17 +170,24 @@ export const services: Service[] = [
         'Résiste naturellement aux moisissures',
         'Il patine avec le mur au lieu de s\'écailler',
       ],
+      es: [
+        'Totalmente transpirable — nada de humedad atrapada bajo una película',
+        'Cero COV: solo cal, agua y pigmento',
+        'Resiste naturalmente el moho y los hongos',
+        'Envejece junto con el muro en lugar de descascararse',
+      ],
     },
     image: '/src/assets/services/limewash.jpg',
   },
 
   {
     id: 'furniture',
-    slug: { en: 'custom-made-furniture', fr: 'mobilier-sur-mesure' },
-    name: { en: 'Custom-Made Furniture', fr: 'Mobilier sur mesure' },
+    slug: { en: 'custom-made-furniture', fr: 'mobilier-sur-mesure', es: 'mobiliario-a-medida' },
+    name: { en: 'Custom-Made Furniture', fr: 'Mobilier sur mesure', es: 'Mobiliario a medida' },
     short: {
       en: 'We design and build unique furniture on demand. Every item is handcrafted to match your space and personal style.',
       fr: "Nous concevons et fabriquons du mobilier unique sur demande. Chaque pièce est faite main, à la mesure de votre espace et de votre style.",
+      es: 'Diseñamos y fabricamos mobiliario único bajo pedido. Cada pieza está hecha a mano, a la medida de tu espacio y tu estilo.',
     },
     body: {
       en: [
@@ -160,10 +200,16 @@ export const services: Service[] = [
         "Le travail commence par la pièce, pas par l'objet : nous mesurons, esquissons et arrêtons les matériaux avant la moindre découpe. Vous voyez le meuble en dessin et en échantillons avant qu'il soit construit.",
         "Parce que nous appliquons nous-mêmes les finitions, une vanité en béton ciré peut s'accorder exactement au sol sur lequel elle repose.",
       ],
+      es: [
+        'Algunas habitaciones tienen un rincón que ningún catálogo llenará jamás. Dibujamos, fabricamos y acabamos mobiliario para esos espacios — tocadores, bancos, consolas, mesas de comedor, estanterías — en madera maciza, acero y nuestros propios acabados minerales.',
+        'El proceso empieza por la habitación, no por el objeto: medimos, esbozamos y acordamos los materiales antes de cortar nada. Ves la pieza en dibujos y en muestras de material antes de que se construya.',
+        'Como aplicamos nosotros mismos los acabados, un tocador de microcemento puede combinar exactamente con el piso sobre el que se apoya.',
+      ],
     },
     uses: {
       en: ['Bathroom vanities', 'Dining and coffee tables', 'Built-in shelving', 'Benches and seating', 'Reception desks'],
       fr: ['Vanités de salle de bain', 'Tables à manger et tables basses', 'Étagères intégrées', 'Bancs et assises', 'Comptoirs d\'accueil'],
+      es: ['Tocadores de baño', 'Mesas de comedor y centro', 'Estanterías empotradas', 'Bancos y asientos', 'Mostradores de recepción'],
     },
     why: {
       en: [
@@ -177,6 +223,12 @@ export const services: Service[] = [
         "Des finitions accordées aux surfaces environnantes",
         'Des matériaux massifs, réparables plutôt que jetables',
         'Dessins et échantillons validés avant fabrication',
+      ],
+      es: [
+        'Fabricado a las dimensiones exactas de tu habitación',
+        'Acabados a juego con las superficies que lo rodean',
+        'Materiales macizos, reparables en vez de desechables',
+        'Dibujos y muestras aprobados antes de fabricar',
       ],
     },
     image: '/src/assets/services/furniture.jpg',
