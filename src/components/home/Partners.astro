@@ -28,24 +28,25 @@ const logos = await Promise.all(
 {/*
   Logos arrive in four different colours on four different backgrounds. Left
   alone they would fight the page and each other, so they are desaturated and
-  multiplied into the paper — white backgrounds disappear, marks stay. Colour
-  and full weight come back on hover, one logo at a time.
+  multiplied into a light card — multiply only reads against a light backdrop,
+  which is why each logo keeps its own bone-toned tile even though the section
+  itself runs dark. Colour and full weight come back on hover, one logo at a time.
 */}
-<section class="mx-auto max-w-[1800px] px-6 pb-28 md:px-10 md:pb-40">
-  <div class="border-t border-ink/15 pt-8">
+<section class="bg-ink text-bone">
+  <div class="mx-auto max-w-[1800px] px-6 py-20 md:px-10 md:py-28">
     <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="eyebrow text-stone" data-reveal="up">{t('partners.eyebrow')}</p>
+        <p class="eyebrow text-bone/60" data-reveal="up">{t('partners.eyebrow')}</p>
         <h2 class="display mt-5 max-w-[16ch] text-[clamp(2rem,5vw,4rem)]" data-lines>
           {t('partners.title')}
         </h2>
       </div>
-      <p class="max-w-[44ch] text-sm leading-relaxed text-stone md:text-right" data-reveal="up" data-reveal-delay="0.1">
+      <p class="max-w-[44ch] text-sm leading-relaxed text-bone/70 md:text-right" data-reveal="up" data-reveal-delay="0.1">
         {t('partners.lead')}
       </p>
     </div>
 
-    <ul class="mt-16 grid grid-cols-2 items-center gap-x-8 gap-y-10 md:grid-cols-4 md:gap-x-12">
+    <ul class="mt-16 grid grid-cols-2 items-center gap-x-6 gap-y-6 md:grid-cols-4 md:gap-x-8">
       {
         logos.map((partner, index) => (
           <li data-reveal="up" data-reveal-delay={(index * 0.07).toFixed(2)}>
@@ -54,13 +55,13 @@ const logos = await Promise.all(
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="partner-logo block"
+                class="partner-logo block rounded-2xl bg-bone p-6 md:p-8"
                 aria-label={partner.name}
               >
                 <img src={partner.src} alt={partner.name} loading="lazy" decoding="async" width="220" height="220" />
               </a>
             ) : (
-              <div class="partner-logo">
+              <div class="partner-logo rounded-2xl bg-bone p-6 md:p-8">
                 <img src={partner.src} alt={partner.name} loading="lazy" decoding="async" width="220" height="220" />
               </div>
             )}
@@ -74,7 +75,7 @@ const logos = await Promise.all(
 <style>
   .partner-logo img {
     width: 100%;
-    max-width: 13rem;
+    max-width: 100%;
     height: auto;
     margin-inline: auto;
     filter: grayscale(1) contrast(1.05);
