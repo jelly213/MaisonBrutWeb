@@ -44,7 +44,7 @@ const logos = await Promise.all(
       </p>
     </div>
 
-    <ul class="mt-16 grid grid-cols-2 items-center gap-x-6 gap-y-6 sm:grid-cols-3 md:gap-x-8">
+    <ul class="mt-16 grid grid-cols-3 items-center gap-x-4 gap-y-6 sm:grid-cols-6 md:gap-x-8">
       {
         logos.map((partner, index) => (
           <li data-reveal="up" data-reveal-delay={(index * 0.07).toFixed(2)}>
@@ -53,13 +53,13 @@ const logos = await Promise.all(
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="partner-logo mx-auto flex aspect-square w-20 items-center justify-center rounded-2xl bg-bone p-3 sm:w-24 md:w-28 md:p-4"
+                class="partner-logo mx-auto flex aspect-square w-full max-w-16 items-center justify-center rounded-2xl bg-bone p-3 sm:max-w-20 md:max-w-24 md:p-4"
                 aria-label={partner.name}
               >
                 <img src={partner.src} alt={partner.name} loading="lazy" decoding="async" width="220" height="220" />
               </a>
             ) : (
-              <div class="partner-logo mx-auto flex aspect-square w-20 items-center justify-center rounded-2xl bg-bone p-3 sm:w-24 md:w-28 md:p-4">
+              <div class="partner-logo mx-auto flex aspect-square w-full max-w-16 items-center justify-center rounded-2xl bg-bone p-3 sm:max-w-20 md:max-w-24 md:p-4">
                 <img src={partner.src} alt={partner.name} loading="lazy" decoding="async" width="220" height="220" />
               </div>
             )}
