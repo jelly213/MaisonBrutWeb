@@ -16,4 +16,5 @@ export const partners: Partner[] = [
   { name: 'Or Gueoula Construction', logo: '/src/assets/partners/or-gueoula.png' },
   { name: 'Playground', logo: '/src/assets/partners/playground.png' },
   { name: 'Aura Studio Thermal', logo: '/src/assets/partners/aura.png' },
+  { name: 'Venilux Québec', logo: '/src/assets/partners/venilux.png' },
 ];
