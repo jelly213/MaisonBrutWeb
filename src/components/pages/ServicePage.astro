@@ -32,7 +32,7 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: serviceRoute(serv
   altPaths={altPaths}
 >
   <article>
-    <header class="mx-auto max-w-[1800px] px-6 pb-16 pt-36 md:px-10 md:pb-24 md:pt-48">
+    <header class="mx-auto max-w-[1800px] px-6 pb-12 pt-36 md:px-10 md:pb-20 md:pt-48">
       <a href={route('services', lang)} class="eyebrow text-stone transition-opacity hover:opacity-60">
         &#8592; {t('services.title')}
       </a>
@@ -60,7 +60,7 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: serviceRoute(serv
       }
     </div>
 
-    <div class="mx-auto grid max-w-[1800px] gap-16 px-6 py-24 md:grid-cols-[1.3fr_1fr] md:gap-20 md:px-10 md:py-32">
+    <div class="mx-auto grid max-w-[1800px] gap-16 px-6 py-16 md:grid-cols-[1.3fr_1fr] md:gap-20 md:px-10 md:py-24">
       <div class="space-y-7">
         {
           pick(service.body, lang).map((paragraph) => (
@@ -98,7 +98,7 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: serviceRoute(serv
 
     {
       related.length > 0 && (
-        <section class="mx-auto max-w-[1800px] px-6 pb-28 md:px-10 md:pb-40">
+        <section class="mx-auto max-w-[1800px] px-6 pb-20 md:px-10 md:pb-32">
           <h2 class="eyebrow border-t border-ink/15 pt-8 text-stone">{t('services.related')}</h2>
           <div class="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((project, index) => (
@@ -109,7 +109,7 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: serviceRoute(serv
       )
     }
 
-    <section class="mx-auto max-w-[1800px] px-6 pb-28 md:px-10 md:pb-40">
+    <section class="mx-auto max-w-[1800px] px-6 pb-20 md:px-10 md:pb-32">
       <h2 class="eyebrow border-t border-ink/15 pt-8 text-stone">{t('services.other')}</h2>
       <ul class="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-3">
         {
