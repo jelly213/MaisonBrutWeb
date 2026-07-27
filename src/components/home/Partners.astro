@@ -53,13 +53,13 @@ const logos = await Promise.all(
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="partner-logo block rounded-2xl bg-bone p-6 md:p-8"
+                class="partner-logo flex aspect-square items-center justify-center rounded-2xl bg-bone p-6 md:p-8"
                 aria-label={partner.name}
               >
                 <img src={partner.src} alt={partner.name} loading="lazy" decoding="async" width="220" height="220" />
               </a>
             ) : (
-              <div class="partner-logo rounded-2xl bg-bone p-6 md:p-8">
+              <div class="partner-logo flex aspect-square items-center justify-center rounded-2xl bg-bone p-6 md:p-8">
                 <img src={partner.src} alt={partner.name} loading="lazy" decoding="async" width="220" height="220" />
               </div>
             )}
