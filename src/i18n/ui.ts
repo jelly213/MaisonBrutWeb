@@ -49,6 +49,8 @@ export const ui = {
     'home.matterEyebrow': 'Material',
     'home.matterTitle': 'Look closer.',
     'home.matterText': 'Depth you can read from across the room, and texture you only understand up close.',
+    'home.matterText2':
+      'This archway is finished in the same hand-applied lime we use everywhere else in the house — walls, ceiling, floor, one continuous surface with no seam to give away where one ends and the next begins.',
     'home.processEyebrow': 'How it works',
     'home.processTitle': 'Three steps, no surprises.',
     'home.finalTitle': "Let's talk about your space.",
@@ -183,6 +185,8 @@ export const ui = {
     'home.matterEyebrow': 'Matière',
     'home.matterTitle': 'Regardez de plus près.',
     'home.matterText': "Une profondeur qui se lit à l'autre bout de la pièce, et une texture qui ne se comprend que de tout près.",
+    'home.matterText2':
+      "Cette arche est finie avec la même chaux appliquée à la main que nous utilisons partout ailleurs dans la maison — murs, plafond, sol, une seule surface continue, sans joint pour trahir où l'une finit et où l'autre commence.",
     'home.processEyebrow': 'Comment ça se passe',
     'home.processTitle': 'Trois étapes, aucune surprise.',
     'home.finalTitle': 'Parlons de votre espace.',
@@ -317,6 +321,8 @@ export const ui = {
     'home.matterEyebrow': 'Material',
     'home.matterTitle': 'Mira más de cerca.',
     'home.matterText': 'Una profundidad que se percibe desde el otro lado de la habitación, y una textura que solo se entiende de cerca.',
+    'home.matterText2':
+      'Este arco está terminado con la misma cal aplicada a mano que usamos en el resto de la casa — paredes, techo, piso, una sola superficie continua, sin ninguna junta que delate dónde termina una y empieza la otra.',
     'home.processEyebrow': 'Cómo funciona',
     'home.processTitle': 'Tres pasos, ninguna sorpresa.',
     'home.finalTitle': 'Hablemos de tu espacio.',
