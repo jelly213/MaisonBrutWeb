@@ -44,6 +44,16 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('contact', 
       </div>
 
       <div class="border-t border-ink/15 pt-6">
+        <p class="eyebrow text-stone">{t('form.phone')}</p>
+        <a
+          href={`tel:${site.phone.replace(/[^+\d]/g, '')}`}
+          class="mt-3 inline-block text-lg font-light transition-opacity hover:opacity-60"
+        >
+          {site.phone}
+        </a>
+      </div>
+
+      <div class="border-t border-ink/15 pt-6">
         <p class="eyebrow text-stone">{t('contact.instagram')}</p>
         <a
           href={site.instagram}
