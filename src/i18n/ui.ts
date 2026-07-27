@@ -101,7 +101,7 @@ export const ui = {
     'contact.title': 'Request a quote',
     'contact.lead':
       'Tell us about your project — the room, the surface, the feeling you want. We answer within two business days.',
-    'contact.serving': 'Serving Montreal, Laval, the North Shore and the South Shore',
+    'contact.serving': 'Serving Montreal, Laval, the North Shore, the South Shore, Miami and Puerto Rico',
     'contact.email': 'Email',
     'contact.instagram': 'Instagram',
 
@@ -237,7 +237,7 @@ export const ui = {
     'contact.title': 'Demander une soumission',
     'contact.lead':
       "Parlez-nous de votre projet — la pièce, la surface, l'ambiance recherchée. Nous répondons sous deux jours ouvrables.",
-    'contact.serving': 'Nous desservons Montréal, Laval, la Rive-Nord et la Rive-Sud',
+    'contact.serving': 'Nous desservons Montréal, Laval, la Rive-Nord, la Rive-Sud, Miami et Porto Rico',
     'contact.email': 'Courriel',
     'contact.instagram': 'Instagram',
 
@@ -373,7 +373,7 @@ export const ui = {
     'contact.title': 'Solicitar cotización',
     'contact.lead':
       'Cuéntanos sobre tu proyecto — la habitación, la superficie, el ambiente que buscas. Respondemos dentro de dos días hábiles.',
-    'contact.serving': 'Atendemos Montreal, Laval, la Rive-Nord y la Rive-Sud',
+    'contact.serving': 'Atendemos Montreal, Laval, la Rive-Nord, la Rive-Sud, Miami y Puerto Rico',
     'contact.email': 'Correo',
     'contact.instagram': 'Instagram',
 

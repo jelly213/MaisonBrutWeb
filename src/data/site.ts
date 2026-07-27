@@ -8,7 +8,7 @@ export const site = {
   instagram: 'https://www.instagram.com/maisonbrut_',
 
   /** Used for LocalBusiness structured data and local SEO. */
-  areaServed: ['Montreal', 'Laval', 'Rive-Nord', 'Rive-Sud', 'Greater Montreal'],
+  areaServed: ['Montreal', 'Laval', 'Rive-Nord', 'Rive-Sud', 'Greater Montreal', 'Miami', 'Puerto Rico'],
   address: {
     locality: 'Montreal',
     region: 'QC',
