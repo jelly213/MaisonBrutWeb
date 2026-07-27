@@ -46,6 +46,11 @@ const year = new Date().getFullYear();
             <a href={`mailto:${site.email}`} class="transition-opacity hover:opacity-60">{site.email}</a>
           </li>
           <li>
+            <a href={`tel:${site.phone.replace(/[^+\d]/g, '')}`} class="transition-opacity hover:opacity-60">
+              {site.phone}
+            </a>
+          </li>
+          <li>
             <a href={site.instagram} rel="noopener noreferrer" target="_blank" class="transition-opacity hover:opacity-60">
               {t('contact.instagram')}
             </a>

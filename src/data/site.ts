@@ -3,8 +3,7 @@ import type { Localized } from '../i18n/config';
 export const site = {
   name: 'Maison Brüt',
   email: 'info.maisonbrut@gmail.com',
-  // TODO: confirm with the client before launch.
-  phone: '',
+  phone: '+1 450 775 5031',
   instagramHandle: 'maisonbrut_',
   instagram: 'https://www.instagram.com/maisonbrut_',
 
