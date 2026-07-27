@@ -98,9 +98,9 @@ export const faq: FaqItem[] = [
       es: '¿Qué zonas atienden?',
     },
     answer: {
-      en: 'Montreal, Laval, the North Shore and the South Shore. We take projects elsewhere in Quebec case by case — get in touch and tell us where you are.',
-      fr: 'Montréal, Laval, la Rive-Nord et la Rive-Sud. Nous acceptons des projets ailleurs au Québec au cas par cas — écrivez-nous en précisant votre secteur.',
-      es: 'Montreal, Laval, la Rive-Nord y la Rive-Sud. Aceptamos proyectos en otras zonas de Quebec caso por caso — escríbenos indicando dónde te encuentras.',
+      en: 'Montreal, Laval, the North Shore, the South Shore, Miami and Puerto Rico. We take projects elsewhere case by case — get in touch and tell us where you are.',
+      fr: 'Montréal, Laval, la Rive-Nord, la Rive-Sud, Miami et Porto Rico. Nous acceptons des projets ailleurs au cas par cas — écrivez-nous en précisant votre secteur.',
+      es: 'Montreal, Laval, la Rive-Nord, la Rive-Sud, Miami y Puerto Rico. Aceptamos proyectos en otras zonas caso por caso — escríbenos indicando dónde te encuentras.',
     },
   },
 ];
