@@ -25,7 +25,7 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: serviceRoute(serv
 
 <BaseLayout
   lang={lang}
-  title={`${name} — Maison Brüt, ${lang === 'fr' ? 'Montréal' : 'Montreal'}`}
+  title={`${name}: Maison Brüt, ${lang === 'fr' ? 'Montréal' : 'Montreal'}`}
   description={pick(service.short, lang)}
   altPaths={altPaths}
 >

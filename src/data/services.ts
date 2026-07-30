@@ -29,17 +29,17 @@ export const services: Service[] = [
     },
     body: {
       en: [
-        'Microcement is a thin cement-based coating applied in successive layers over almost any sound substrate — tile, concrete, plaster or plywood. Two to three millimetres thick, it turns a room into a single continuous surface with no grout lines to interrupt the eye or collect grime.',
+        'Microcement is a thin cement-based coating applied in successive layers over almost any sound substrate: tile, concrete, plaster or plywood. Two to three millimetres thick, it turns a room into a single continuous surface with no grout lines to interrupt the eye or collect grime.',
         'Because it is troweled by hand, the finish carries subtle movement: cloudy passages, faint trowel marks, a depth that printed surfaces cannot imitate. We seal it with a matte polyurethane that makes it waterproof and hard-wearing.',
         'It is the finish we recommend most often for bathrooms, shower walls and open-plan floors, where a seam would break the calm of the space.',
       ],
       fr: [
-        "Le béton ciré est un enduit mince à base de ciment, appliqué en couches successives sur presque tout support sain — céramique, béton, plâtre ou contreplaqué. Épais de deux à trois millimètres, il transforme une pièce en une surface continue, sans joint pour couper le regard ni retenir la saleté.",
+        "Le béton ciré est un enduit mince à base de ciment, appliqué en couches successives sur presque tout support sain : céramique, béton, plâtre ou contreplaqué. Épais de deux à trois millimètres, il transforme une pièce en une surface continue, sans joint pour couper le regard ni retenir la saleté.",
         "Parce qu'il est taloché à la main, le rendu conserve un léger mouvement : nuages, traces de truelle discrètes, une profondeur qu'aucune surface imprimée ne reproduit. Nous le scellons avec un polyuréthane mat qui le rend imperméable et résistant.",
         "C'est la finition que nous recommandons le plus souvent pour les salles de bain, les murs de douche et les aires ouvertes, là où un joint viendrait rompre le calme de l'espace.",
       ],
       es: [
-        'El microcemento es un revestimiento fino a base de cemento, aplicado en capas sucesivas sobre casi cualquier soporte sano — cerámica, hormigón, yeso o contrachapado. Con un espesor de dos a tres milímetros, convierte una habitación en una superficie continua, sin juntas que corten la vista ni acumulen suciedad.',
+        'El microcemento es un revestimiento fino a base de cemento, aplicado en capas sucesivas sobre casi cualquier soporte sano: cerámica, hormigón, yeso o contrachapado. Con un espesor de dos a tres milímetros, convierte una habitación en una superficie continua, sin juntas que corten la vista ni acumulen suciedad.',
         'Al aplicarse a mano con llana, el acabado conserva un movimiento sutil: veladuras, ligeras marcas de llana, una profundidad que ninguna superficie impresa puede imitar. Lo sellamos con un poliuretano mate que lo vuelve impermeable y resistente.',
         'Es el acabado que más recomendamos para baños, paredes de ducha y espacios abiertos, donde una junta rompería la calma del lugar.',
       ],
@@ -52,19 +52,19 @@ export const services: Service[] = [
     why: {
       en: [
         'No grout lines to scrub or reseal',
-        'Applies over existing tile — no demolition, no dust',
+        'Applies over existing tile, no demolition, no dust',
         'Waterproof once sealed, safe for wet rooms',
         'Adds only 2–3 mm, so door heights stay untouched',
       ],
       fr: [
         'Aucun joint à récurer ni à refaire',
-        "S'applique sur la céramique existante — sans démolition ni poussière",
+        "S'applique sur la céramique existante, sans démolition ni poussière",
         'Imperméable une fois scellé, adapté aux pièces humides',
         "N'ajoute que 2 à 3 mm : la hauteur des portes reste intacte",
       ],
       es: [
         'Sin juntas que restregar ni rehacer',
-        'Se aplica sobre la cerámica existente — sin demolición ni polvo',
+        'Se aplica sobre la cerámica existente, sin demolición ni polvo',
         'Impermeable una vez sellado, apto para zonas húmedas',
         'Solo añade 2–3 mm, así que la altura de las puertas no cambia',
       ],
@@ -105,19 +105,19 @@ export const services: Service[] = [
     },
     why: {
       en: [
-        'Genuine mineral depth — colour lives inside the material',
+        'Genuine mineral depth: colour lives inside the material',
         'Naturally antibacterial and mould resistant',
         'Breathable: it lets wall assemblies release moisture',
         'Hardens with age instead of degrading',
       ],
       fr: [
-        'Une profondeur minérale véritable — la couleur vit dans la matière',
+        'Une profondeur minérale véritable : la couleur vit dans la matière',
         'Naturellement antibactérien et résistant aux moisissures',
         "Perspirant : il laisse les murs évacuer l'humidité",
         'Il durcit avec le temps au lieu de se dégrader',
       ],
       es: [
-        'Profundidad mineral auténtica — el color vive dentro del material',
+        'Profundidad mineral auténtica: el color vive dentro del material',
         'Naturalmente antibacteriano y resistente al moho',
         'Transpirable: permite que los muros liberen la humedad',
         'Se endurece con el tiempo en lugar de degradarse',
@@ -138,17 +138,17 @@ export const services: Service[] = [
     body: {
       en: [
         'Limewash is the oldest wall finish we offer and the simplest: slaked lime, water, mineral pigment. Brushed on in loose crosshatched strokes, it dries to a chalky matte surface that shifts between cloudy and clear as the light moves through the room.',
-        'It is a mineral, not a plastic film. It bonds chemically with masonry and plaster instead of sitting on top of them, and it lets the wall breathe — which matters in older Montreal buildings where trapped moisture does real damage.',
+        'It is a mineral, not a plastic film. It bonds chemically with masonry and plaster instead of sitting on top of them, and it lets the wall breathe, which matters in older Montreal buildings where trapped moisture does real damage.',
         'Choose it when you want warmth and age rather than perfection.',
       ],
       fr: [
         "Le badigeon de chaux est la plus ancienne de nos finitions, et la plus simple : chaux éteinte, eau, pigment minéral. Appliqué à la brosse en croisillons libres, il sèche en une surface mate et crayeuse qui passe du nuageux au limpide selon la course de la lumière.",
-        "C'est un minéral, pas un film plastique. Il se lie chimiquement à la maçonnerie et au plâtre au lieu de reposer dessus, et il laisse le mur respirer — ce qui compte dans les bâtiments montréalais anciens, où l'humidité emprisonnée fait de réels dégâts.",
+        "C'est un minéral, pas un film plastique. Il se lie chimiquement à la maçonnerie et au plâtre au lieu de reposer dessus, et il laisse le mur respirer, ce qui compte dans les bâtiments montréalais anciens, où l'humidité emprisonnée fait de réels dégâts.",
         "À choisir quand on cherche la chaleur et la patine plutôt que la perfection.",
       ],
       es: [
         'El encalado es el acabado mural más antiguo que ofrecemos, y el más simple: cal apagada, agua, pigmento mineral. Aplicado a brocha en trazos cruzados sueltos, seca en una superficie mate y calcárea que pasa de nublado a límpido según se mueve la luz en la habitación.',
-        'Es un mineral, no una película plástica. Se adhiere químicamente a la mampostería y al yeso en lugar de reposar encima, y deja que el muro respire — algo importante en los edificios antiguos de Montreal, donde la humedad atrapada causa daños reales.',
+        'Es un mineral, no una película plástica. Se adhiere químicamente a la mampostería y al yeso en lugar de reposar encima, y deja que el muro respire, algo importante en los edificios antiguos de Montreal, donde la humedad atrapada causa daños reales.',
         'Elígelo cuando busques calidez y pátina en lugar de perfección.',
       ],
     },
@@ -159,19 +159,19 @@ export const services: Service[] = [
     },
     why: {
       en: [
-        'Fully breathable — no trapped moisture behind a film',
+        'Fully breathable, no trapped moisture behind a film',
         'Zero VOC, made of lime, water and pigment only',
         'Naturally resists mould and mildew',
         'Ages into the wall instead of peeling off it',
       ],
       fr: [
-        "Entièrement perspirant — aucune humidité emprisonnée sous un film",
+        "Entièrement perspirant, aucune humidité emprisonnée sous un film",
         'Zéro COV : chaux, eau et pigment, rien d\'autre',
         'Résiste naturellement aux moisissures',
         'Il patine avec le mur au lieu de s\'écailler',
       ],
       es: [
-        'Totalmente transpirable — nada de humedad atrapada bajo una película',
+        'Totalmente transpirable, nada de humedad atrapada bajo una película',
         'Cero COV: solo cal, agua y pigmento',
         'Resiste naturalmente el moho y los hongos',
         'Envejece junto con el muro en lugar de descascararse',
@@ -191,17 +191,17 @@ export const services: Service[] = [
     },
     body: {
       en: [
-        'Some rooms have a corner no catalogue will ever fit. We draw, build and finish furniture for those spaces — vanities, benches, consoles, dining tables, shelving — in solid wood, steel and our own mineral finishes.',
+        'Some rooms have a corner no catalogue will ever fit. We draw, build and finish furniture for those spaces: vanities, benches, consoles, dining tables, shelving, in solid wood, steel and our own mineral finishes.',
         'The process starts with the room rather than the object: we measure, sketch, and agree on materials before anything is cut. You see the piece in drawings and in material samples before it is built.',
         'Because we apply the finishes ourselves, a microcement vanity can match the floor it stands on exactly.',
       ],
       fr: [
-        "Certaines pièces ont un recoin qu'aucun catalogue ne comblera jamais. Nous dessinons, fabriquons et finissons du mobilier pour ces espaces-là — vanités, bancs, consoles, tables, étagères — en bois massif, en acier et avec nos propres finitions minérales.",
+        "Certaines pièces ont un recoin qu'aucun catalogue ne comblera jamais. Nous dessinons, fabriquons et finissons du mobilier pour ces espaces-là : vanités, bancs, consoles, tables, étagères, en bois massif, en acier et avec nos propres finitions minérales.",
         "Le travail commence par la pièce, pas par l'objet : nous mesurons, esquissons et arrêtons les matériaux avant la moindre découpe. Vous voyez le meuble en dessin et en échantillons avant qu'il soit construit.",
         "Parce que nous appliquons nous-mêmes les finitions, une vanité en béton ciré peut s'accorder exactement au sol sur lequel elle repose.",
       ],
       es: [
-        'Algunas habitaciones tienen un rincón que ningún catálogo llenará jamás. Dibujamos, fabricamos y acabamos mobiliario para esos espacios — tocadores, bancos, consolas, mesas de comedor, estanterías — en madera maciza, acero y nuestros propios acabados minerales.',
+        'Algunas habitaciones tienen un rincón que ningún catálogo llenará jamás. Dibujamos, fabricamos y acabamos mobiliario para esos espacios: tocadores, bancos, consolas, mesas de comedor, estanterías, en madera maciza, acero y nuestros propios acabados minerales.',
         'El proceso empieza por la habitación, no por el objeto: medimos, esbozamos y acordamos los materiales antes de cortar nada. Ves la pieza en dibujos y en muestras de material antes de que se construya.',
         'Como aplicamos nosotros mismos los acabados, un tocador de microcemento puede combinar exactamente con el piso sobre el que se apoya.',
       ],
