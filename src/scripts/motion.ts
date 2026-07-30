@@ -41,7 +41,7 @@ function stopLenis() {
  * because where the text breaks is what defines a line.
  */
 function splitIntoLines(el: HTMLElement): HTMLElement[] {
-  if (el.dataset.split === 'done') {
+  if (el.dataset.lineSplit === 'done') {
     return Array.from(el.querySelectorAll<HTMLElement>('.line > span'));
   }
 
@@ -69,15 +69,15 @@ function splitIntoLines(el: HTMLElement): HTMLElement[] {
     .map((line) => `<span class="line"><span>${line.join(' ')}</span></span>`)
     .join('');
 
-  el.dataset.split = 'done';
+  el.dataset.lineSplit = 'done';
   return Array.from(el.querySelectorAll<HTMLElement>('.line > span'));
 }
 
 /** Put split headings back the way they were found. */
 function restoreSplits() {
-  document.querySelectorAll<HTMLElement>('[data-lines][data-split="done"]').forEach((el) => {
+  document.querySelectorAll<HTMLElement>('[data-lines][data-line-split="done"]').forEach((el) => {
     if (el.dataset.originalHtml) el.innerHTML = el.dataset.originalHtml;
-    delete el.dataset.split;
+    delete el.dataset.lineSplit;
   });
 }
 

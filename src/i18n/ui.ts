@@ -35,7 +35,7 @@ export const ui = {
     'home.reelsEyebrow': 'In motion',
     'home.reelsTitle': 'See the finish move.',
     'home.reelsLead':
-      'Short clips from recent sites — light travelling across a surface says more than any photograph can.',
+      'Short clips from recent sites: light travelling across a surface says more than any photograph can.',
     'reel.sound': 'Sound on',
     'reel.muted': 'Sound off',
     'reel.play': 'Play',
@@ -44,13 +44,13 @@ export const ui = {
     'partners.eyebrow': 'Partners',
     'partners.title': 'Who we build with.',
     'partners.lead':
-      'Contractors, designers and suppliers we share a site with — the people who see the work up close.',
+      'Contractors, designers and suppliers we share a site with: the people who see the work up close.',
 
     'home.matterEyebrow': 'Material',
     'home.matterTitle': 'Look closer.',
     'home.matterText': 'Depth you can read from across the room, and texture you only understand up close.',
     'home.matterText2':
-      'This archway is finished in the same hand-applied lime we use everywhere else in the house — walls, ceiling, floor, one continuous surface with no seam to give away where one ends and the next begins.',
+      'This archway is finished in the same hand-applied lime we use everywhere else in the house: walls, ceiling, floor, one continuous surface with no seam to give away where one ends and the next begins.',
     'home.processEyebrow': 'How it works',
     'home.processTitle': 'Three steps, no surprises.',
     'home.finalTitle': "Let's talk about your space.",
@@ -61,7 +61,7 @@ export const ui = {
     'process.2.title': 'Sample',
     'process.2.text': 'We prepare physical samples in your light, on your wall, until the finish is right.',
     'process.3.title': 'Application',
-    'process.3.text': 'Our team preps, applies and seals — clean site, agreed timeline, no shortcuts.',
+    'process.3.text': 'Our team preps, applies and seals: clean site, agreed timeline, no shortcuts.',
 
     'work.title': 'Work',
     'work.lead': 'A selection of finishes and furniture delivered across Greater Montreal.',
@@ -77,10 +77,10 @@ export const ui = {
       'A finish is a commitment you live with every day for years. Here is how we make sure you know exactly what you are getting before we start.',
     'trust.1.title': 'A sample before you commit',
     'trust.1.text':
-      'We prepare the finish on your own wall, in your own light. You approve the real thing — not a photograph of someone else’s room.',
+      'We prepare the finish on your own wall, in your own light. You approve the real thing, not a photograph of someone else’s room.',
     'trust.2.title': 'The timeline in writing',
     'trust.2.text':
-      'Start date, working days, curing time and the day you get the room back — agreed before the first coat goes on.',
+      'Start date, working days, curing time and the day you get the room back, agreed before the first coat goes on.',
     'trust.3.title': 'A site left clean',
     'trust.3.text':
       'Masking, dust control and protection are part of the job, not an extra line. We work in homes people are still living in.',
@@ -100,7 +100,7 @@ export const ui = {
 
     'contact.title': 'Request a quote',
     'contact.lead':
-      'Tell us about your project — the room, the surface, the feeling you want. We answer within two business days.',
+      'Tell us about your project: the room, the surface, the feeling you want. We answer within two business days.',
     'contact.serving': 'Serving Montreal, Laval, the North Shore, the South Shore, Miami and Puerto Rico',
     'contact.email': 'Email',
     'contact.instagram': 'Instagram',
@@ -121,7 +121,7 @@ export const ui = {
     'form.sending': 'Sending…',
     'form.successTitle': 'Your email app is opening.',
     'form.successText':
-      'Your message is filled in and ready — press send in your mail app to deliver it.',
+      'Your message is filled in and ready: press send in your mail app to deliver it.',
     'form.errorTitle': 'Nothing opened?',
     'form.errorText': 'Write to us directly at',
     'form.required': 'Required',
@@ -132,12 +132,12 @@ export const ui = {
     'footer.contact': 'Contact',
     'footer.rights': 'All rights reserved.',
 
-    'meta.home.title': 'Maison Brüt — Microcement & Venetian Plaster, Montreal',
+    'meta.home.title': 'Maison Brüt: Microcement & Venetian Plaster, Montreal',
     'meta.home.description':
       'Handmade microcement, Venetian plaster, limewash and custom furniture for homes and businesses in Montreal and Laval.',
     'meta.work.description': 'Selected microcement, Venetian plaster and limewash projects across Greater Montreal.',
-    'meta.studio.description': 'Meet the studio behind Maison Brüt — mineral finishes applied by hand in Montreal.',
-    'meta.faq.description': 'Durability, upkeep, timelines and preparation — answers to the questions we hear most.',
+    'meta.studio.description': 'Meet the studio behind Maison Brüt: mineral finishes applied by hand in Montreal.',
+    'meta.faq.description': 'Durability, upkeep, timelines and preparation: answers to the questions we hear most.',
     'meta.contact.description': 'Request a quote for microcement, Venetian plaster, limewash or custom furniture in Montreal and Laval.',
   },
 
@@ -171,7 +171,7 @@ export const ui = {
     'home.reelsEyebrow': 'En mouvement',
     'home.reelsTitle': 'Voyez la finition vivre.',
     'home.reelsLead':
-      'De courtes séquences tournées sur nos chantiers — la lumière qui glisse sur une surface en dit plus que n’importe quelle photo.',
+      'De courtes séquences tournées sur nos chantiers : la lumière qui glisse sur une surface en dit plus que n’importe quelle photo.',
     'reel.sound': 'Activer le son',
     'reel.muted': 'Couper le son',
     'reel.play': 'Lecture',
@@ -180,13 +180,13 @@ export const ui = {
     'partners.eyebrow': 'Partenaires',
     'partners.title': 'Avec qui nous bâtissons.',
     'partners.lead':
-      'Entrepreneurs, designers et fournisseurs que nous retrouvons sur les chantiers — ceux qui voient le travail de près.',
+      'Entrepreneurs, designers et fournisseurs que nous retrouvons sur les chantiers : ceux qui voient le travail de près.',
 
     'home.matterEyebrow': 'Matière',
     'home.matterTitle': 'Regardez de plus près.',
     'home.matterText': "Une profondeur qui se lit à l'autre bout de la pièce, et une texture qui ne se comprend que de tout près.",
     'home.matterText2':
-      "Cette arche est finie avec la même chaux appliquée à la main que nous utilisons partout ailleurs dans la maison — murs, plafond, sol, une seule surface continue, sans joint pour trahir où l'une finit et où l'autre commence.",
+      "Cette arche est finie avec la même chaux appliquée à la main que nous utilisons partout ailleurs dans la maison : murs, plafond, sol, une seule surface continue, sans joint pour trahir où l'une finit et où l'autre commence.",
     'home.processEyebrow': 'Comment ça se passe',
     'home.processTitle': 'Trois étapes, aucune surprise.',
     'home.finalTitle': 'Parlons de votre espace.',
@@ -197,7 +197,7 @@ export const ui = {
     'process.2.title': 'Échantillon',
     'process.2.text': "Nous préparons des échantillons réels, dans votre lumière, sur votre mur, jusqu'à la bonne finition.",
     'process.3.title': 'Application',
-    'process.3.text': 'Notre équipe prépare, applique et scelle — chantier propre, délais convenus, aucun raccourci.',
+    'process.3.text': 'Notre équipe prépare, applique et scelle : chantier propre, délais convenus, aucun raccourci.',
 
     'work.title': 'Réalisations',
     'work.lead': 'Une sélection de finitions et de mobilier livrés dans le Grand Montréal.',
@@ -216,7 +216,7 @@ export const ui = {
       'Nous préparons la finition sur votre mur, dans votre lumière. Vous approuvez le rendu réel, pas la photo du salon de quelqu’un d’autre.',
     'trust.2.title': 'L’échéancier par écrit',
     'trust.2.text':
-      'Date de début, jours de travaux, temps de séchage et jour où vous récupérez la pièce — convenus avant la première couche.',
+      'Date de début, jours de travaux, temps de séchage et jour où vous récupérez la pièce, convenus avant la première couche.',
     'trust.3.title': 'Un chantier laissé propre',
     'trust.3.text':
       'Masquage, protection et gestion de la poussière font partie du travail, pas d’une ligne en supplément. Nous intervenons dans des logements occupés.',
@@ -236,7 +236,7 @@ export const ui = {
 
     'contact.title': 'Demander une soumission',
     'contact.lead':
-      "Parlez-nous de votre projet — la pièce, la surface, l'ambiance recherchée. Nous répondons sous deux jours ouvrables.",
+      "Parlez-nous de votre projet : la pièce, la surface, l'ambiance recherchée. Nous répondons sous deux jours ouvrables.",
     'contact.serving': 'Nous desservons Montréal, Laval, la Rive-Nord, la Rive-Sud, Miami et Porto Rico',
     'contact.email': 'Courriel',
     'contact.instagram': 'Instagram',
@@ -257,7 +257,7 @@ export const ui = {
     'form.sending': 'Envoi en cours…',
     'form.successTitle': 'Votre messagerie s’ouvre.',
     'form.successText':
-      'Votre message est rédigé et prêt — appuyez sur Envoyer dans votre messagerie pour le transmettre.',
+      'Votre message est rédigé et prêt : appuyez sur Envoyer dans votre messagerie pour le transmettre.',
     'form.errorTitle': 'Rien ne s’est ouvert ?',
     'form.errorText': 'Écrivez-nous directement à',
     'form.required': 'Obligatoire',
@@ -268,12 +268,12 @@ export const ui = {
     'footer.contact': 'Contact',
     'footer.rights': 'Tous droits réservés.',
 
-    'meta.home.title': 'Maison Brüt — Béton ciré et stuc vénitien, Montréal',
+    'meta.home.title': 'Maison Brüt : Béton ciré et stuc vénitien, Montréal',
     'meta.home.description':
       'Béton ciré, stuc vénitien, badigeon de chaux et mobilier sur mesure, faits main, pour résidences et commerces à Montréal et Laval.',
     'meta.work.description': 'Projets de béton ciré, stuc vénitien et badigeon de chaux réalisés dans le Grand Montréal.',
-    'meta.studio.description': "Découvrez l'atelier Maison Brüt — des finitions minérales appliquées à la main à Montréal.",
-    'meta.faq.description': 'Durabilité, entretien, délais et préparation — les réponses aux questions les plus fréquentes.',
+    'meta.studio.description': "Découvrez l'atelier Maison Brüt : des finitions minérales appliquées à la main à Montréal.",
+    'meta.faq.description': 'Durabilité, entretien, délais et préparation : les réponses aux questions les plus fréquentes.',
     'meta.contact.description': 'Demandez une soumission pour du béton ciré, du stuc vénitien, un badigeon de chaux ou du mobilier sur mesure à Montréal et Laval.',
   },
 
@@ -307,7 +307,7 @@ export const ui = {
     'home.reelsEyebrow': 'En movimiento',
     'home.reelsTitle': 'Mira el acabado en vivo.',
     'home.reelsLead':
-      'Clips cortos de obras recientes — la luz recorriendo una superficie dice más que cualquier fotografía.',
+      'Clips cortos de obras recientes: la luz recorriendo una superficie dice más que cualquier fotografía.',
     'reel.sound': 'Activar sonido',
     'reel.muted': 'Silenciar',
     'reel.play': 'Reproducir',
@@ -316,13 +316,13 @@ export const ui = {
     'partners.eyebrow': 'Colaboradores',
     'partners.title': 'Con quién construimos.',
     'partners.lead':
-      'Contratistas, diseñadores y proveedores con quienes compartimos obra — quienes ven el trabajo de cerca.',
+      'Contratistas, diseñadores y proveedores con quienes compartimos obra: quienes ven el trabajo de cerca.',
 
     'home.matterEyebrow': 'Material',
     'home.matterTitle': 'Mira más de cerca.',
     'home.matterText': 'Una profundidad que se percibe desde el otro lado de la habitación, y una textura que solo se entiende de cerca.',
     'home.matterText2':
-      'Este arco está terminado con la misma cal aplicada a mano que usamos en el resto de la casa — paredes, techo, piso, una sola superficie continua, sin ninguna junta que delate dónde termina una y empieza la otra.',
+      'Este arco está terminado con la misma cal aplicada a mano que usamos en el resto de la casa: paredes, techo, piso, una sola superficie continua, sin ninguna junta que delate dónde termina una y empieza la otra.',
     'home.processEyebrow': 'Cómo funciona',
     'home.processTitle': 'Tres pasos, ninguna sorpresa.',
     'home.finalTitle': 'Hablemos de tu espacio.',
@@ -333,7 +333,7 @@ export const ui = {
     'process.2.title': 'Muestra',
     'process.2.text': 'Preparamos muestras físicas con tu luz, en tu muro, hasta dar con el acabado correcto.',
     'process.3.title': 'Aplicación',
-    'process.3.text': 'Nuestro equipo prepara, aplica y sella — obra limpia, calendario acordado, sin atajos.',
+    'process.3.text': 'Nuestro equipo prepara, aplica y sella: obra limpia, calendario acordado, sin atajos.',
 
     'work.title': 'Proyectos',
     'work.lead': 'Una selección de acabados y mobiliario entregados en todo el Gran Montreal.',
@@ -349,10 +349,10 @@ export const ui = {
       'Un acabado es un compromiso con el que convives todos los días durante años. Así nos aseguramos de que sepas exactamente qué esperar antes de empezar.',
     'trust.1.title': 'Una muestra antes de comprometerte',
     'trust.1.text':
-      'Preparamos el acabado en tu propio muro, con tu propia luz. Apruebas lo real — no una foto de la sala de alguien más.',
+      'Preparamos el acabado en tu propio muro, con tu propia luz. Apruebas lo real, no una foto de la sala de alguien más.',
     'trust.2.title': 'El calendario por escrito',
     'trust.2.text':
-      'Fecha de inicio, días de trabajo, tiempo de curado y el día en que recuperas la habitación — acordado antes de la primera capa.',
+      'Fecha de inicio, días de trabajo, tiempo de curado y el día en que recuperas la habitación, acordado antes de la primera capa.',
     'trust.3.title': 'Una obra que queda limpia',
     'trust.3.text':
       'El enmascarado, el control de polvo y la protección son parte del trabajo, no un extra. Trabajamos en hogares donde la gente sigue viviendo.',
@@ -372,7 +372,7 @@ export const ui = {
 
     'contact.title': 'Solicitar cotización',
     'contact.lead':
-      'Cuéntanos sobre tu proyecto — la habitación, la superficie, el ambiente que buscas. Respondemos dentro de dos días hábiles.',
+      'Cuéntanos sobre tu proyecto: la habitación, la superficie, el ambiente que buscas. Respondemos dentro de dos días hábiles.',
     'contact.serving': 'Atendemos Montreal, Laval, la Rive-Nord, la Rive-Sud, Miami y Puerto Rico',
     'contact.email': 'Correo',
     'contact.instagram': 'Instagram',
@@ -393,7 +393,7 @@ export const ui = {
     'form.sending': 'Enviando…',
     'form.successTitle': 'Tu aplicación de correo se está abriendo.',
     'form.successText':
-      'Tu mensaje ya está redactado y listo — presiona enviar en tu aplicación de correo para transmitirlo.',
+      'Tu mensaje ya está redactado y listo: presiona enviar en tu aplicación de correo para transmitirlo.',
     'form.errorTitle': '¿No se abrió nada?',
     'form.errorText': 'Escríbenos directamente a',
     'form.required': 'Obligatorio',
@@ -404,12 +404,12 @@ export const ui = {
     'footer.contact': 'Contacto',
     'footer.rights': 'Todos los derechos reservados.',
 
-    'meta.home.title': 'Maison Brüt — Microcemento y estuco veneciano, Montreal',
+    'meta.home.title': 'Maison Brüt: Microcemento y estuco veneciano, Montreal',
     'meta.home.description':
       'Microcemento, estuco veneciano, encalado y mobiliario a medida, hechos a mano, para residencias y comercios en Montreal y Laval.',
     'meta.work.description': 'Proyectos seleccionados de microcemento, estuco veneciano y encalado en todo el Gran Montreal.',
-    'meta.studio.description': 'Conoce el estudio detrás de Maison Brüt — acabados minerales aplicados a mano en Montreal.',
-    'meta.faq.description': 'Durabilidad, mantenimiento, plazos y preparación — respuestas a las preguntas que más recibimos.',
+    'meta.studio.description': 'Conoce el estudio detrás de Maison Brüt: acabados minerales aplicados a mano en Montreal.',
+    'meta.faq.description': 'Durabilidad, mantenimiento, plazos y preparación: respuestas a las preguntas que más recibimos.',
     'meta.contact.description': 'Solicita una cotización de microcemento, estuco veneciano, encalado o mobiliario a medida en Montreal y Laval.',
   },
 } as const;

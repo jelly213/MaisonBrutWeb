@@ -14,9 +14,9 @@ export const faq: FaqItem[] = [
       es: '¿Cuánto dura un acabado de microcemento?',
     },
     answer: {
-      en: 'Properly applied and sealed, microcement lasts as long as the substrate under it — fifteen to twenty years is normal in a residential bathroom. The sealer is the wearing layer, and it can be refreshed on floors after roughly ten years of heavy use without redoing the finish itself.',
-      fr: "Correctement appliqué et scellé, le béton ciré dure aussi longtemps que son support — quinze à vingt ans est la norme dans une salle de bain résidentielle. C'est le scellant qui s'use : sur un sol très sollicité, il se renouvelle après une dizaine d'années sans refaire la finition.",
-      es: 'Bien aplicado y sellado, el microcemento dura tanto como el soporte que tiene debajo — entre quince y veinte años es normal en un baño residencial. El sellador es la capa de desgaste, y puede renovarse en los pisos tras unos diez años de uso intenso sin rehacer el acabado en sí.',
+      en: 'Properly applied and sealed, microcement lasts as long as the substrate under it: fifteen to twenty years is normal in a residential bathroom. The sealer is the wearing layer, and it can be refreshed on floors after roughly ten years of heavy use without redoing the finish itself.',
+      fr: "Correctement appliqué et scellé, le béton ciré dure aussi longtemps que son support : quinze à vingt ans est la norme dans une salle de bain résidentielle. C'est le scellant qui s'use : sur un sol très sollicité, il se renouvelle après une dizaine d'années sans refaire la finition.",
+      es: 'Bien aplicado y sellado, el microcemento dura tanto como el soporte que tiene debajo: entre quince y veinte años es normal en un baño residencial. El sellador es la capa de desgaste, y puede renovarse en los pisos tras unos diez años de uso intenso sin rehacer el acabado en sí.',
     },
   },
   {
@@ -62,7 +62,7 @@ export const faq: FaqItem[] = [
       es: '¿Cómo se limpia y se mantiene?',
     },
     answer: {
-      en: 'Warm water and a pH-neutral soap. Avoid bleach, vinegar and abrasive powders — acids attack lime, and abrasives dull the sealer. That is the whole routine.',
+      en: 'Warm water and a pH-neutral soap. Avoid bleach, vinegar and abrasive powders: acids attack lime, and abrasives dull the sealer. That is the whole routine.',
       fr: "De l'eau tiède et un savon au pH neutre. Évitez l'eau de Javel, le vinaigre et les poudres abrasives : les acides attaquent la chaux et les abrasifs ternissent le scellant. C'est tout l'entretien.",
       es: 'Agua tibia y un jabón de pH neutro. Evita la lejía, el vinagre y los polvos abrasivos: los ácidos atacan la cal y los abrasivos opacan el sellador. Eso es todo el mantenimiento.',
     },
@@ -74,9 +74,9 @@ export const faq: FaqItem[] = [
       es: '¿El acabado será perfectamente uniforme?',
     },
     answer: {
-      en: 'No, and that is the material working as intended. Hand-applied mineral finishes carry cloudy passages and faint trowel movement — that variation is what gives them depth. We show you samples beforehand so you know exactly how much movement to expect.',
-      fr: "Non, et c'est le matériau qui fonctionne comme prévu. Les finitions minérales appliquées à la main présentent des nuages et de légers mouvements de truelle — cette variation fait leur profondeur. Nous vous montrons des échantillons au préalable pour que vous sachiez exactement à quoi vous attendre.",
-      es: 'No, y así es como el material funciona como debe. Los acabados minerales aplicados a mano presentan veladuras y ligeros movimientos de llana — esa variación es lo que les da profundidad. Te mostramos muestras de antemano para que sepas exactamente qué esperar.',
+      en: 'No, and that is the material working as intended. Hand-applied mineral finishes carry cloudy passages and faint trowel movement: that variation is what gives them depth. We show you samples beforehand so you know exactly how much movement to expect.',
+      fr: "Non, et c'est le matériau qui fonctionne comme prévu. Les finitions minérales appliquées à la main présentent des nuages et de légers mouvements de truelle : cette variation fait leur profondeur. Nous vous montrons des échantillons au préalable pour que vous sachiez exactement à quoi vous attendre.",
+      es: 'No, y así es como el material funciona como debe. Los acabados minerales aplicados a mano presentan veladuras y ligeros movimientos de llana: esa variación es lo que les da profundidad. Te mostramos muestras de antemano para que sepas exactamente qué esperar.',
     },
   },
   {
@@ -98,9 +98,9 @@ export const faq: FaqItem[] = [
       es: '¿Qué zonas atienden?',
     },
     answer: {
-      en: 'Montreal, Laval, the North Shore, the South Shore, Miami and Puerto Rico. We take projects elsewhere case by case — get in touch and tell us where you are.',
-      fr: 'Montréal, Laval, la Rive-Nord, la Rive-Sud, Miami et Porto Rico. Nous acceptons des projets ailleurs au cas par cas — écrivez-nous en précisant votre secteur.',
-      es: 'Montreal, Laval, la Rive-Nord, la Rive-Sud, Miami y Puerto Rico. Aceptamos proyectos en otras zonas caso por caso — escríbenos indicando dónde te encuentras.',
+      en: 'Montreal, Laval, the North Shore, the South Shore, Miami and Puerto Rico. We take projects elsewhere case by case: get in touch and tell us where you are.',
+      fr: 'Montréal, Laval, la Rive-Nord, la Rive-Sud, Miami et Porto Rico. Nous acceptons des projets ailleurs au cas par cas : écrivez-nous en précisant votre secteur.',
+      es: 'Montreal, Laval, la Rive-Nord, la Rive-Sud, Miami y Puerto Rico. Aceptamos proyectos en otras zonas caso por caso: escríbenos indicando dónde te encuentras.',
     },
   },
 ];

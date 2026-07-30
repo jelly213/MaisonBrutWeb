@@ -36,7 +36,7 @@ const lightboxData = await Promise.all(
       title: pick(project.title, lang),
       meta: [pick(services.find((s) => s.id === project.service)!.name, lang), project.location]
         .filter(Boolean)
-        .join(' — '),
+        .join(' · '),
     };
   }),
 );
@@ -46,7 +46,7 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('work', l) 
 
 <BaseLayout
   lang={lang}
-  title={`${t('work.title')} — Maison Brüt`}
+  title={`${t('work.title')}: Maison Brüt`}
   description={t('meta.work.description')}
   altPaths={altPaths}
 >

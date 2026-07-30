@@ -19,7 +19,7 @@ const service = getService(project.service);
 const Tag = interactive ? 'button' : 'div';
 
 // Location is optional — a project without one simply shows its service.
-const meta = [service ? pick(service.name, lang) : null, project.location].filter(Boolean).join(' — ');
+const meta = [service ? pick(service.name, lang) : null, project.location].filter(Boolean).join(' · ');
 ---
 
 {/*
