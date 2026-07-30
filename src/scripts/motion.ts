@@ -241,11 +241,14 @@ function workRail() {
   if (!rail || !track) return;
 
   const distance = () => Math.max(0, track.scrollWidth - window.innerWidth + 96);
+  // The horizontal travel is short compared to the content sliding past, so
+  // stretching the pinned scroll distance keeps the slide from whipping by.
+  const pinDistance = () => distance() * 1.6;
 
   const trigger: ScrollTrigger.Vars = {
     trigger: rail,
     start: 'top top',
-    end: () => `+=${distance()}`,
+    end: () => `+=${pinDistance()}`,
     pin: true,
     scrub: 1,
     invalidateOnRefresh: true,
@@ -265,7 +268,7 @@ function workRail() {
         scrollTrigger: {
           trigger: rail,
           start: 'top top',
-          end: () => `+=${distance()}`,
+          end: () => `+=${pinDistance()}`,
           scrub: 1,
           invalidateOnRefresh: true,
         },
