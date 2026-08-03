@@ -7,6 +7,7 @@ import { services, type Service } from '../../data/services';
 import { projectsByService } from '../../data/projects';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../ui/ProjectCard.astro';
+import Photo from '../ui/Photo.astro';
 import FinalCta from '../home/FinalCta.astro';
 
 interface Props {
@@ -38,40 +39,61 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: serviceRoute(serv
       <p class="mt-8 max-w-[52ch] text-balance text-stone md:text-lg">{pick(service.short, lang)}</p>
     </header>
 
-    <div class="mx-auto grid max-w-[1800px] gap-16 px-6 py-16 md:grid-cols-[1.3fr_1fr] md:gap-20 md:px-10 md:py-24">
-      <div class="space-y-7">
-        {
-          pick(service.body, lang).map((paragraph) => (
-            <p class="max-w-[62ch] leading-relaxed text-ink/85 md:text-lg" data-reveal="up">
-              {paragraph}
-            </p>
-          ))
-        }
+    {/*
+      One row: the photo, then the two fact lists beside it. The source photo is
+      only 736px wide, so its column stays fixed rather than stretching.
+    */}
+    <div
+      class:list={[
+        'mx-auto grid max-w-[1800px] gap-12 px-6 py-16 md:gap-16 md:px-10 md:py-20',
+        service.photo ? 'md:grid-cols-[minmax(0,420px)_1fr_1fr]' : 'md:grid-cols-2',
+      ]}
+    >
+      {
+        service.photo && (
+          <Photo
+            src={service.photo.src}
+            alt={pick(service.photo.alt, lang)}
+            ratio={service.photo.ratio ?? 'aspect-[2/3]'}
+            class="w-full rounded-2xl"
+            sizes="(min-width: 768px) 420px, 100vw"
+            widths={[480, 720, 1200]}
+            data-reveal="up"
+          />
+        )
+      }
+
+      <div data-reveal="up">
+        <h2 class="eyebrow text-stone">{t('services.uses')}</h2>
+        <ul class="mt-6 space-y-3 text-sm">
+          {
+            pick(service.uses, lang).map((use) => (
+              <li class="border-b border-ink/10 pb-3">{use}</li>
+            ))
+          }
+        </ul>
       </div>
 
-      <aside class="space-y-14">
-        <div data-reveal="up">
-          <h2 class="eyebrow text-stone">{t('services.uses')}</h2>
-          <ul class="mt-6 space-y-3 text-sm">
-            {
-              pick(service.uses, lang).map((use) => (
-                <li class="border-b border-ink/10 pb-3">{use}</li>
-              ))
-            }
-          </ul>
-        </div>
+      <div data-reveal="up">
+        <h2 class="eyebrow text-stone">{t('services.why')}</h2>
+        <ul class="mt-6 space-y-3 text-sm">
+          {
+            pick(service.why, lang).map((reason) => (
+              <li class="border-b border-ink/10 pb-3">{reason}</li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
 
-        <div data-reveal="up">
-          <h2 class="eyebrow text-stone">{t('services.why')}</h2>
-          <ul class="mt-6 space-y-3 text-sm">
-            {
-              pick(service.why, lang).map((reason) => (
-                <li class="border-b border-ink/10 pb-3">{reason}</li>
-              ))
-            }
-          </ul>
-        </div>
-      </aside>
+    <div class="mx-auto max-w-[1800px] space-y-7 px-6 pb-16 md:px-10 md:pb-24">
+      {
+        pick(service.body, lang).map((paragraph) => (
+          <p class="leading-relaxed text-ink/85 md:text-lg" data-reveal="up">
+            {paragraph}
+          </p>
+        ))
+      }
     </div>
 
     {

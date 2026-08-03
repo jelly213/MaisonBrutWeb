@@ -15,6 +15,11 @@ export interface Service {
   /** Selling points, answered as objections. */
   why: Localized<string[]>;
   image: string;
+  /**
+   * Optional finished-work photo shown under the title on the service page.
+   * `ratio` is a Tailwind aspect utility; leave it out for portrait sources.
+   */
+  photo?: { src: string; alt: Localized; ratio?: string };
 }
 
 export const services: Service[] = [
@@ -70,6 +75,14 @@ export const services: Service[] = [
       ],
     },
     image: '/src/assets/services/microcement.jpg',
+    photo: {
+      src: '/src/assets/services/microcement-bathroom.jpg',
+      alt: {
+        en: 'Bathroom finished in microcement: seamless walls, floor and vanity in a warm greige, with black fixtures and a walk-in shower.',
+        fr: "Salle de bain en béton ciré : murs, sol et vanité en surface continue d'un greige chaud, robinetterie noire et douche à l'italienne.",
+        es: 'Baño acabado en microcemento: paredes, piso y mueble de lavabo en superficie continua de tono greige cálido, grifería negra y ducha a ras de suelo.',
+      },
+    },
   },
 
   {
@@ -124,6 +137,14 @@ export const services: Service[] = [
       ],
     },
     image: '/src/assets/services/venetian-plaster.jpg',
+    photo: {
+      src: '/src/assets/services/venetian-plaster-powder-room.jpg',
+      alt: {
+        en: 'Powder room in charcoal Venetian plaster: walls with cloudy mineral depth, a black slab shelf, a round mirror and a white basin.',
+        fr: "Salle d'eau en stuc vénitien anthracite : murs à la profondeur minérale nuagée, tablette noire, miroir rond et vasque blanche.",
+        es: 'Aseo en estuco veneciano antracita: paredes con profundidad mineral veladura, repisa negra, espejo redondo y lavabo blanco.',
+      },
+    },
   },
 
   {
@@ -178,6 +199,14 @@ export const services: Service[] = [
       ],
     },
     image: '/src/assets/services/limewash.jpg',
+    photo: {
+      src: '/src/assets/services/limewash-interior.jpg',
+      alt: {
+        en: 'Living room wall in beige limewash, its cloudy brush movement catching the light behind a bouclé lounge chair and a stone side table.',
+        fr: "Mur de salon badigeonné à la chaux beige, son mouvement de brosse nuagé accrochant la lumière derrière un fauteuil en bouclé et un guéridon en pierre.",
+        es: 'Pared de salón a la cal en beige, con su movimiento de brocha veladura captando la luz tras una butaca de bouclé y una mesa auxiliar de piedra.',
+      },
+    },
   },
 
   {
@@ -232,6 +261,14 @@ export const services: Service[] = [
       ],
     },
     image: '/src/assets/services/furniture.jpg',
+    photo: {
+      src: '/src/assets/services/furniture-vanity.jpg',
+      alt: {
+        en: 'Bathroom built around a cast monolithic vanity and floating shelf in mineral plaster, with brass fittings and a skylight washing the walls.',
+        fr: "Salle de bain organisée autour d'une vanité monolithique coulée et d'une tablette suspendue en enduit minéral, robinetterie en laiton et puits de lumière balayant les murs.",
+        es: 'Baño construido en torno a un mueble de lavabo monolítico y una repisa flotante en revoco mineral, con grifería de latón y un lucernario que baña los muros.',
+      },
+    },
   },
 ];
 
