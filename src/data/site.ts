@@ -18,7 +18,7 @@ export const site = {
 } as const;
 
 export const tagline: Localized = {
-  en: 'Handmade mineral finishes and bespoke furniture, serving Montreal, Laval, Miami and Puerto Rico.',
-  fr: 'Finitions minérales faites main et mobilier sur mesure, pour Montréal, Laval, Miami et Porto Rico.',
-  es: 'Acabados minerales hechos a mano y mobiliario a medida, para Montreal, Laval, Miami y Puerto Rico.',
+  en: 'Handmade mineral finishes and bespoke furniture.',
+  fr: 'Finitions minérales faites main et mobilier sur mesure.',
+  es: 'Acabados minerales hechos a mano y mobiliario a medida.',
 };
