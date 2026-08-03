@@ -201,10 +201,11 @@ export const services: Service[] = [
     image: '/src/assets/services/limewash.jpg',
     photo: {
       src: '/src/assets/services/limewash-interior.jpg',
+      ratio: 'aspect-[3/4]',
       alt: {
-        en: 'Living room wall in beige limewash, its cloudy brush movement catching the light behind a bouclé lounge chair and a stone side table.',
-        fr: "Mur de salon peint à la chaux beige, son mouvement de brosse nuagé accrochant la lumière derrière un fauteuil en bouclé et un guéridon en pierre.",
-        es: 'Pared de salón a la cal en beige, con su movimiento de brocha veladura captando la luz tras una butaca de bouclé y una mesa auxiliar de piedra.',
+        en: 'Limewashed wall in a soft sand tone, raking daylight revealing the cloudy brush movement, with an olive branch in an earthenware jar on a plastered ledge.',
+        fr: "Mur peint à la chaux dans un sable doux, la lumière rasante révélant le mouvement de brosse nuagé, avec une branche d'olivier dans un vase de terre posé sur une tablette enduite.",
+        es: 'Muro a la cal en un tono arena suave, la luz rasante revelando el movimiento de brocha veladura, con una rama de olivo en una vasija de barro sobre una repisa revocada.',
       },
     },
   },
