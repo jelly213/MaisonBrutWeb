@@ -73,6 +73,11 @@
   [data-lines] .line {
     display: block;
     overflow: hidden;
+    /* The display face runs at line-height 0.95, so descenders sit below the
+       line box and the mask would shear them off. Drop the mask lower, then
+       pull it back up by the same amount to leave the layout untouched. */
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
   }
 
   [data-lines] .line > span {
