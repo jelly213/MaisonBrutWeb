@@ -138,11 +138,11 @@ export const services: Service[] = [
     },
     image: '/src/assets/services/venetian-plaster.jpg',
     photo: {
-      src: '/src/assets/services/venetian-plaster-powder-room.jpg',
+      src: '/src/assets/services/venetian-plaster-hallway.jpg',
       alt: {
-        en: 'Powder room in charcoal Venetian plaster: walls with cloudy mineral depth, a black slab shelf, a round mirror and a white basin.',
-        fr: "Salle d'eau en plâtre vénitien anthracite : murs à la profondeur minérale nuagée, tablette noire, miroir rond et vasque blanche.",
-        es: 'Aseo en estuco veneciano antracita: paredes con profundidad mineral veladura, repisa negra, espejo redondo y lavabo blanco.',
+        en: 'Hallway of arched openings in cream Venetian plaster, walls and ceiling running as one surface, with a reclaimed wood bench and an olive branch in a stoneware pot.',
+        fr: "Couloir aux ouvertures en arche en plâtre vénitien crème, murs et plafond filant en une seule surface, avec un banc en bois récupéré et une branche d'olivier dans un pot de grès.",
+        es: 'Pasillo de vanos en arco en estuco veneciano crema, muros y techo corriendo como una sola superficie, con un banco de madera recuperada y una rama de olivo en una vasija de gres.',
       },
     },
   },
