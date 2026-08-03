@@ -157,7 +157,7 @@ export const ui = {
     'cta.back': 'Retour',
 
     'home.heroTitle': 'Des surfaces qui respirent.',
-    'home.heroSub': 'Béton ciré, stuc vénitien et badigeon de chaux, appliqués à la main à Montréal et Laval.',
+    'home.heroSub': 'Microciment, plâtre vénitien et peinture à la chaux, appliqués à la main à Montréal et Laval.',
     'home.introEyebrow': "L'atelier",
     'home.intro':
       "Nous finissons les murs, les sols et le mobilier à l'ancienne : des matériaux minéraux, posés à la main, couche après couche. Aucune surface ne ressemble à une autre, et c'est précisément le but.",
@@ -268,13 +268,13 @@ export const ui = {
     'footer.contact': 'Contact',
     'footer.rights': 'Tous droits réservés.',
 
-    'meta.home.title': 'Maison Brüt : Béton ciré et stuc vénitien, Montréal',
+    'meta.home.title': 'Maison Brüt : Microciment et plâtre vénitien, Montréal',
     'meta.home.description':
-      'Béton ciré, stuc vénitien, badigeon de chaux et mobilier sur mesure, faits main, pour résidences et commerces à Montréal et Laval.',
-    'meta.work.description': 'Projets de béton ciré, stuc vénitien et badigeon de chaux réalisés dans le Grand Montréal.',
+      'Microciment, plâtre vénitien, peinture à la chaux et mobilier sur mesure, faits main, pour résidences et commerces à Montréal et Laval.',
+    'meta.work.description': 'Projets de microciment, plâtre vénitien et peinture à la chaux réalisés dans le Grand Montréal.',
     'meta.studio.description': "Découvrez l'atelier Maison Brüt : des finitions minérales appliquées à la main à Montréal.",
     'meta.faq.description': 'Durabilité, entretien, délais et préparation : les réponses aux questions les plus fréquentes.',
-    'meta.contact.description': 'Demandez une soumission pour du béton ciré, du stuc vénitien, un badigeon de chaux ou du mobilier sur mesure à Montréal et Laval.',
+    'meta.contact.description': 'Demandez une soumission pour du microciment, du plâtre vénitien, une peinture à la chaux ou du mobilier sur mesure à Montréal et Laval.',
   },
 
   es: {

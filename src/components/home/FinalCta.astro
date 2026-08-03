@@ -22,7 +22,7 @@ const t = useTranslations(lang);
     Two columns on desktop so the ink block is not half empty: the invitation
     on the left, the actions held to the right on the same baseline.
   */}
-  <div class="mx-auto max-w-[1800px] px-6 py-16 md:px-10 md:py-20">
+  <div class="mx-auto max-w-[1800px] px-6 pb-16 md:px-10 md:pb-20">
     <div class="grid gap-12 md:grid-cols-[1.3fr_1fr] md:items-end md:gap-16">
       <h2 class="display max-w-[14ch] text-[clamp(2.5rem,7vw,6rem)]" data-lines>
         {t('home.finalTitle')}
@@ -39,9 +39,13 @@ const t = useTranslations(lang);
           >
             {t('cta.quote')}
           </a>
-          <a href={`mailto:${site.email}`} class="text-sm text-bone/70 transition-colors hover:text-bone">
-            {site.email}
-          </a>
+          <span class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-bone/70">
+            <a href={`mailto:${site.email}`} class="transition-colors hover:text-bone">{site.email}</a>
+            <span aria-hidden="true" class="text-bone/30">&#183;</span>
+            <a href={`tel:${site.phone.replace(/[^+\d]/g, '')}`} class="transition-colors hover:text-bone">
+              {site.phone}
+            </a>
+          </span>
         </div>
       </div>
     </div>

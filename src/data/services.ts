@@ -26,7 +26,7 @@ export const services: Service[] = [
   {
     id: 'microcement',
     slug: { en: 'microcement', fr: 'beton-cire', es: 'microcemento' },
-    name: { en: 'Microcement', fr: 'Béton ciré', es: 'Microcemento' },
+    name: { en: 'Microcement', fr: 'Microciment', es: 'Microcemento' },
     short: {
       en: 'A seamless, modern surface finish that delivers a sleek, minimalist look with texture. Perfect for bathrooms and floors.',
       fr: "Une finition continue et contemporaine, sans joint, au rendu minimaliste et texturé. Idéale pour les salles de bain et les sols.",
@@ -39,7 +39,7 @@ export const services: Service[] = [
         'It is the finish we recommend most often for bathrooms, shower walls and open-plan floors, where a seam would break the calm of the space.',
       ],
       fr: [
-        "Le béton ciré est un enduit mince à base de ciment, appliqué en couches successives sur presque tout support sain : céramique, béton, plâtre ou contreplaqué. Épais de deux à trois millimètres, il transforme une pièce en une surface continue, sans joint pour couper le regard ni retenir la saleté.",
+        "Le microciment est un enduit mince à base de ciment, appliqué en couches successives sur presque tout support sain : céramique, béton, plâtre ou contreplaqué. Épais de deux à trois millimètres, il transforme une pièce en une surface continue, sans joint pour couper le regard ni retenir la saleté.",
         "Parce qu'il est taloché à la main, le rendu conserve un léger mouvement : nuages, traces de truelle discrètes, une profondeur qu'aucune surface imprimée ne reproduit. Nous le scellons avec un polyuréthane mat qui le rend imperméable et résistant.",
         "C'est la finition que nous recommandons le plus souvent pour les salles de bain, les murs de douche et les aires ouvertes, là où un joint viendrait rompre le calme de l'espace.",
       ],
@@ -78,9 +78,9 @@ export const services: Service[] = [
     photo: {
       src: '/src/assets/services/microcement-bathroom.jpg',
       alt: {
-        en: 'Bathroom finished in microcement: seamless walls, floor and vanity in a warm greige, with black fixtures and a walk-in shower.',
-        fr: "Salle de bain en béton ciré : murs, sol et vanité en surface continue d'un greige chaud, robinetterie noire et douche à l'italienne.",
-        es: 'Baño acabado en microcemento: paredes, piso y mueble de lavabo en superficie continua de tono greige cálido, grifería negra y ducha a ras de suelo.',
+        en: 'Bathroom in charcoal microcement: walls, sloped ceiling and floor run seamlessly around a freestanding tub, with brass fittings and a skylight.',
+        fr: "Salle de bain en microciment anthracite : murs, plafond mansardé et sol filent sans joint autour d'une baignoire îlot, robinetterie en laiton et puits de lumière.",
+        es: 'Baño en microcemento antracita: paredes, techo abuhardillado y piso corren sin juntas alrededor de una bañera exenta, con grifería de latón y un lucernario.',
       },
     },
   },
@@ -88,7 +88,7 @@ export const services: Service[] = [
   {
     id: 'venetian-plaster',
     slug: { en: 'venetian-plaster', fr: 'stuc-venitien', es: 'estuco-veneciano' },
-    name: { en: 'Venetian Plaster', fr: 'Stuc vénitien', es: 'Estuco veneciano' },
+    name: { en: 'Venetian Plaster', fr: 'Plâtre vénitien', es: 'Estuco veneciano' },
     short: {
       en: 'A lime-based product that offers a luxurious wall finish with natural depth and texture.',
       fr: "Un enduit à la chaux qui offre une finition murale luxueuse, avec une profondeur et une texture naturelles.",
@@ -101,7 +101,7 @@ export const services: Service[] = [
         'It belongs in the rooms you want people to notice: entryways, dining rooms, feature walls, hotel lobbies.',
       ],
       fr: [
-        "Le stuc vénitien, c'est de la chaux éteinte et de la poudre de marbre, lustrées couche après couche jusqu'à ce que le mur ait l'aspect de la pierre polie. La technique a des siècles et n'a jamais été surpassée, parce que rien d'autre ne produit cette lumière-là.",
+        "Le plâtre vénitien, c'est de la chaux éteinte et de la poudre de marbre, lustrées couche après couche jusqu'à ce que le mur ait l'aspect de la pierre polie. La technique a des siècles et n'a jamais été surpassée, parce que rien d'autre ne produit cette lumière-là.",
         "Selon le degré de lustrage, la finition va du satin doux au poli miroir. Le pigment est mélangé à la chaux elle-même plutôt qu'appliqué par-dessus : la couleur gagne en profondeur au lieu de rester en surface.",
         "Sa place est dans les pièces que l'on veut faire remarquer : entrées, salles à manger, murs d'accent, halls d'hôtel.",
       ],
@@ -141,7 +141,7 @@ export const services: Service[] = [
       src: '/src/assets/services/venetian-plaster-powder-room.jpg',
       alt: {
         en: 'Powder room in charcoal Venetian plaster: walls with cloudy mineral depth, a black slab shelf, a round mirror and a white basin.',
-        fr: "Salle d'eau en stuc vénitien anthracite : murs à la profondeur minérale nuagée, tablette noire, miroir rond et vasque blanche.",
+        fr: "Salle d'eau en plâtre vénitien anthracite : murs à la profondeur minérale nuagée, tablette noire, miroir rond et vasque blanche.",
         es: 'Aseo en estuco veneciano antracita: paredes con profundidad mineral veladura, repisa negra, espejo redondo y lavabo blanco.',
       },
     },
@@ -150,7 +150,7 @@ export const services: Service[] = [
   {
     id: 'limewash',
     slug: { en: 'limewash', fr: 'badigeon-de-chaux', es: 'encalado' },
-    name: { en: 'Limewash', fr: 'Badigeon de chaux', es: 'Encalado' },
+    name: { en: 'Limewash', fr: 'Peinture à la chaux', es: 'Encalado' },
     short: {
       en: 'A natural, breathable paint that creates a soft, matte finish with subtle movement. It adds warmth and character to any space.',
       fr: "Une peinture naturelle et perspirante au fini mat et velouté, animé de nuances. Elle apporte chaleur et caractère à toute pièce.",
@@ -163,8 +163,8 @@ export const services: Service[] = [
         'Choose it when you want warmth and age rather than perfection.',
       ],
       fr: [
-        "Le badigeon de chaux est la plus ancienne de nos finitions, et la plus simple : chaux éteinte, eau, pigment minéral. Appliqué à la brosse en croisillons libres, il sèche en une surface mate et crayeuse qui passe du nuageux au limpide selon la course de la lumière.",
-        "C'est un minéral, pas un film plastique. Il se lie chimiquement à la maçonnerie et au plâtre au lieu de reposer dessus, et il laisse le mur respirer, ce qui compte dans les bâtiments montréalais anciens, où l'humidité emprisonnée fait de réels dégâts.",
+        "La peinture à la chaux est la plus ancienne de nos finitions, et la plus simple : chaux éteinte, eau, pigment minéral. Appliquée à la brosse en croisillons libres, elle sèche en une surface mate et crayeuse qui passe du nuageux au limpide selon la course de la lumière.",
+        "C'est un minéral, pas un film plastique. Elle se lie chimiquement à la maçonnerie et au plâtre au lieu de reposer dessus, et elle laisse le mur respirer, ce qui compte dans les bâtiments montréalais anciens, où l'humidité emprisonnée fait de réels dégâts.",
         "À choisir quand on cherche la chaleur et la patine plutôt que la perfection.",
       ],
       es: [
@@ -203,7 +203,7 @@ export const services: Service[] = [
       src: '/src/assets/services/limewash-interior.jpg',
       alt: {
         en: 'Living room wall in beige limewash, its cloudy brush movement catching the light behind a bouclé lounge chair and a stone side table.',
-        fr: "Mur de salon badigeonné à la chaux beige, son mouvement de brosse nuagé accrochant la lumière derrière un fauteuil en bouclé et un guéridon en pierre.",
+        fr: "Mur de salon peint à la chaux beige, son mouvement de brosse nuagé accrochant la lumière derrière un fauteuil en bouclé et un guéridon en pierre.",
         es: 'Pared de salón a la cal en beige, con su movimiento de brocha veladura captando la luz tras una butaca de bouclé y una mesa auxiliar de piedra.',
       },
     },
@@ -227,7 +227,7 @@ export const services: Service[] = [
       fr: [
         "Certaines pièces ont un recoin qu'aucun catalogue ne comblera jamais. Nous dessinons, fabriquons et finissons du mobilier pour ces espaces-là : vanités, bancs, consoles, tables, étagères, en bois massif, en acier et avec nos propres finitions minérales.",
         "Le travail commence par la pièce, pas par l'objet : nous mesurons, esquissons et arrêtons les matériaux avant la moindre découpe. Vous voyez le meuble en dessin et en échantillons avant qu'il soit construit.",
-        "Parce que nous appliquons nous-mêmes les finitions, une vanité en béton ciré peut s'accorder exactement au sol sur lequel elle repose.",
+        "Parce que nous appliquons nous-mêmes les finitions, une vanité en microciment peut s'accorder exactement au sol sur lequel elle repose.",
       ],
       es: [
         'Algunas habitaciones tienen un rincón que ningún catálogo llenará jamás. Dibujamos, fabricamos y acabamos mobiliario para esos espacios: tocadores, bancos, consolas, mesas de comedor, estanterías, en madera maciza, acero y nuestros propios acabados minerales.',
