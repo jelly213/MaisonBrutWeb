@@ -29,7 +29,7 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('services',
     <p class="mt-8 max-w-[52ch] text-balance text-stone md:text-lg">{t('home.servicesLead')}</p>
   </section>
 
-  <section class="mx-auto max-w-[1800px] px-6 pb-20 md:px-10 md:pb-32">
+  <section class="mx-auto max-w-[1800px] px-6 pb-12 md:px-10 md:pb-32">
     <div class="grid gap-5 sm:grid-cols-2 md:gap-7 lg:grid-cols-4">
       {services.map((service, index) => <ServiceCard service={service} lang={lang} index={index} />)}
     </div>
