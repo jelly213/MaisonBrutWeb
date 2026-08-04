@@ -138,11 +138,11 @@ export const services: Service[] = [
     },
     image: '/src/assets/services/venetian-plaster.jpg',
     photo: {
-      src: '/src/assets/services/venetian-plaster-hallway.jpg',
+      src: '/src/assets/services/venetian-plaster-corner.jpg',
       alt: {
-        en: 'Hallway of arched openings in cream Venetian plaster, walls and ceiling running as one surface, with a reclaimed wood bench and an olive branch in a stoneware pot.',
-        fr: "Couloir aux ouvertures en arche en plâtre vénitien crème, murs et plafond filant en une seule surface, avec un banc en bois récupéré et une branche d'olivier dans un pot de grès.",
-        es: 'Pasillo de vanos en arco en estuco veneciano crema, muros y techo corriendo como una sola superficie, con un banco de madera recuperada y una rama de olivo en una vasija de gres.',
+        en: 'Wall in warm sand Venetian plaster, its soft mineral movement behind a pale wood chair and a stoneware vase of dried branches.',
+        fr: "Mur en plâtre vénitien sable chaud, son mouvement minéral doux derrière une chaise en bois clair et un vase de grès garni de branches séchées.",
+        es: 'Muro en estuco veneciano arena cálida, con su movimiento mineral suave tras una silla de madera clara y una vasija de gres con ramas secas.',
       },
     },
   },
@@ -216,7 +216,7 @@ export const services: Service[] = [
     name: { en: 'Custom-Made Furniture', fr: 'Mobilier sur mesure', es: 'Mobiliario a medida' },
     short: {
       en: 'We design and build unique furniture on demand. Every item is handcrafted to match your space and personal style.',
-      fr: "Nous concevons et fabriquons du mobilier unique sur demande. Chaque pièce est faite main, à la mesure de votre espace et de votre style.",
+      fr: "Nous concevons et fabriquons du mobilier unique sur demande. Chaque pièce est faite à la main, à la mesure de votre espace et de votre style.",
       es: 'Diseñamos y fabricamos mobiliario único bajo pedido. Cada pieza está hecha a mano, a la medida de tu espacio y tu estilo.',
     },
     body: {

@@ -19,6 +19,6 @@ export const site = {
 
 export const tagline: Localized = {
   en: 'Handmade mineral finishes and bespoke furniture.',
-  fr: 'Finitions minérales faites main et mobilier sur mesure.',
+  fr: 'Finitions minérales faites à la main et mobilier sur mesure.',
   es: 'Acabados minerales hechos a mano y mobiliario a medida.',
 };

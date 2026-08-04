@@ -5,6 +5,7 @@ import { useTranslations } from '../../i18n/ui';
 import { route } from '../../i18n/routes';
 import { studio } from '../../data/studio';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Photo from '../ui/Photo.astro';
 import FinalCta from '../home/FinalCta.astro';
 
 interface Props {
@@ -27,12 +28,53 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('studio', l
     <h1 class="display mt-6 max-w-[18ch] text-[clamp(2.25rem,6vw,5rem)]" data-lines>{pick(studio.lead, lang)}</h1>
   </section>
 
-  {/*
-    A typographic panel rather than a photograph. An empty image slot on the
-    page that tells the studio's story reads as something missing; a statement
-    reads as a choice — and it says more than a stock interior would.
-  */}
-  <div class="mx-auto max-w-[1800px] px-6 md:px-10">
+  <section class="mx-auto max-w-[1800px] px-6 pb-12 pt-16 md:px-10 md:pb-16 md:pt-24">
+    <div class="grid gap-16 md:grid-cols-[1.3fr_1fr] md:gap-20">
+      <div class="space-y-7">
+        {
+          pick(studio.body, lang).map((paragraph) => (
+            <p class="max-w-[62ch] leading-relaxed text-ink/85 md:text-lg" data-reveal="up">
+              {paragraph}
+            </p>
+          ))
+        }
+      </div>
+
+      {/*
+        From md up the photo is taken out of flow inside a cell that stretches
+        to the row. It therefore takes the text's height instead of setting a
+        height of its own, and no gap opens under the shorter column.
+      */}
+      <div class="relative">
+        <Photo
+          src={studio.photo.src}
+          alt={pick(studio.photo.alt, lang)}
+          ratio="aspect-[4/5] md:aspect-auto"
+          class="w-full rounded-2xl md:absolute md:inset-0 md:h-full"
+          sizes="(min-width: 768px) 38vw, 100vw"
+          widths={[480, 720, 1200, 1440]}
+          data-reveal="up"
+        />
+      </div>
+    </div>
+
+    <dl
+      class="mt-16 grid gap-x-8 gap-y-6 border-t border-ink/15 pt-8 sm:grid-cols-2 lg:grid-cols-4"
+      data-reveal="up"
+    >
+      {
+        pick(studio.facts, lang).map((fact) => (
+          <div class="border-b border-ink/10 pb-4">
+            <dt class="eyebrow text-stone">{fact.label}</dt>
+            <dd class="mt-2 text-sm">{fact.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  {/* The statement closes the page, after the story it belongs to. */}
+  <div class="mx-auto max-w-[1800px] px-6 pb-12 md:px-10 md:pb-20">
     <div
       class="flex flex-col justify-between gap-14 rounded-2xl bg-ink px-8 py-16 text-bone md:px-14 md:py-24"
       data-reveal="up"
@@ -50,29 +92,6 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('studio', l
       </ul>
     </div>
   </div>
-
-  <section class="mx-auto grid max-w-[1800px] gap-16 px-6 pb-12 pt-16 md:grid-cols-[1.3fr_1fr] md:gap-20 md:px-10 md:py-24">
-    <div class="space-y-7">
-      {
-        pick(studio.body, lang).map((paragraph) => (
-          <p class="max-w-[62ch] leading-relaxed text-ink/85 md:text-lg" data-reveal="up">
-            {paragraph}
-          </p>
-        ))
-      }
-    </div>
-
-    <dl class="space-y-6" data-reveal="up">
-      {
-        pick(studio.facts, lang).map((fact) => (
-          <div class="border-b border-ink/10 pb-4">
-            <dt class="eyebrow text-stone">{fact.label}</dt>
-            <dd class="mt-2 text-sm">{fact.value}</dd>
-          </div>
-        ))
-      }
-    </dl>
-  </section>
 
   <FinalCta lang={lang} />
 </BaseLayout>

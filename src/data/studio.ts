@@ -6,6 +6,7 @@ export const studio: {
   materials: Localized<string[]>;
   body: Localized<string[]>;
   facts: Localized<{ label: string; value: string }[]>;
+  photo: { src: string; alt: Localized };
 } = {
   lead: {
     en: 'A small studio in Montreal, working in lime and cement.',
@@ -13,7 +14,7 @@ export const studio: {
     es: 'Un pequeño estudio en Montreal, que trabaja la cal y el cemento.',
   },
 
-  /** Stands where a photograph would, until the client supplies one. */
+  /** Closing line of the page, set on its own dark panel. */
   statement: {
     en: 'Materials that are what they appear to be.',
     fr: 'Des matériaux qui sont ce qu’ils paraissent.',
@@ -42,6 +43,15 @@ export const studio: {
       'Todo lo que hacemos se aplica a mano, en el sitio, una capa a la vez. No existe máquina que produzca esto ni atajo que sobreviva al contacto con un muro. Es más lento que la pintura y cuesta más, y es la razón por la que una superficie Maison Brüt sigue viéndose bien diez años después.',
       'Trabajamos en Montreal, Laval, la Rive-Nord, la Rive-Sud, Miami y Puerto Rico, en residencias privadas, restaurantes y locales comerciales. La mayoría de nuestros proyectos vienen de clientes que vieron un muro que terminamos para alguien más.',
     ],
+  },
+
+  photo: {
+    src: '/src/assets/studio/studio-wall.jpg',
+    alt: {
+      en: 'A plastered alcove in raking daylight, a pale vase on a built-in ledge and a cylindrical stool below, with the Maison Brüt wordmark set across the wall.',
+      fr: "Une alcôve enduite sous une lumière rasante, un vase clair sur une tablette maçonnée et un tabouret cylindrique en contrebas, le mot-symbole Maison Brüt posé en travers du mur.",
+      es: 'Una alcoba revocada bajo luz rasante, una vasija clara sobre una repisa de obra y un taburete cilíndrico debajo, con el logotipo Maison Brüt dispuesto sobre el muro.',
+    },
   },
 
   facts: {

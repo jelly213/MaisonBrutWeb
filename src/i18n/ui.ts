@@ -263,14 +263,14 @@ export const ui = {
     'form.required': 'Obligatoire',
     'form.invalidEmail': 'Veuillez saisir une adresse courriel valide.',
 
-    'footer.tagline': 'Finitions minérales faites main et mobilier sur mesure.',
+    'footer.tagline': 'Finitions minérales faites à la main et mobilier sur mesure.',
     'footer.nav': 'Navigation',
     'footer.contact': 'Contact',
     'footer.rights': 'Tous droits réservés.',
 
     'meta.home.title': 'Maison Brüt : Microciment et plâtre vénitien, Montréal',
     'meta.home.description':
-      'Microciment, plâtre vénitien, peinture à la chaux et mobilier sur mesure, faits main, pour résidences et commerces à Montréal et Laval.',
+      'Microciment, plâtre vénitien, peinture à la chaux et mobilier sur mesure, faits à la main, pour résidences et commerces à Montréal et Laval.',
     'meta.work.description': 'Projets de microciment, plâtre vénitien et peinture à la chaux réalisés dans le Grand Montréal.',
     'meta.studio.description': "Découvrez l'atelier Maison Brüt : des finitions minérales appliquées à la main à Montréal.",
     'meta.faq.description': 'Durabilité, entretien, délais et préparation : les réponses aux questions les plus fréquentes.',
