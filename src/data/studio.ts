@@ -7,6 +7,8 @@ export const studio: {
   body: Localized<string[]>;
   facts: Localized<{ label: string; value: string }[]>;
   photo: { src: string; alt: Localized };
+  /** Optional clip shown in place of `photo`, which stays on as its poster. */
+  video?: string;
 } = {
   lead: {
     en: 'A small studio in Montreal, working in lime and cement.',
@@ -53,6 +55,8 @@ export const studio: {
       es: 'Una alcoba revocada bajo luz rasante, una vasija clara sobre una repisa de obra y un taburete cilíndrico debajo, con el logotipo Maison Brüt dispuesto sobre el muro.',
     },
   },
+
+  video: '/videos/studio.mp4',
 
   facts: {
     en: [

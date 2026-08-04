@@ -1,4 +1,5 @@
 ---
+import { getImage } from 'astro:assets';
 import type { Lang } from '../../i18n/config';
 import { otherLangs, pick } from '../../i18n/config';
 import { useTranslations } from '../../i18n/ui';
@@ -6,6 +7,7 @@ import { route } from '../../i18n/routes';
 import { studio } from '../../data/studio';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Photo from '../ui/Photo.astro';
+import AutoVideo from '../ui/AutoVideo.astro';
 import FinalCta from '../home/FinalCta.astro';
 
 interface Props {
@@ -15,6 +17,15 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('studio', l) }));
+
+// The still stands in as the clip's poster, so it goes through the pipeline
+// even when the video is what actually plays.
+const assets = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/**/*.{jpeg,jpg,png,webp,avif}',
+  { eager: true },
+);
+const posterAsset = assets[studio.photo.src];
+const poster = posterAsset ? await getImage({ src: posterAsset.default, width: 900, format: 'webp' }) : null;
 ---
 
 <BaseLayout
@@ -45,16 +56,38 @@ const altPaths = otherLangs(lang).map((l) => ({ lang: l, path: route('studio', l
         to the row. It therefore takes the text's height instead of setting a
         height of its own, and no gap opens under the shorter column.
       */}
+      {/*
+        Reels format: the 9:16 frame the clips are shot in, kept to a width
+        that does not tower over the three paragraphs beside it.
+      */}
       <div class="relative">
-        <Photo
-          src={studio.photo.src}
-          alt={pick(studio.photo.alt, lang)}
-          ratio="aspect-[4/5] md:aspect-auto"
-          class="w-full rounded-2xl md:absolute md:inset-0 md:h-full"
-          sizes="(min-width: 768px) 38vw, 100vw"
-          widths={[480, 720, 1200, 1440]}
-          data-reveal="up"
-        />
+        {
+          studio.video ? (
+            <div
+              class="relative mx-auto aspect-[9/16] w-full max-w-[360px] overflow-hidden rounded-2xl bg-plaster"
+              data-reveal="up"
+            >
+              <AutoVideo
+                src={studio.video}
+                poster={poster?.src}
+                label={pick(studio.photo.alt, lang)}
+                sound
+                lang={lang}
+                class="h-full w-full object-cover"
+              />
+            </div>
+          ) : (
+            <Photo
+              src={studio.photo.src}
+              alt={pick(studio.photo.alt, lang)}
+              ratio="aspect-[4/5] md:aspect-auto"
+              class="w-full rounded-2xl md:absolute md:inset-0 md:h-full"
+              sizes="(min-width: 768px) 38vw, 100vw"
+              widths={[480, 720, 1200, 1440]}
+              data-reveal="up"
+            />
+          )
+        }
       </div>
     </div>
 

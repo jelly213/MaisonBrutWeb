@@ -1,0 +1,146 @@
+---
+import type { Lang } from '../../i18n/config';
+import { useTranslations } from '../../i18n/ui';
+
+/**
+ * A clip that plays itself, on the reels' terms: nothing is fetched until it
+ * is on screen, it pauses when it leaves, and a visitor who asked for less
+ * motion keeps the poster frame and nothing else.
+ *
+ * Pass `label` for a clip that carries meaning; leave it out and the video is
+ * hidden from assistive tech, which is what a decorative card background wants.
+ *
+ * `sound` adds the reels' furniture — a progress bar and a mute toggle. No
+ * browser will autoplay audio, so the clip still starts muted and the visitor
+ * turns it on. Needs `lang` for the button's label.
+ */
+interface Props {
+  src: string;
+  poster?: string;
+  label?: string;
+  sound?: boolean;
+  lang?: Lang;
+  class?: string;
+}
+
+const { src, poster, label, sound = false, lang = 'en', class: className = '' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+{
+  sound ? (
+    <div class="absolute inset-0">
+      <video
+        data-auto-video
+        class={className}
+        poster={poster}
+        preload="none"
+        muted
+        loop
+        playsinline
+        aria-label={label}
+      >
+        <source src={src} type="video/mp4" />
+      </video>
+
+      {/* Playback progress, doubles as the "this is live" cue. */}
+      <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-[3px] bg-bone/25">
+        <span data-auto-video-progress class="block h-full w-0 origin-left bg-bone/90" />
+      </span>
+
+      <button
+        type="button"
+        data-auto-video-sound
+        aria-pressed="false"
+        class="eyebrow absolute right-3 top-3 rounded-full bg-ink/55 px-4 py-2 text-bone backdrop-blur-sm transition-colors hover:bg-ink/80"
+      >
+        <span data-auto-video-sound-label data-on={t('reel.muted')} data-off={t('reel.sound')}>
+          {t('reel.sound')}
+        </span>
+      </button>
+    </div>
+  ) : (
+    <video
+      data-auto-video
+      class={className}
+      poster={poster}
+      preload="none"
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+    >
+      <source src={src} type="video/mp4" />
+    </video>
+  )
+}
+
+<script>
+  function setupAutoVideos() {
+    const videos = Array.from(
+      document.querySelectorAll<HTMLVideoElement>('[data-auto-video]:not([data-ready])'),
+    );
+    if (videos.length === 0) return;
+
+    videos.forEach((video) => (video.dataset.ready = 'true'));
+
+    videos.forEach((video) => {
+      const shell = video.parentElement;
+      const bar = shell?.querySelector<HTMLElement>('[data-auto-video-progress]');
+      const button = shell?.querySelector<HTMLButtonElement>('[data-auto-video-sound]');
+      const label = shell?.querySelector<HTMLElement>('[data-auto-video-sound-label]');
+      if (!button) return;
+
+      video.addEventListener('timeupdate', () => {
+        if (!bar || !video.duration) return;
+        bar.style.width = `${(video.currentTime / video.duration) * 100}%`;
+      });
+
+      // One clip at a time may speak; unmuting another silences this one.
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        const turningOn = video.muted;
+
+        videos.forEach((other) => {
+          if (other === video) return;
+          other.muted = true;
+          const otherShell = other.parentElement;
+          const otherLabel = otherShell?.querySelector<HTMLElement>('[data-auto-video-sound-label]');
+          const otherButton = otherShell?.querySelector<HTMLButtonElement>('[data-auto-video-sound]');
+          if (otherLabel) otherLabel.textContent = otherLabel.dataset.off ?? '';
+          otherButton?.setAttribute('aria-pressed', 'false');
+        });
+
+        video.muted = !turningOn;
+        if (label) label.textContent = turningOn ? label.dataset.on ?? '' : label.dataset.off ?? '';
+        button.setAttribute('aria-pressed', String(turningOn));
+        if (turningOn) video.play().catch(() => {});
+      });
+    });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            if (video.preload === 'none') {
+              video.preload = 'auto';
+              video.load();
+            }
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
+
+    videos.forEach((video) => observer.observe(video));
+  }
+
+  setupAutoVideos();
+  document.addEventListener('astro:page-load', setupAutoVideos);
+</script>

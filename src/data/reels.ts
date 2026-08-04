@@ -18,17 +18,6 @@ export interface Reel {
  */
 export const reels: Reel[] = [
   {
-    id: 'terracotta-entry',
-    video: '/videos/reel-01.mp4',
-    poster: '/src/assets/reels/reel-01.jpg',
-    title: { en: 'Terracotta entryway', fr: 'Entrée terracotta', es: 'Entrada terracota' },
-    alt: {
-      en: 'Camera moving through an entryway finished in terracotta lime, the colour wrapping the wall and the closet partition.',
-      fr: "Travelling dans une entrée finie à la chaux terracotta, la couleur enveloppant le mur et la cloison du placard.",
-      es: 'Cámara recorriendo una entrada acabada a la cal en terracota, el color envolviendo el muro y el tabique del clóset.',
-    },
-  },
-  {
     id: 'inset-niche',
     video: '/videos/reel-02.mp4',
     poster: '/src/assets/reels/reel-02.jpg',
@@ -48,6 +37,17 @@ export const reels: Reel[] = [
       en: 'An arched alcove finished in plaster, with oak shelves lit by concealed strip lighting.',
       fr: 'Alcôve voûtée en enduit minéral, avec des tablettes en chêne éclairées par des rubans dissimulés.',
       es: 'Un nicho abovedado acabado en estuco mineral, con estantes de roble iluminados por tiras de luz ocultas.',
+    },
+  },
+  {
+    id: 'seamless-bathroom',
+    video: '/videos/reel-04.mp4',
+    poster: '/src/assets/reels/reel-04.jpg',
+    title: { en: 'Seamless bathroom wall', fr: 'Mur de salle de bain sans joint', es: 'Muro de baño sin juntas' },
+    alt: {
+      en: 'Camera panning across a bathroom finished wall to wall in warm sand mineral coating, with no seam anywhere on the surface.',
+      fr: "Panoramique sur une salle de bain finie de mur à mur en enduit minéral sable chaud, sans le moindre joint en surface.",
+      es: 'Panorámica sobre un baño acabado de muro a muro en revoco mineral arena cálida, sin ninguna junta en la superficie.',
     },
   },
 ];
