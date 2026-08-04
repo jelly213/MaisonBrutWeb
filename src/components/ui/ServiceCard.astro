@@ -37,15 +37,30 @@ const bg = asset ? await getImage({ src: asset.default, width: 900, format: 'web
   data-reveal-delay={(index * 0.08).toFixed(2)}
 >
   {
-    bg && (
-      <img
-        src={bg.src}
-        alt=""
+    service.video ? (
+      <video
+        data-card-video
         aria-hidden="true"
-        loading="lazy"
-        decoding="async"
+        poster={bg?.src}
+        preload="none"
+        muted
+        loop
+        playsinline
         class="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
-      />
+      >
+        <source src={service.video} type="video/mp4" />
+      </video>
+    ) : (
+      bg && (
+        <img
+          src={bg.src}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          class="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+        />
+      )
     )
   }
 
@@ -65,3 +80,42 @@ const bg = asset ? await getImage({ src: asset.default, width: 900, format: 'web
     </span>
   </div>
 </a>
+
+<script>
+  /*
+    Card clips behave like the reels: nothing is fetched until the card is on
+    screen, and a visitor who asked for less motion keeps the poster frame.
+  */
+  function setupCardVideos() {
+    const videos = Array.from(
+      document.querySelectorAll<HTMLVideoElement>('[data-card-video]:not([data-ready])'),
+    );
+    if (videos.length === 0) return;
+
+    videos.forEach((video) => (video.dataset.ready = 'true'));
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            if (video.preload === 'none') {
+              video.preload = 'auto';
+              video.load();
+            }
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
+
+    videos.forEach((video) => observer.observe(video));
+  }
+
+  setupCardVideos();
+  document.addEventListener('astro:page-load', setupCardVideos);
+</script>

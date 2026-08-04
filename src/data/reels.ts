@@ -18,14 +18,14 @@ export interface Reel {
  */
 export const reels: Reel[] = [
   {
-    id: 'plaster-wall',
+    id: 'terracotta-entry',
     video: '/videos/reel-01.mp4',
     poster: '/src/assets/reels/reel-01.jpg',
-    title: { en: 'Marbled plaster wall', fr: 'Mur en stuc marbré', es: 'Muro de estuco marmoleado' },
+    title: { en: 'Terracotta entryway', fr: 'Entrée terracotta', es: 'Entrada terracota' },
     alt: {
-      en: 'Camera moving along a burnished plaster wall, its cloudy marbling shifting with the light.',
-      fr: 'Travelling le long d’un mur en stuc lustré, dont les nuages marbrés bougent avec la lumière.',
-      es: 'Cámara recorriendo un muro de estuco bruñido, cuyo marmoleado nublado cambia con la luz.',
+      en: 'Camera moving through an entryway finished in terracotta lime, the colour wrapping the wall and the closet partition.',
+      fr: "Travelling dans une entrée finie à la chaux terracotta, la couleur enveloppant le mur et la cloison du placard.",
+      es: 'Cámara recorriendo una entrada acabada a la cal en terracota, el color envolviendo el muro y el tabique del clóset.',
     },
   },
   {

@@ -16,6 +16,11 @@ export interface Service {
   why: Localized<string[]>;
   image: string;
   /**
+   * Optional clip that plays in place of `image` on the service card. The
+   * image stays on as the poster frame, so the card is never empty.
+   */
+  video?: string;
+  /**
    * Optional finished-work photo shown under the title on the service page.
    * `ratio` is a Tailwind aspect utility; leave it out for portrait sources.
    */
@@ -75,6 +80,7 @@ export const services: Service[] = [
       ],
     },
     image: '/src/assets/services/microcement.jpg',
+    video: '/videos/microcement-card.mp4',
     photo: {
       src: '/src/assets/services/microcement-bathroom.jpg',
       alt: {
@@ -137,12 +143,13 @@ export const services: Service[] = [
       ],
     },
     image: '/src/assets/services/venetian-plaster.jpg',
+    video: '/videos/venetian-plaster-card.mp4',
     photo: {
-      src: '/src/assets/services/venetian-plaster-corner.jpg',
+      src: '/src/assets/services/venetian-plaster-powder-room.jpg',
       alt: {
-        en: 'Wall in warm sand Venetian plaster, its soft mineral movement behind a pale wood chair and a stoneware vase of dried branches.',
-        fr: "Mur en plâtre vénitien sable chaud, son mouvement minéral doux derrière une chaise en bois clair et un vase de grès garni de branches séchées.",
-        es: 'Muro en estuco veneciano arena cálida, con su movimiento mineral suave tras una silla de madera clara y una vasija de gres con ramas secas.',
+        en: 'Powder room in charcoal Venetian plaster: walls with cloudy mineral depth, a black slab shelf, a round mirror and a white basin.',
+        fr: "Salle d'eau en plâtre vénitien anthracite : murs à la profondeur minérale nuagée, tablette noire, miroir rond et vasque blanche.",
+        es: 'Aseo en estuco veneciano antracita: paredes con profundidad mineral veladura, repisa negra, espejo redondo y lavabo blanco.',
       },
     },
   },
@@ -199,13 +206,13 @@ export const services: Service[] = [
       ],
     },
     image: '/src/assets/services/limewash.jpg',
+    video: '/videos/limewash-card.mp4',
     photo: {
       src: '/src/assets/services/limewash-interior.jpg',
-      ratio: 'aspect-[3/4]',
       alt: {
-        en: 'Limewashed wall in a soft sand tone, raking daylight revealing the cloudy brush movement, with an olive branch in an earthenware jar on a plastered ledge.',
-        fr: "Mur peint à la chaux dans un sable doux, la lumière rasante révélant le mouvement de brosse nuagé, avec une branche d'olivier dans un vase de terre posé sur une tablette enduite.",
-        es: 'Muro a la cal en un tono arena suave, la luz rasante revelando el movimiento de brocha veladura, con una rama de olivo en una vasija de barro sobre una repisa revocada.',
+        en: 'Wall in warm sand limewash, its soft brush movement behind a pale wood chair and a stoneware vase of dried branches.',
+        fr: "Mur peint à la chaux dans un sable chaud, son mouvement de brosse doux derrière une chaise en bois clair et un vase de grès garni de branches séchées.",
+        es: 'Muro a la cal en arena cálida, con su movimiento de brocha suave tras una silla de madera clara y una vasija de gres con ramas secas.',
       },
     },
   },
