@@ -41,24 +41,22 @@ const poster = posterAsset ? await getImage({ src: posterAsset.default, width: 9
 
   <section class="mx-auto max-w-[1800px] px-6 pb-12 pt-16 md:px-10 md:pb-16 md:pt-24">
     <div class="grid gap-16 md:grid-cols-[1.3fr_1fr] md:gap-20">
-      <div class="space-y-7">
+      {/* The facts spread over the clip's height rather than bunching at the
+          top, so the row reads as one block instead of two ragged columns. */}
+      <dl class="flex max-w-[54ch] flex-col justify-between gap-6" data-reveal="up">
         {
-          pick(studio.body, lang).map((paragraph) => (
-            <p class="max-w-[62ch] leading-relaxed text-ink/85 md:text-lg" data-reveal="up">
-              {paragraph}
-            </p>
+          pick(studio.facts, lang).map((fact) => (
+            <div class="border-b border-ink/10 pb-4">
+              <dt class="eyebrow text-stone">{fact.label}</dt>
+              <dd class="mt-2 text-sm">{fact.value}</dd>
+            </div>
           ))
         }
-      </div>
+      </dl>
 
       {/*
-        From md up the photo is taken out of flow inside a cell that stretches
-        to the row. It therefore takes the text's height instead of setting a
-        height of its own, and no gap opens under the shorter column.
-      */}
-      {/*
         Reels format: the 9:16 frame the clips are shot in, kept to a width
-        that does not tower over the three paragraphs beside it.
+        that does not tower over the facts beside it.
       */}
       <div class="relative">
         {
@@ -80,10 +78,10 @@ const poster = posterAsset ? await getImage({ src: posterAsset.default, width: 9
             <Photo
               src={studio.photo.src}
               alt={pick(studio.photo.alt, lang)}
-              ratio="aspect-[4/5] md:aspect-auto"
-              class="w-full rounded-2xl md:absolute md:inset-0 md:h-full"
-              sizes="(min-width: 768px) 38vw, 100vw"
-              widths={[480, 720, 1200, 1440]}
+              ratio="aspect-[4/5]"
+              class="mx-auto w-full max-w-[360px] rounded-2xl"
+              sizes="(min-width: 768px) 360px, 100vw"
+              widths={[480, 720]}
               data-reveal="up"
             />
           )
@@ -91,19 +89,15 @@ const poster = posterAsset ? await getImage({ src: posterAsset.default, width: 9
       </div>
     </div>
 
-    <dl
-      class="mt-16 grid gap-x-8 gap-y-6 border-t border-ink/15 pt-8 sm:grid-cols-2 lg:grid-cols-4"
-      data-reveal="up"
-    >
+    <div class="mt-16 space-y-7 border-t border-ink/15 pt-10">
       {
-        pick(studio.facts, lang).map((fact) => (
-          <div class="border-b border-ink/10 pb-4">
-            <dt class="eyebrow text-stone">{fact.label}</dt>
-            <dd class="mt-2 text-sm">{fact.value}</dd>
-          </div>
+        pick(studio.body, lang).map((paragraph) => (
+          <p class="leading-relaxed text-ink/85 md:text-lg" data-reveal="up">
+            {paragraph}
+          </p>
         ))
       }
-    </dl>
+    </div>
   </section>
 
   {/* The statement closes the page, after the story it belongs to. */}
