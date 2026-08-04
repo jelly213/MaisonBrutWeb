@@ -21,7 +21,7 @@ export const ui = {
     'cta.back': 'Back',
 
     'home.heroTitle': 'Surfaces that breathe.',
-    'home.heroSub': 'Microcement, Venetian plaster and limewash, applied by hand in Montreal and Laval.',
+    'home.heroSub': 'Microcement, Venetian plaster and limewash, applied by hand across Greater Montreal and the surrounding area.',
     'home.introEyebrow': 'The studio',
     'home.intro':
       'We finish walls, floors and furniture the slow way: mineral materials, laid by hand, layer over layer. No two surfaces come out alike, and that is the point.',
@@ -134,11 +134,11 @@ export const ui = {
 
     'meta.home.title': 'Maison Brüt: Microcement & Venetian Plaster, Montreal',
     'meta.home.description':
-      'Handmade microcement, Venetian plaster, limewash and custom furniture for homes and businesses in Montreal and Laval.',
+      'Handmade microcement, Venetian plaster, limewash and custom furniture for homes and businesses across Greater Montreal and the surrounding area.',
     'meta.work.description': 'Selected microcement, Venetian plaster and limewash projects across Greater Montreal.',
     'meta.studio.description': 'Meet the studio behind Maison Brüt: mineral finishes applied by hand in Montreal.',
     'meta.faq.description': 'Durability, upkeep, timelines and preparation: answers to the questions we hear most.',
-    'meta.contact.description': 'Request a quote for microcement, Venetian plaster, limewash or custom furniture in Montreal and Laval.',
+    'meta.contact.description': 'Request a quote for microcement, Venetian plaster, limewash or custom furniture across Greater Montreal and the surrounding area.',
   },
 
   fr: {
@@ -157,7 +157,7 @@ export const ui = {
     'cta.back': 'Retour',
 
     'home.heroTitle': 'Des surfaces qui respirent.',
-    'home.heroSub': 'Microciment, plâtre vénitien et peinture à la chaux, appliqués à la main à Montréal et Laval.',
+    'home.heroSub': 'Microciment, plâtre vénitien et peinture à la chaux, appliqués à la main dans le Grand Montréal et ses environs.',
     'home.introEyebrow': "L'atelier",
     'home.intro':
       "Nous finissons les murs, les sols et le mobilier à l'ancienne : des matériaux minéraux, posés à la main, couche après couche. Aucune surface ne ressemble à une autre, et c'est précisément le but.",
@@ -270,11 +270,11 @@ export const ui = {
 
     'meta.home.title': 'Maison Brüt : Microciment et plâtre vénitien, Montréal',
     'meta.home.description':
-      'Microciment, plâtre vénitien, peinture à la chaux et mobilier sur mesure, faits à la main, pour résidences et commerces à Montréal et Laval.',
+      'Microciment, plâtre vénitien, peinture à la chaux et mobilier sur mesure, faits à la main, pour résidences et commerces dans le Grand Montréal et ses environs.',
     'meta.work.description': 'Projets de microciment, plâtre vénitien et peinture à la chaux réalisés dans le Grand Montréal.',
     'meta.studio.description': "Découvrez l'atelier Maison Brüt : des finitions minérales appliquées à la main à Montréal.",
     'meta.faq.description': 'Durabilité, entretien, délais et préparation : les réponses aux questions les plus fréquentes.',
-    'meta.contact.description': 'Demandez une soumission pour du microciment, du plâtre vénitien, une peinture à la chaux ou du mobilier sur mesure à Montréal et Laval.',
+    'meta.contact.description': 'Demandez une soumission pour du microciment, du plâtre vénitien, une peinture à la chaux ou du mobilier sur mesure dans le Grand Montréal et ses environs.',
   },
 
   es: {
@@ -293,7 +293,7 @@ export const ui = {
     'cta.back': 'Volver',
 
     'home.heroTitle': 'Superficies que respiran.',
-    'home.heroSub': 'Microcemento, estuco veneciano y encalado, aplicados a mano en Montreal y Laval.',
+    'home.heroSub': 'Microcemento, estuco veneciano y encalado, aplicados a mano en el Gran Montreal y sus alrededores.',
     'home.introEyebrow': 'El estudio',
     'home.intro':
       'Terminamos muros, pisos y mobiliario a la manera lenta: materiales minerales, colocados a mano, capa sobre capa. Ninguna superficie sale igual a otra, y ese es el punto.',
@@ -406,11 +406,11 @@ export const ui = {
 
     'meta.home.title': 'Maison Brüt: Microcemento y estuco veneciano, Montreal',
     'meta.home.description':
-      'Microcemento, estuco veneciano, encalado y mobiliario a medida, hechos a mano, para residencias y comercios en Montreal y Laval.',
+      'Microcemento, estuco veneciano, encalado y mobiliario a medida, hechos a mano, para residencias y comercios en el Gran Montreal y sus alrededores.',
     'meta.work.description': 'Proyectos seleccionados de microcemento, estuco veneciano y encalado en todo el Gran Montreal.',
     'meta.studio.description': 'Conoce el estudio detrás de Maison Brüt: acabados minerales aplicados a mano en Montreal.',
     'meta.faq.description': 'Durabilidad, mantenimiento, plazos y preparación: respuestas a las preguntas que más recibimos.',
-    'meta.contact.description': 'Solicita una cotización de microcemento, estuco veneciano, encalado o mobiliario a medida en Montreal y Laval.',
+    'meta.contact.description': 'Solicita una cotización de microcemento, estuco veneciano, encalado o mobiliario a medida en el Gran Montreal y sus alrededores.',
   },
 } as const;
 
